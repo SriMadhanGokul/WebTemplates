@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart — Fashion24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#112e1e;
+    --green-2:#173a27;
+    --orange:#e8742a;
+    --cream:#fbf3ea;
+    --page:#fdf4f0;
+    --ink:#161616;
+    --muted:#6f6a66;
+    --card:#f5ece3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Poppins,system-ui,sans-serif;background:var(--page);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button{font-family:inherit;cursor:pointer;border:0;background:none}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+
+  /* ---------- Hero (all sizes scale with hero width via cqw) ---------- */
+  .hero-box{container-type:inline-size;margin-top:40px}
+  .hero{position:relative;aspect-ratio:1308/700;border-radius:3.6cqw;overflow:hidden;background:radial-gradient(ellipse at 80% 85%,#2f5a2a 0%,var(--green) 55%);color:#fff;box-shadow:0 20px 50px rgba(17,46,30,.18)}
+  .hero .word{position:absolute;left:0;right:0;top:23%;text-align:center;font-family:Anton,Impact,sans-serif;font-size:22cqw;line-height:.82;letter-spacing:-.4cqw;color:#f8f0e3;transform:skewX(-6deg);user-select:none}
+  .hero .model{position:absolute;left:33%;top:0;width:44%;height:100%;object-fit:cover;object-position:32% 30%;
+    -webkit-mask-image:radial-gradient(ellipse 50% 75% at 50% 52%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 50% 75% at 50% 52%,#000 58%,transparent 100%)}
+  .hero .shade{position:absolute;left:30%;top:0;width:50%;height:100%;background:linear-gradient(180deg,var(--green) 0%,rgba(17,46,30,.85) 14%,rgba(17,46,30,0) 34%);pointer-events:none}
+  .hero .leaf{position:absolute;right:0;bottom:0;width:40%;height:55%;background:radial-gradient(ellipse at 80% 90%,rgba(196,204,90,.35),transparent 60%);pointer-events:none}
+  .hero .logo{position:absolute;left:2.5%;top:5.6%;font-family:Montserrat,sans-serif;font-weight:800;font-size:2.3cqw;letter-spacing:-.05cqw}
+  .hero .logo span{color:var(--orange)}
+  .hero nav{position:absolute;left:50.8%;top:6.9%;transform:translateX(-50%);display:flex;gap:2.55cqw;font-family:Montserrat,sans-serif;font-size:.98cqw;font-weight:500;letter-spacing:.06cqw}
+  .hero nav a{opacity:.85;position:relative;padding-bottom:.45cqw}
+  .hero nav a:hover{opacity:1}
+  .hero nav a.active{opacity:1;font-weight:600}
+  .hero nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.16cqw;background:var(--orange)}
+  .hero .icons{position:absolute;right:3.2%;top:6.6%;display:flex;gap:2.1cqw;align-items:center}
+  .hero .icons svg{width:1.45cqw;height:1.45cqw}
+  .hero .icons a{position:relative}
+  .hero .icons em{position:absolute;top:-.7cqw;right:-.75cqw;width:1cqw;height:1cqw;border-radius:50%;background:var(--orange);font-style:normal;font-size:.62cqw;font-weight:700;display:grid;place-items:center}
+  .hero .season{position:absolute;left:17.8%;top:17.2%;display:flex;align-items:center;gap:1.1cqw;font-family:Montserrat,sans-serif;font-size:.9cqw;font-weight:600;letter-spacing:.32cqw}
+  .hero .season::after{content:"";width:7.4cqw;height:.13cqw;background:var(--orange)}
+  .hero .offer{position:absolute;right:2.4%;top:17.6%;text-align:right;font-family:Montserrat,sans-serif;line-height:1}
+  .hero .offer small{display:block;font-size:.9cqw;font-weight:600;letter-spacing:.08cqw}
+  .hero .offer b{display:block;font-size:3.7cqw;font-weight:800;color:var(--orange);letter-spacing:-.1cqw;margin:.3cqw 0 .1cqw}
+  .hero .offer strong{display:block;font-size:1.8cqw;font-weight:800}
+  .hero .offer span{display:block;font-size:.78cqw;font-weight:500;line-height:1.5;margin-top:.7cqw;letter-spacing:.04cqw}
+  .hero .offer i{display:block;width:3.7cqw;height:.18cqw;background:var(--orange);margin:.7cqw 0 0 auto}
+  .hero .copy{position:absolute;left:4.7%;top:61%}
+  .hero h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:3.05cqw;line-height:1.04;letter-spacing:-.06cqw}
+  .hero h1 span{color:var(--orange)}
+  .hero .copy p{font-size:.86cqw;line-height:1.55;opacity:.85;max-width:17cqw;margin:1.3cqw 0 1.7cqw}
+  .hero .shop{display:inline-flex;align-items:center;gap:.7cqw;background:#fff;color:#111;font-family:Montserrat,sans-serif;font-size:.8cqw;font-weight:700;letter-spacing:.04cqw;padding:.75cqw 1.6cqw;border-radius:3cqw}
+  .hero .shop svg{width:1cqw;height:1cqw}
+  .hero .perks{position:absolute;left:71.6%;top:79.6%;display:flex;gap:2.6cqw}
+  .hero .perk{display:flex;align-items:center;gap:.6cqw;font-family:Montserrat,sans-serif;font-size:.66cqw;font-weight:600;letter-spacing:.05cqw;line-height:1.35;text-transform:uppercase;opacity:.92}
+  .hero .perk svg{width:1.5cqw;height:1.5cqw}
+  .hero .arrows{position:absolute;right:4.5%;top:89.2%;display:flex;gap:1cqw;transform:translateY(-50%)}
+  .hero .arrows button{width:3.1cqw;height:3.1cqw;border-radius:50%;border:.1cqw solid rgba(255,255,255,.55);display:grid;place-items:center;color:#fff}
+  .hero .arrows button:hover{background:rgba(255,255,255,.12)}
+  .hero .arrows svg{width:1.1cqw;height:1.1cqw}
+
+  /* ---------- Section heads ---------- */
+  .head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px}
+  .head h2{font-family:Montserrat,sans-serif;font-weight:900;font-size:34px;line-height:1.02;letter-spacing:-.3px;color:#1b1b1b;text-transform:uppercase}
+  .head h2::after{content:"";display:block;width:62px;height:5px;border-radius:5px;background:var(--orange);margin-top:12px}
+  .head .all{font-family:Montserrat,sans-serif;font-weight:800;font-size:16px;display:flex;align-items:center;gap:10px;color:#1b1b1b;margin-bottom:26px;text-transform:uppercase}
+  .head .all:hover{color:var(--orange)}
+
+  /* ---------- Categories ---------- */
+  .cats-sec{margin:72px 0 38px}
+  .cats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .cat{position:relative;border-radius:14px;overflow:hidden;background:var(--card);aspect-ratio:236/228;box-shadow:0 6px 18px rgba(80,50,30,.08)}
+  .cat img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .4s}
+  .cat:hover img{transform:scale(1.05)}
+  .cat span{position:absolute;left:5%;bottom:5%;background:#fbf4ec;border-radius:12px;padding:10px 16px;font-family:Montserrat,sans-serif;font-weight:800;font-size:19px;line-height:1.05;letter-spacing:-.2px;color:#1b1b1b;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+
+  /* ---------- Trending ---------- */
+  .trend-sec{margin-bottom:56px}
+  .prods{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .prod{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(80,50,30,.08);transition:transform .25s,box-shadow .25s}
+  .prod:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(80,50,30,.14)}
+  .prod .thumb{position:relative;aspect-ratio:264/190;background:#f7f1ec}
+  .prod .thumb img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+  .prod .fav{position:absolute;top:12px;right:14px;color:#1b1b1b}
+  .prod .fav:hover{color:var(--orange)}
+  .prod .info{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 16px}
+  .prod h4{font-size:15px;font-weight:500;color:#2a2a2a;margin-bottom:4px}
+  .prod .price{font-size:20px;font-weight:700;color:#1b1b1b}
+  .prod .cart{width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex:none}
+  .prod .cart:hover{background:var(--orange)}
+
+  /* ---------- New collection banner ---------- */
+  .collection{position:relative;border-radius:18px;overflow:hidden;height:300px;margin-bottom:90px;color:#fff;
+    background:linear-gradient(115deg,var(--green) 0%,var(--green-2) 55%,#2c4a24 100%)}
+  .collection::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 85% 30%,rgba(214,201,74,.28),transparent 55%)}
+  .collection .looks{position:absolute;right:50px;top:50%;transform:translateY(-50%);display:flex;gap:16px;align-items:center}
+  .collection .looks img{width:150px;height:210px;object-fit:cover;object-position:center 15%;border-radius:14px;border:4px solid rgba(255,255,255,.12);box-shadow:0 16px 30px rgba(0,0,0,.3)}
+  .collection .looks img:nth-child(2){height:250px}
+  .collection .inner{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 60px;max-width:620px}
+  .collection .label{display:flex;align-items:center;gap:14px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;color:#e7c48a}
+  .collection .label::before,.collection .label::after{content:"";width:56px;height:1px;background:#e7c48a}
+  .collection h3{font-family:Montserrat,sans-serif;font-weight:800;font-size:40px;line-height:1.1;margin:18px 0 14px}
+  .collection h3 span{color:var(--orange)}
+  .collection p{font-size:14px;opacity:.85;line-height:1.6;margin-bottom:26px;max-width:420px}
+  .collection a{align-self:flex-start;background:var(--orange);color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:.5px;padding:13px 28px;border-radius:30px}
+  .collection a:hover{background:#d0611d}
+
+  /* ---------- Footer ---------- */
+  footer{background:#fbf7f4;border-radius:60px 60px 0 0;box-shadow:0 -1px 0 #f0e6df}
+  .foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.3fr;gap:30px;padding:76px 0 60px}
+  .brand h5{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:30px;letter-spacing:9px;color:#1b1b1b}
+  .brand small{display:block;font-size:10.5px;letter-spacing:4px;color:#8a837d;margin:6px 0 26px}
+  .brand p{font-size:14px;line-height:1.65;color:#4f4a46;max-width:400px;margin-bottom:28px}
+  .social{display:flex;gap:18px;color:#2a2a2a}
+  .social a:hover{color:var(--orange)}
+  .col h6{font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;color:#1b1b1b;margin-bottom:22px}
+  .col a,.col li{display:block;font-size:13.5px;color:#5a5550;margin-bottom:12px;list-style:none}
+  .col a:hover{color:var(--orange)}
+  .contact li{display:flex;gap:10px;align-items:flex-start;line-height:1.35}
+  .contact svg{flex:none;margin-top:2px}
+  .bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ece3dc;padding:22px 0 30px;font-size:13px;color:#5a5550}
+  .pay{display:flex;align-items:center;gap:22px;font-family:Montserrat,sans-serif;font-weight:800;font-size:13px;color:#3a3a3a}
+  .mc{display:flex}
+  .mc i{width:13px;height:13px;border-radius:50%;background:#eb001b}
+  .mc i+i{background:#f79e1b;margin-left:-6px;opacity:.9}
+
+  @media (max-width:900px){
+    .hero nav,.hero .perks{display:none}
+    .cats,.prods{grid-template-columns:repeat(2,1fr)}
+    .foot{grid-template-columns:1fr 1fr}
+    .brand{grid-column:1/-1}
+    .head h2{font-size:26px}
+    .collection .looks{position:absolute;right:50px;top:50%;transform:translateY(-50%);display:flex;gap:16px;align-items:center}
+  .collection .looks img{width:150px;height:210px;object-fit:cover;object-position:center 15%;border-radius:14px;border:4px solid rgba(255,255,255,.12);box-shadow:0 16px 30px rgba(0,0,0,.3)}
+  .collection .looks img:nth-child(2){height:250px}
+  .collection .inner{padding:0 28px}
+    .collection h3{font-size:28px}
+    .collection .looks{display:none}
+  }
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#fdf4f0;--xs:#ffffff;--xi:#161616;--xm:#6f6a66;--xa:#e8742a;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:14px;font-family:'Poppins',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Montserrat',system-ui,sans-serif;font-weight:900;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Poppins',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Montserrat',system-ui,sans-serif;font-weight:900;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Poppins',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Montserrat',system-ui,sans-serif;font-weight:900;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#112e1e;color:#c9d2cd;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#c9d2cd;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#112e1e;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#fdf4f0;--xs:#ffffff;--xi:#161616;--xm:#6f6a66;--xa:#e8742a;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:14px;--xbr:7px;--xbf:'Poppins';--xalt:#ffffff}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Montserrat',system-ui,sans-serif;font-weight:900;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "Fashion24", "cur": "₹", "pages": [["shop", "Shop"], ["product", "Product"], ["cart", "Cart"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Account"]], "listing": "shop.html", "freeShip": 8000, "shipFee": 99, "products": [{"name": "Olive Utility Shirt", "cat": "Tops", "img": "assets/p-classic-shirt.jpg", "id": 0, "price": 7099, "tag": "Bestseller", "was": null, "rating": 4.4, "reviews": 294, "gallery": ["assets/p-classic-shirt.jpg", "assets/p-knit-sweater.jpg", "assets/p-white-top.jpg", "assets/cat-tops.jpg"]}, {"name": "Light Wash Denim Jacket", "cat": "Jackets", "img": "assets/p-denim-jacket.jpg", "id": 1, "price": 7699, "tag": "", "was": null, "rating": 4.6, "reviews": 360, "gallery": ["assets/p-denim-jacket.jpg", "assets/cat-jackets.jpg", "assets/p-classic-shirt.jpg", "assets/p-knit-sweater.jpg"]}, {"name": "Oatmeal Knit Sweater", "cat": "Tops", "img": "assets/p-knit-sweater.jpg", "id": 2, "price": 6799, "tag": "Sale", "was": 8838, "rating": 4.8, "reviews": 330, "gallery": ["assets/p-knit-sweater.jpg", "assets/p-classic-shirt.jpg", "assets/p-white-top.jpg", "assets/cat-tops.jpg"]}, {"name": "Crisp White Shirt", "cat": "Tops", "img": "assets/p-white-top.jpg", "id": 3, "price": 2699, "tag": "", "was": null, "rating": 4.7, "reviews": 210, "gallery": ["assets/p-white-top.jpg", "assets/p-classic-shirt.jpg", "assets/p-knit-sweater.jpg", "assets/cat-tops.jpg"]}, {"name": "Scarlet Wrap Dress", "cat": "Dresses", "img": "assets/p-wrap-dress.jpg", "id": 4, "price": 5499, "tag": "", "was": null, "rating": 4.5, "reviews": 69, "gallery": ["assets/p-wrap-dress.jpg", "assets/cat-dresses.jpg", "assets/p-classic-shirt.jpg", "assets/p-denim-jacket.jpg"]}, {"name": "Red Flowing Maxi", "cat": "Dresses", "img": "assets/cat-dresses.jpg", "id": 5, "price": 6399, "tag": "New", "was": null, "rating": 4.5, "reviews": 317, "gallery": ["assets/cat-dresses.jpg", "assets/p-wrap-dress.jpg", "assets/p-classic-shirt.jpg", "assets/p-denim-jacket.jpg"]}, {"name": "Washed Denim Jacket", "cat": "Jackets", "img": "assets/cat-jackets.jpg", "id": 6, "price": 4499, "tag": "", "was": null, "rating": 4.4, "reviews": 58, "gallery": ["assets/cat-jackets.jpg", "assets/p-denim-jacket.jpg", "assets/p-classic-shirt.jpg", "assets/p-knit-sweater.jpg"]}, {"name": "Ivory Mock-Neck Knit", "cat": "Tops", "img": "assets/cat-tops.jpg", "id": 7, "price": 4299, "tag": "Sale", "was": 5588, "rating": 4.6, "reviews": 177, "gallery": ["assets/cat-tops.jpg", "assets/p-classic-shirt.jpg", "assets/p-knit-sweater.jpg", "assets/p-white-top.jpg"]}, {"name": "Wide-Leg Linen Trousers", "cat": "Bottoms", "img": "assets/cat-bottoms.jpg", "id": 8, "price": 2099, "tag": "", "was": null, "rating": 4.6, "reviews": 112, "gallery": ["assets/cat-bottoms.jpg", "assets/p-classic-shirt.jpg", "assets/p-denim-jacket.jpg", "assets/p-knit-sweater.jpg"]}, {"name": "Tan Weekender Bag", "cat": "Accessories", "img": "assets/cat-accessories.jpg", "id": 9, "price": 4999, "tag": "Bestseller", "was": null, "rating": 4.5, "reviews": 171, "gallery": ["assets/cat-accessories.jpg", "assets/p-classic-shirt.jpg", "assets/p-denim-jacket.jpg", "assets/p-knit-sweater.jpg"]}, {"name": "Dove Grey Crewneck", "cat": "Women", "img": "../_shared/fashion/12.jpg", "id": 10, "price": 3799, "tag": "", "was": null, "rating": 4.6, "reviews": 62, "gallery": ["../_shared/fashion/12.jpg", "../_shared/fashion/26.jpg", "assets/p-classic-shirt.jpg", "assets/p-denim-jacket.jpg"]}, {"name": "Rust Knit & Chelsea Boot Edit", "cat": "Men", "img": "../_shared/fashion/22.jpg", "id": 11, "price": 2999, "tag": "", "was": null, "rating": 4.9, "reviews": 29, "gallery": ["../_shared/fashion/22.jpg", "../_shared/fashion/23.jpg", "../_shared/fashion/25.jpg", "../_shared/fashion/28.jpg"]}, {"name": "Sage Hoodie Weekend Edit", "cat": "Men", "img": "../_shared/fashion/23.jpg", "id": 12, "price": 3299, "tag": "New", "was": null, "rating": 4.9, "reviews": 352, "gallery": ["../_shared/fashion/23.jpg", "../_shared/fashion/22.jpg", "../_shared/fashion/25.jpg", "../_shared/fashion/28.jpg"]}, {"name": "Grey Cardigan Edit", "cat": "Men", "img": "../_shared/fashion/25.jpg", "id": 13, "price": 1999, "tag": "", "was": null, "rating": 4.8, "reviews": 259, "gallery": ["../_shared/fashion/25.jpg", "../_shared/fashion/22.jpg", "../_shared/fashion/23.jpg", "../_shared/fashion/28.jpg"]}, {"name": "White Ruffle Summer Set", "cat": "Women", "img": "../_shared/fashion/26.jpg", "id": 14, "price": 4599, "tag": "New", "was": null, "rating": 4.8, "reviews": 27, "gallery": ["../_shared/fashion/26.jpg", "../_shared/fashion/12.jpg", "assets/p-classic-shirt.jpg", "assets/p-denim-jacket.jpg"]}, {"name": "Classic Indigo Denim", "cat": "Men", "img": "../_shared/fashion/28.jpg", "id": 15, "price": 1799, "tag": "", "was": null, "rating": 4.5, "reviews": 237, "gallery": ["../_shared/fashion/28.jpg", "../_shared/fashion/22.jpg", "../_shared/fashion/23.jpg", "../_shared/fashion/25.jpg"]}], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="002">
+
+<main class="wrap">
+
+<div class="hero-box xi-band">
+<section class="hero xi-band">
+
+
+
+
+<a class="logo" href="index.html">Fashion<span>24</span></a>
+<nav data-xnav="">
+<a class="active" href="index.html">HOME</a><a href="shop.html?c=Women">WOMEN</a><a href="shop.html?c=Men">MEN</a><a href="shop.html">NEW ARRIVALS</a><a href="shop.html">COLLECTIONS</a><a href="shop.html">SALE</a>
+</nav><div class="xi xi-ph-band v2"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Cart</span></div><h1 class="xi-h1 xi-rv">Your Cart</h1><p class=xi-rv>Review your items, apply a promo code and check out securely.</p></div></div>
+<div class="icons">
+<a aria-label="Search" href="shop.html"><svg fill="none" stroke="#fff" stroke-width="2" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+<a aria-label="Account" href="account.html"><svg fill="none" stroke="#fff" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+<a aria-label="Cart" href="cart.html"><svg fill="none" stroke="#fff" stroke-width="2" viewbox="0 0 24 24"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"></path><circle cx="9" cy="20" r="1.3"></circle><circle cx="17" cy="20" r="1.3"></circle></svg><em>0</em></a>
+</div>
+
+
+
+
+<div class="arrows">
+<button aria-label="Previous"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24"><path d="m15 6-6 6 6 6"></path></svg></button>
+<button aria-label="Next"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24"><path d="m9 6 6 6-6 6"></path></svg></button>
+</div>
+</section>
+</div><div class="xi v2" id="main"><section class="xi-sec tight"><div class="x-in"><div class="xi-done" data-cart-done hidden><b>✓ Thank you — your order is confirmed!</b><p class="xi-muted" style="margin:6px 0 0">We've emailed your receipt. You'll get tracking details as soon as it ships.</p></div><div class="xi-cart" data-cart><div><div class="xi-bar" style="margin:0;padding-bottom:16px;border-bottom:1px solid var(--xl)"><b style="font-size:18px">Your items (<span data-cart-count>0</span>)</b><a class="xi-link" href="shop.html">Continue shopping</a></div><div data-cart-list></div></div><aside class="xi-card xi-sum"><h3 class="xi-h3" style="margin-bottom:14px">Order summary</h3><div class="xi-r"><span>Subtotal</span><span data-sub>₹0</span></div><div class="xi-r"><span>Shipping</span><span data-ship>Free</span></div><div class="xi-coupon"><input class="xi-in" placeholder="Promo code" aria-label="Promo code"><button class="x-btn xi-ghost" data-coupon>Apply</button></div><div class="xi-r xi-t"><span>Total</span><span data-total>₹0</span></div><a href="cart.html" class="x-btn wide" data-checkout style="margin-top:14px">Checkout securely</a><p class="xi-muted" style="font-size:13px;text-align:center;margin:14px 0 0">🔒 Secure SSL checkout · Visa · Mastercard · PayPal · UPI</p></aside></div></div></section><section class="xi-sec alt"><div class="x-in"><div class="xi-head"><div><span class="xi-eye">Don't miss</span><h2 class="xi-h2 xi-rv">Popular right now</h2></div></div><div class="xi-grid" style="--cols:4;--pa:3/4"><a class="xi-prod xi-rv" href="product.html?id=4" data-cat="Dresses" data-price="5499" data-i="4"><div class="xi-ph"><img src="assets/p-wrap-dress.jpg" alt="Scarlet Wrap Dress" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="4" role="button">Add to cart</span></div></div><small>Dresses</small><b>Scarlet Wrap Dress</b><div class="xi-price">₹5,499 </div></a><a class="xi-prod xi-rv" href="product.html?id=5" data-cat="Dresses" data-price="6399" data-i="5"><div class="xi-ph"><span class="xi-tag">New</span><img src="assets/cat-dresses.jpg" alt="Red Flowing Maxi" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="5" role="button">Add to cart</span></div></div><small>Dresses</small><b>Red Flowing Maxi</b><div class="xi-price">₹6,399 </div></a><a class="xi-prod xi-rv" href="product.html?id=6" data-cat="Jackets" data-price="4499" data-i="6"><div class="xi-ph"><img src="assets/cat-jackets.jpg" alt="Washed Denim Jacket" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="6" role="button">Add to cart</span></div></div><small>Jackets</small><b>Washed Denim Jacket</b><div class="xi-price">₹4,499 </div></a><a class="xi-prod xi-rv" href="product.html?id=7" data-cat="Tops" data-price="4299" data-i="7"><div class="xi-ph"><span class="xi-tag">Sale</span><img src="assets/cat-tops.jpg" alt="Ivory Mock-Neck Knit" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="7" role="button">Add to cart</span></div></div><small>Tops</small><b>Ivory Mock-Neck Knit</b><div class="xi-price">₹4,299 <s>₹5,588</s></div></a></div></div></section></div></main><footer>
+<div class="wrap">
+<div class="foot">
+<div class="brand">
+<h5>FASHION</h5>
+<small>FASHION ATELIER</small>
+<p>A contemporary fashion atelier creating refined, versatile and timeless styles for the modern woman.</p>
+<div class="social">
+<a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener"><svg fill="none" height="20" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="20"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" fill="currentColor" r="1"></circle></svg></a>
+<a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"></path></svg></a>
+<a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-3.8 31 31 0 0 0-.4-3.8zM10 15.2V8.8l5.2 3.2z"></path></svg></a>
+<a aria-label="Pinterest" href="https://www.pinterest.com/" target="_blank" rel="noopener"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.2-2 0-2.9l1.3-5.4s-.3-.7-.3-1.6c0-1.5.9-2.7 2-2.7.9 0 1.4.7 1.4 1.6 0 1-.6 2.4-.9 3.7-.3 1.1.6 2 1.7 2 2 0 3.5-2.1 3.5-5.2 0-2.7-1.9-4.6-4.7-4.6-3.2 0-5 2.4-5 4.9 0 1 .4 2 .9 2.6.1.1.1.2.1.3l-.3 1.4c-.1.2-.2.3-.4.2-1.5-.7-2.4-2.8-2.4-4.6 0-3.7 2.7-7.2 7.9-7.2 4.1 0 7.3 2.9 7.3 6.9 0 4.1-2.6 7.4-6.2 7.4-1.2 0-2.4-.6-2.8-1.4l-.8 2.9c-.3 1.1-1 2.4-1.5 3.2A10 10 0 1 0 12 2z"></path></svg></a>
+</div>
+</div>
+<div class="col">
+<h6>SHOP</h6>
+<a href="shop.html">New Arrivals</a><a href="shop.html">Collections</a><a href="shop.html">Tops &amp; Shirts</a><a href="shop.html">Blazers</a><a href="shop.html">Trousers</a><a href="shop.html?c=Dresses">Dresses</a><a href="shop.html">Evening Edit</a>
+</div>
+<div class="col">
+<h6>EXPLORE</h6>
+<a href="blog.html">Lookbook</a><a href="blog.html">The KAYRA Journal</a><a href="about.html">About KAYRA</a><a href="about.html">Sustainability</a><a href="shop.html">Our Atelier</a>
+</div>
+<div class="col">
+<h6>HELP</h6>
+<a href="faq.html">FAQs</a><a href="faq.html">Shipping &amp; Delivery</a><a href="faq.html">Returns &amp; Exchanges</a><a href="faq.html">Size Guide</a><a href="faq.html">Terms &amp; Conditions</a><a href="faq.html">Privacy Policy</a>
+</div>
+<div class="col contact">
+<h6>CONTACT</h6>
+<ul>
+<li><svg fill="none" height="15" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="15"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"></path></svg>+91 98765 43210</li>
+<li><svg fill="none" height="15" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="15"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m3 7 9 6 9-6"></path></svg>care@kayraatelier.com</li>
+<li><svg fill="none" height="15" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="15"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>KAYRA Fashion Atelier<br/>Mumbai, Maharashtra – 400001</li>
+</ul>
+</div>
+</div>
+<div class="bottom">
+<span>© 2024 Fashion Atelier. All rights reserved.</span>
+<div class="pay"><span>VISA</span><span class="mc"><i></i><i></i></span><span>RuPay</span><span>UPI</span></div>
+</div>
+</div>
+</footer>
+</body>
+</html>

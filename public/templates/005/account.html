@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account — KAYRA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--brown:#8a5a2c;--brown-d:#3d2614;--peach:#fbeee2;--page:#fdfaf6;--ink:#211a14;--muted:#7a7068;--tag:#f6e2cf}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Poppins,system-ui,sans-serif;background:var(--page);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button,input{font-family:inherit}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+  .pf{font-family:"Playfair Display",serif;font-weight:400}
+
+  /* Hero */
+  .hero{position:relative;margin-top:28px;border-radius:40px;overflow:hidden;height:clamp(600px,50vw,860px);color:#fff;background:#9c6a37 url(assets/hero.jpg) 70% 15%/cover no-repeat}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(80,45,15,.45),rgba(80,45,15,.1) 50%,transparent 70%)}
+  .hero>*{position:relative}
+  .nav{display:flex;align-items:center;padding:34px 48px}
+  .logo{font-family:"Cormorant Garamond",serif;font-size:32px;font-weight:500;letter-spacing:2px}
+  .menu{display:flex;gap:40px;margin:0 auto;font-size:14px;opacity:.92}
+  .menu a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
+  .icons{display:flex;gap:22px}
+  .copy{position:absolute;left:clamp(48px,7vw,120px);top:50%;transform:translateY(-44%)}
+  .eyebrow{display:flex;align-items:center;gap:16px;font-size:13px;letter-spacing:4px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:#fff}
+  .hero h1{font-size:clamp(72px,7vw,124px);line-height:1.02;margin:30px 0 30px}
+  .hero p{font-size:18px;font-weight:300;line-height:1.6;max-width:500px;opacity:.92;margin-bottom:40px}
+  .btns{display:flex;gap:16px}
+  .btn{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 32px;border-radius:40px;font-size:16px;font-weight:500;transition:.2s}
+  .btn-w{background:#fbf3e9;color:var(--ink)}
+  .btn-w:hover{background:#fff}
+  .btn-o{border:1px solid rgba(255,255,255,.6)}
+  .btn-o:hover{background:rgba(255,255,255,.12)}
+  .count{display:flex;align-items:center;gap:16px;margin-top:66px;font-size:14px}
+  .count i{width:46px;height:1px;background:rgba(255,255,255,.6)}
+  .count span+i+span{opacity:.6}
+
+  /* Features */
+  .feats{display:grid;grid-template-columns:repeat(4,1fr);padding:34px 0}
+  .feat{display:flex;align-items:center;gap:16px;padding:0 28px;border-right:1px solid #ece4dc}
+  .feat:last-child{border-right:0}
+  .feat b{display:block;font-size:14px;font-weight:600}
+  .feat small{font-size:12px;color:var(--muted)}
+
+  /* Category cards */
+  .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .cat{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3.5;color:#fff}
+  .cat img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .5s}
+  .cat:hover img{transform:scale(1.05)}
+  .cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(30,15,5,.75))}
+  .cat .t{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end}
+  .cat h4{font-family:"Playfair Display",serif;font-weight:400;font-size:32px}
+  .cat small{font-size:13px;opacity:.9}
+  .cat .go{width:38px;height:38px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center}
+
+  /* New arrivals */
+  .arrivals{display:grid;grid-template-columns:1fr 3.2fr;gap:40px;align-items:center;padding:90px 0}
+  .lbl{font-size:12px;letter-spacing:3px;font-weight:600;color:var(--brown)}
+  .arrivals h2{font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(46px,3.6vw,64px);line-height:1.05;margin:26px 0 22px}
+  .arrivals p{font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:38px;max-width:300px}
+  .dark{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;height:50px;padding:0 26px;border-radius:30px;font-size:14px}
+  .dark:hover{background:var(--brown-d)}
+  .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .prod .thumb{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/3.3;background:#f3e8dc}
+  .prod .thumb img{width:100%;height:100%;object-fit:cover;object-position:center 15%;transition:transform .5s}
+  .prod:hover .thumb img{transform:scale(1.04)}
+  .fav{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;border:0;cursor:pointer}
+  .fav:hover{color:#c0392b}
+  .prod h4{font-size:15px;font-weight:600;margin:16px 0 8px}
+  .row{display:flex;align-items:center;gap:10px}
+  .row b{font-size:18px}
+  .row s{font-size:12px;color:#9a918a}
+  .row em{margin-left:auto;font-style:normal;font-size:12px;font-weight:600;color:#9a4a12;background:var(--tag);padding:5px 10px;border-radius:5px}
+
+  /* Newsletter */
+  .news{display:flex;align-items:center;justify-content:space-between;gap:40px;background:#f4ede6;border-radius:28px;padding:60px 60px;margin-bottom:60px}
+  .news h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:44px}
+  .news p{font-size:16px;color:var(--muted);margin-top:8px}
+  .news form{display:flex;gap:12px;flex:0 0 min(560px,50%)}
+  .news input{flex:1;height:54px;border:1px solid #e7ddd3;background:#fff;padding:0 20px;font-size:14px;outline:0}
+  .news button{height:54px;padding:0 30px;background:var(--ink);color:#fff;border:0;font-size:13px;letter-spacing:1.5px;cursor:pointer}
+
+  /* Footer */
+  footer{background:#fff;border-radius:40px 40px 0 0}
+  .foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.3fr;gap:30px;padding:80px 0 60px}
+  .brand h5{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:32px;letter-spacing:8px}
+  .brand small{display:block;font-size:11px;letter-spacing:4px;color:#8a837d;margin:6px 0 24px}
+  .brand p{font-size:14px;line-height:1.65;color:#4f4a46;max-width:400px;margin-bottom:26px}
+  .social{display:flex;gap:18px}
+  .col h6{font-size:13px;font-weight:600;letter-spacing:1.5px;margin-bottom:20px}
+  .col a,.col li{display:block;font-size:14px;color:#5a5550;margin-bottom:12px;list-style:none}
+  .col a:hover{color:var(--brown)}
+  .bottom{display:flex;justify-content:space-between;border-top:1px solid #efe8e1;padding:24px 0 34px;font-size:13px;color:#5a5550}
+  .pay{display:flex;gap:22px;font-weight:700;color:#3a3a3a}
+  .mc{display:flex}.mc i{width:13px;height:13px;border-radius:50%;background:#eb001b}.mc i+i{background:#f79e1b;margin-left:-6px}
+
+  @media (max-width:1000px){
+    .menu{display:none}.nav{padding:24px}
+    .feats{grid-template-columns:repeat(2,1fr);row-gap:20px}
+    .cats,.prods{grid-template-columns:repeat(2,1fr)}
+    .arrivals{grid-template-columns:1fr}
+    .news{flex-direction:column;align-items:flex-start;padding:40px 28px}.news form{flex:auto;width:100%}
+    .foot{grid-template-columns:1fr 1fr}.brand{grid-column:1/-1}
+  }
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#fdfaf6;--xs:#f4ede6;--xi:#211a14;--xm:#7a7068;--xa:#8a5a2c;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:14px;font-family:'Poppins',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#f4ede6}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:0;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Poppins',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Poppins',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#3d2614;color:#e3d3c3;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#e3d3c3;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#3d2614;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#fdfaf6;--xs:#f4ede6;--xi:#211a14;--xm:#7a7068;--xa:#8a5a2c;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:14px;--xbr:7px;--xbf:'Poppins';--xalt:#f4ede6}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:0}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "KAYRA", "cur": "₹", "pages": [["shop", "Shop"], ["product", "Product"], ["cart", "Cart"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Account"]], "listing": "shop.html", "freeShip": 8000, "shipFee": 99, "products": [{"name": "Ivory Gota Anarkali", "cat": "Anarkalis", "img": "assets/p-anarkali.jpg", "id": 0, "price": 10199, "tag": "", "was": null, "rating": 4.4, "reviews": 263, "gallery": ["assets/p-anarkali.jpg", "assets/p-floral.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg"]}, {"name": "Blush Floral Lehenga", "cat": "Lehengas", "img": "assets/p-floral.jpg", "id": 1, "price": 7599, "tag": "", "was": null, "rating": 4.4, "reviews": 373, "gallery": ["assets/p-floral.jpg", "assets/p-anarkali.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg"]}, {"name": "Violet Silk Saree", "cat": "Sarees", "img": "assets/p-orange.jpg", "id": 2, "price": 7199, "tag": "New", "was": null, "rating": 4.9, "reviews": 156, "gallery": ["assets/p-orange.jpg", "assets/p-saree.jpg", "assets/cat-dresses.jpg", "../_shared/ethnic/12.jpg"]}, {"name": "Sunset Organza Saree", "cat": "Sarees", "img": "assets/p-saree.jpg", "id": 3, "price": 11099, "tag": "", "was": null, "rating": 4.8, "reviews": 261, "gallery": ["assets/p-saree.jpg", "assets/p-orange.jpg", "assets/cat-dresses.jpg", "../_shared/ethnic/12.jpg"]}, {"name": "Rose Lehenga Set", "cat": "Co-ords", "img": "assets/cat-coords.jpg", "id": 4, "price": 4199, "tag": "Sale", "was": 5458, "rating": 4.5, "reviews": 164, "gallery": ["assets/cat-coords.jpg", "assets/p-anarkali.jpg", "assets/p-floral.jpg", "assets/p-orange.jpg"]}, {"name": "Emerald Silk Saree", "cat": "Sarees", "img": "assets/cat-dresses.jpg", "id": 5, "price": 10099, "tag": "", "was": null, "rating": 4.8, "reviews": 54, "gallery": ["assets/cat-dresses.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg", "../_shared/ethnic/12.jpg"]}, {"name": "Gold Bridal Lehenga", "cat": "Festive", "img": "assets/cat-festive.jpg", "id": 6, "price": 4599, "tag": "Bestseller", "was": null, "rating": 4.6, "reviews": 44, "gallery": ["assets/cat-festive.jpg", "../_shared/ethnic/14.jpg", "assets/p-anarkali.jpg", "assets/p-floral.jpg"]}, {"name": "Saffron Organza Saree", "cat": "Sarees", "img": "../_shared/ethnic/12.jpg", "id": 7, "price": 9099, "tag": "", "was": null, "rating": 4.6, "reviews": 246, "gallery": ["../_shared/ethnic/12.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg", "assets/cat-dresses.jpg"]}, {"name": "Magenta Silk Saree", "cat": "Sarees", "img": "../_shared/ethnic/13.jpg", "id": 8, "price": 5199, "tag": "", "was": null, "rating": 4.8, "reviews": 39, "gallery": ["../_shared/ethnic/13.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg", "assets/cat-dresses.jpg"]}, {"name": "Sunset Half Saree", "cat": "Festive", "img": "../_shared/ethnic/14.jpg", "id": 9, "price": 6799, "tag": "New", "was": null, "rating": 4.9, "reviews": 288, "gallery": ["../_shared/ethnic/14.jpg", "assets/cat-festive.jpg", "assets/p-anarkali.jpg", "assets/p-floral.jpg"]}, {"name": "Ivory Floral Saree", "cat": "Sarees", "img": "../_shared/ethnic/01.jpg", "id": 10, "price": 7199, "tag": "", "was": null, "rating": 4.4, "reviews": 34, "gallery": ["../_shared/ethnic/01.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg", "assets/cat-dresses.jpg"]}, {"name": "Teal Silk Saree", "cat": "Sarees", "img": "../_shared/ethnic/02.jpg", "id": 11, "price": 2799, "tag": "New", "was": null, "rating": 4.5, "reviews": 329, "gallery": ["../_shared/ethnic/02.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg", "assets/cat-dresses.jpg"]}, {"name": "Black & Red Cotton Saree", "cat": "Sarees", "img": "../_shared/ethnic/04.jpg", "id": 12, "price": 8899, "tag": "", "was": null, "rating": 4.9, "reviews": 182, "gallery": ["../_shared/ethnic/04.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg", "assets/cat-dresses.jpg"]}, {"name": "Royal Blue Kanjeevaram", "cat": "Sarees", "img": "../_shared/ethnic/05.jpg", "id": 13, "price": 3799, "tag": "Bestseller", "was": null, "rating": 4.9, "reviews": 238, "gallery": ["../_shared/ethnic/05.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg", "assets/cat-dresses.jpg"]}, {"name": "Midnight Chiffon Saree", "cat": "Sarees", "img": "../_shared/ethnic/07.jpg", "id": 14, "price": 11499, "tag": "", "was": null, "rating": 4.4, "reviews": 288, "gallery": ["../_shared/ethnic/07.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg", "assets/cat-dresses.jpg"]}, {"name": "Maroon Printed Saree", "cat": "Sarees", "img": "../_shared/ethnic/09.jpg", "id": 15, "price": 6799, "tag": "Sale", "was": 8838, "rating": 4.7, "reviews": 83, "gallery": ["../_shared/ethnic/09.jpg", "assets/p-orange.jpg", "assets/p-saree.jpg", "assets/cat-dresses.jpg"]}], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="005">
+
+<main class="wrap">
+<section class="hero xi-band">
+<div class="nav" data-xnav="">
+<a class="logo" href="index.html">KAYRA</a>
+<nav class="menu"><a href="shop.html">New Arrivals</a><a href="shop.html">Dresses</a><a href="shop.html?c=Sarees">Sarees</a><a href="shop.html?c=Co-ords">Co-ords</a><a href="shop.html">Tops</a><a href="shop.html">Sale</a></nav>
+<div class="icons">
+<a aria-label="Search" href="shop.html"><svg fill="none" height="18" stroke="#fff" stroke-width="1.8" viewbox="0 0 24 24" width="18"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+<a aria-label="Account" href="account.html"><svg fill="none" height="18" stroke="#fff" stroke-width="1.8" viewbox="0 0 24 24" width="18"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+<a aria-label="Wishlist" href="account.html"><svg fill="none" height="18" stroke="#fff" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"></path></svg></a>
+<a aria-label="Bag" href="cart.html"><svg fill="none" height="18" stroke="#fff" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M6 7h12l-1 13H7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg></a>
+</div>
+</div><div class="xi xi-ph-band v2"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Account</span></div><h1 class="xi-h1 xi-rv">My Account</h1><p class=xi-rv>Sign in to manage your orders, wishlist and preferences — or create an account in seconds.</p></div></div>
+
+</section><div class="xi v2" id="main"><section class="xi-sec tight"><div class="x-in"><div class="xi-split"><div class="xi-rv"><div class="xi-auth xi-card" data-tabs style="padding:clamp(26px,3vw,48px)"><div class="xi-tabbar"><button data-tab="in" class="on">Sign in</button><button data-tab="up">Create account</button></div><div data-pane="in"><form class="xi-form" data-ok="Welcome back! You are now signed in."><label>Email<input type="email" required placeholder="you@example.com"></label><label>Password<input type="password" required minlength="6" placeholder="••••••••"></label><div style="display:flex;justify-content:space-between;font-size:14px"><label class="xi-check" style="font-weight:400"><input type="checkbox"> Remember me</label><a href="contact.html" class="xi-link">Forgot password?</a></div><button class="x-btn wide" type="submit">Sign in</button><div class="xi-success" hidden></div><div class="xi-or">or continue with</div><div class="xi-social"><a class="x-btn xi-ghost" href="https://accounts.google.com/" target="_blank" rel="noopener">G  Google</a><a class="x-btn xi-ghost" href="https://appleid.apple.com/" target="_blank" rel="noopener">  Apple</a></div></form></div><div data-pane="up" hidden><form class="xi-form" data-ok="Account created! Check your inbox to verify your email."><div class="two"><label>First name<input required></label><label>Last name<input required></label></div><label>Email<input type="email" required placeholder="you@example.com"></label><label>Password<input type="password" required minlength="8" placeholder="At least 8 characters"></label><label class="xi-check"><input type="checkbox" required> I agree to the Terms and Privacy Policy</label><button class="x-btn wide" type="submit">Create account</button><div class="xi-success" hidden></div></form></div></div></div><div class="xi-rv"><div class="xi-ph" style="aspect-ratio:4/3;margin-bottom:26px"><img src="../_shared/ethnic/08.jpg" alt="" loading="lazy"></div><h2 class="xi-h3">Why create an account?</h2><ul class="xi-feats" style="grid-template-columns:1fr;margin-top:18px"><li>Track orders and returns in one place</li><li>Save your wishlist and addresses</li><li>Members-only offers and early access</li></ul></div></div></div></section></div></main><footer>
+<div class="wrap">
+<div class="foot">
+<div class="brand"><h5>KAYRA</h5><small>FASHION ATELIER</small><p>A contemporary fashion atelier creating refined, versatile and timeless styles for the modern woman.</p>
+<div class="social"><a href="shop.html">◎</a><a href="shop.html">f</a><a href="shop.html">▶</a><a href="shop.html">𝒫</a></div></div>
+<div class="col"><h6>SHOP</h6><a href="shop.html">New Arrivals</a><a href="shop.html">Collections</a><a href="shop.html">Tops &amp; Shirts</a><a href="shop.html">Blazers</a><a href="shop.html">Trousers</a><a href="shop.html">Dresses</a><a href="shop.html">Evening Edit</a></div>
+<div class="col"><h6>EXPLORE</h6><a href="blog.html">Lookbook</a><a href="blog.html">The KAYRA Journal</a><a href="about.html">About KAYRA</a><a href="about.html">Sustainability</a><a href="shop.html">Our Atelier</a></div>
+<div class="col"><h6>HELP</h6><a href="faq.html">FAQs</a><a href="faq.html">Shipping &amp; Delivery</a><a href="faq.html">Returns &amp; Exchanges</a><a href="faq.html">Size Guide</a><a href="faq.html">Terms &amp; Conditions</a><a href="faq.html">Privacy Policy</a></div>
+<div class="col"><h6>CONTACT</h6><ul><li>📞 +91 98765 43210</li><li>✉ care@kayraatelier.com</li><li>📍 KAYRA Fashion Atelier, Mumbai, Maharashtra – 400001</li></ul></div>
+</div>
+<div class="bottom"><span>© 2026 KAYRA Fashion Atelier. All rights reserved.</span><div class="pay"><span>VISA</span><span class="mc"><i></i><i></i></span><span>RuPay</span><span>UPI</span><span style="color:#1d4f91">Paytm</span></div></div>
+</div>
+</footer>
+</body>
+</html>

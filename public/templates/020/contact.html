@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Luné</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--blue:#5b5be6;--teal:#1f6f7c;--sky:#cfe6f7;--navy:#16263f;--ink:#141822;--muted:#717684;--line:#e8ebf1}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:#fbfcfe;color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button,input{font-family:inherit}
+  button{cursor:pointer;border:0;background:none}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+  .tiny{font-size:11px;letter-spacing:3px;font-weight:700;text-transform:uppercase}
+  .script{font-family:"Great Vibes",cursive}
+  .dark{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;height:44px;padding:0 22px;border-radius:30px;font-size:13px;font-weight:600}
+  .dark:hover{background:var(--teal)}
+  .white{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--ink);height:48px;padding:0 24px;border-radius:30px;font-size:14px;font-weight:600;box-shadow:0 6px 16px rgba(0,0,0,.06)}
+
+  .ann{background:var(--navy);color:#cfd6e4;font-size:12px}
+  .ann .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;letter-spacing:.5px}
+  header .wrap{display:flex;align-items:center;gap:40px;height:84px}
+  .logo{font-family:"Playfair Display",serif;font-size:28px;line-height:1}
+  .logo small{display:block;font-family:"Plus Jakarta Sans";font-size:9px;letter-spacing:3px;font-weight:600;margin-top:4px}
+  .menu{display:flex;gap:28px;font-size:14px}
+  .menu a:hover{color:var(--blue)}
+  .search{margin-left:auto;display:flex;align-items:center;gap:10px;width:min(330px,28vw);height:44px;border:1.5px solid #222;border-radius:30px;padding:0 16px;font-size:13px}
+  .search input{flex:1;border:0;outline:0;background:transparent}
+
+  .hero{position:relative;height:clamp(600px,46vw,820px);background:#cfe3f4 url(assets/hero.jpg) right top/cover no-repeat;overflow:hidden}
+  .hero .in{position:absolute;left:clamp(30px,5vw,90px);top:50%;transform:translateY(-52%)}
+  .badge{display:inline-block;background:#fff;padding:5px 12px;border-radius:20px}
+  .hero h1{font-size:clamp(60px,5.6vw,104px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin:22px 0 22px;color:#2b2b33}
+  .hero h1 span{color:var(--blue)}
+  .hero p{font-size:19px;color:#4c5160;line-height:1.6;max-width:480px;margin-bottom:32px}
+  .happy{display:flex;align-items:center;gap:14px;margin-top:40px}
+  .faces{display:flex}
+  .faces i{width:40px;height:40px;border-radius:50%;border:2px solid #fff;margin-left:-10px;background:linear-gradient(135deg,#d9b39a,#4a2f22)}
+  .faces i:first-child{margin-left:0}
+  .happy b{display:block;font-size:15px}.happy span{letter-spacing:3px}
+  .hero .script{position:absolute;right:5%;top:12%;font-size:clamp(40px,3.2vw,60px);line-height:.9;transform:rotate(-12deg);color:#2b2b33}
+
+  .feats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 0;margin:-46px 30px 0;box-shadow:0 14px 36px rgba(20,30,60,.08)}
+  .feat{display:flex;align-items:center;gap:14px;justify-content:center}
+  .feat i{width:42px;height:42px;border-radius:50%;background:#eef6f7;display:grid;place-items:center;font-style:normal;color:var(--teal)}
+  .feat b{display:block;font-size:14px}.feat small{font-size:12px;color:var(--muted)}
+
+  .sec-head{display:flex;justify-content:space-between;align-items:center;margin:70px 0 26px}
+  .sec-head h2{font-size:28px;font-weight:700}
+  .sec-head a{font-size:13px}
+  .center{text-align:center;margin:80px 0 34px}
+  .center h2{font-size:clamp(32px,2.4vw,42px);font-weight:700}
+  .center p{color:var(--muted);margin-top:8px}
+  .circles{display:grid;grid-template-columns:repeat(8,1fr);gap:18px;text-align:center}
+  .circle .c{aspect-ratio:1;border-radius:50%;overflow:hidden;background:#eef0f3;transition:transform .25s}
+  .circle:hover .c{transform:translateY(-5px)}
+  .circle img{width:100%;height:100%;object-fit:cover}
+  .circle span{display:block;margin-top:14px;font-size:15px;font-weight:600}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px}
+  .b{position:relative;border-radius:18px;overflow:hidden;height:clamp(280px,20vw,360px);background-size:cover;background-position:65% center}
+  .b .t{position:absolute;left:36px;top:50%;transform:translateY(-50%);max-width:45%}
+  .b h3{font-size:clamp(30px,2.4vw,44px);font-weight:700;line-height:1.1;margin:14px 0 12px}
+  .b p{font-size:14px;color:#5b6070;margin-bottom:24px}
+
+  .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .prod{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .25s,box-shadow .25s}
+  .prod:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(20,30,60,.08)}
+  .prod .ph{position:relative;aspect-ratio:1.4;background:#f1f2f4}
+  .prod .ph img{width:100%;height:100%;object-fit:cover}
+  .tag{position:absolute;left:12px;top:12px;font-size:12px;font-weight:700;color:#fff;background:#2f8a52;padding:5px 10px;border-radius:6px}
+  .tag.r{background:#e2365b}
+  .prod .bd{padding:18px 20px 20px}
+  .prod h4{font-size:16px;font-weight:600}
+  .stars{color:#e0a800;font-size:13px;margin:6px 0}.stars span{color:var(--muted)}
+  .prod .r{display:flex;justify-content:space-between;align-items:flex-end}
+  .prod b{font-size:19px}.prod s{font-size:13px;color:#aaa;margin-left:8px}
+  .prod .fav{display:block;margin-top:10px;font-size:18px}
+  .cart{width:42px;height:42px;border-radius:10px;background:var(--teal);color:#fff;display:grid;place-items:center}
+
+  .details{position:relative;border-radius:20px;overflow:hidden;height:clamp(360px,27vw,460px);margin:60px 0 30px;color:#fff;background:var(--teal) url(assets/details.jpg) right center/cover}
+  .details .t{position:absolute;left:clamp(30px,3vw,52px);top:50%;transform:translateY(-50%)}
+  .details h3{font-size:clamp(40px,3.2vw,58px);font-weight:700;line-height:1.08;margin:16px 0 14px}
+  .details p{opacity:.85;margin-bottom:28px}
+  .details .script{position:absolute;right:40px;bottom:40px;font-size:clamp(34px,2.6vw,48px);line-height:1}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:70px}
+  .tile{position:relative;border-radius:16px;overflow:hidden;height:200px;background:#f4efe8}
+  .tile:nth-child(2){background:#eaf1f7}.tile:nth-child(3){background:#eef2f5}
+  .tile img{position:absolute;right:0;top:0;height:100%;width:50%;object-fit:cover}
+  .tile .t{position:absolute;left:28px;top:30px}
+  .tile h4{font-size:22px}
+  .tile p{font-size:14px;color:var(--muted);margin:6px 0 22px}
+  footer{background:var(--navy);color:#aab3c5;padding:30px 0;font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center}
+  footer .logo{color:#fff;font-size:22px}
+
+  @media (max-width:1100px){.menu{display:none}.circles{grid-template-columns:repeat(4,1fr)}}
+  @media (max-width:900px){
+    .search,.hero .script{display:none}
+    .feats{grid-template-columns:repeat(2,1fr);row-gap:20px;margin:20px 0 0}
+    .duo,.tiles{grid-template-columns:1fr}.prods{grid-template-columns:repeat(2,1fr)}
+    .details .script{display:none}
+  }
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#fbfcfe;--xs:#ffffff;--xi:#141822;--xm:#717684;--xa:#1f6f7c;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:16px;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Plus Jakarta Sans',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#16263f;color:#aab3c5;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#aab3c5;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#16263f;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#fbfcfe;--xs:#ffffff;--xi:#141822;--xm:#717684;--xa:#1f6f7c;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:16px;--xbr:999px;--xbf:'Plus Jakarta Sans';--xalt:#ffffff}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "Luné", "cur": "$", "pages": [["shop", "Shop"], ["product", "Product"], ["cart", "Cart"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Account"]], "listing": "shop.html", "freeShip": 100, "shipFee": 9, "products": [{"name": "Noir Square Sunglasses", "cat": "Sunglasses", "img": "assets/c1.jpg", "id": 0, "price": 79, "tag": "Sale", "was": 102, "rating": 4.6, "reviews": 397, "gallery": ["assets/c1.jpg", "assets/b-sun.jpg", "assets/c2.jpg", "assets/c3.jpg"]}, {"name": "Teal Mini Kelly Bag", "cat": "Bags", "img": "assets/c2.jpg", "id": 1, "price": 119, "tag": "", "was": null, "rating": 4.7, "reviews": 120, "gallery": ["assets/c2.jpg", "assets/b-bag.jpg", "assets/c1.jpg", "assets/c3.jpg"]}, {"name": "Gold Chunky Hoops", "cat": "Jewellery", "img": "assets/c3.jpg", "id": 2, "price": 109, "tag": "", "was": null, "rating": 4.5, "reviews": 175, "gallery": ["assets/c3.jpg", "assets/c7.jpg", "../_shared/accessories/03.jpg", "../_shared/accessories/04.jpg"]}, {"name": "Teal Leather Watch", "cat": "Watches", "img": "assets/c4.jpg", "id": 3, "price": 134, "tag": "New", "was": null, "rating": 4.8, "reviews": 249, "gallery": ["assets/c4.jpg", "assets/c1.jpg", "assets/c2.jpg", "assets/c3.jpg"]}, {"name": "Silk Scrunchie Duo", "cat": "Hair", "img": "assets/c5.jpg", "id": 4, "price": 69, "tag": "", "was": null, "rating": 4.5, "reviews": 51, "gallery": ["assets/c5.jpg", "assets/c6.jpg", "assets/c1.jpg", "assets/c2.jpg"]}, {"name": "Teal Cotton Cap", "cat": "Hair", "img": "assets/c6.jpg", "id": 5, "price": 49, "tag": "Sale", "was": 63, "rating": 4.9, "reviews": 341, "gallery": ["assets/c6.jpg", "assets/c5.jpg", "assets/c1.jpg", "assets/c2.jpg"]}, {"name": "Emerald Drop Necklace", "cat": "Jewellery", "img": "assets/c7.jpg", "id": 6, "price": 234, "tag": "", "was": null, "rating": 4.6, "reviews": 124, "gallery": ["assets/c7.jpg", "assets/c3.jpg", "../_shared/accessories/03.jpg", "../_shared/accessories/04.jpg"]}, {"name": "Teal Phone Case", "cat": "Accessories", "img": "assets/c8.jpg", "id": 7, "price": 129, "tag": "Bestseller", "was": null, "rating": 4.4, "reviews": 332, "gallery": ["assets/c8.jpg", "assets/c1.jpg", "assets/c2.jpg", "assets/c3.jpg"]}, {"name": "Teal Kelly Bag", "cat": "Bags", "img": "assets/b-bag.jpg", "id": 8, "price": 74, "tag": "", "was": null, "rating": 4.7, "reviews": 267, "gallery": ["assets/b-bag.jpg", "assets/c2.jpg", "assets/c1.jpg", "assets/c3.jpg"]}, {"name": "Cream Cat-Eye Sunglasses", "cat": "Sunglasses", "img": "assets/b-sun.jpg", "id": 9, "price": 234, "tag": "", "was": null, "rating": 4.8, "reviews": 277, "gallery": ["assets/b-sun.jpg", "assets/c1.jpg", "assets/c2.jpg", "assets/c3.jpg"]}, {"name": "Gemstone Cocktail Rings", "cat": "Jewellery", "img": "../_shared/accessories/03.jpg", "id": 10, "price": 159, "tag": "New", "was": null, "rating": 4.7, "reviews": 147, "gallery": ["../_shared/accessories/03.jpg", "assets/c3.jpg", "assets/c7.jpg", "../_shared/accessories/04.jpg"]}, {"name": "Fine Gold Chain Necklace", "cat": "Jewellery", "img": "../_shared/accessories/04.jpg", "id": 11, "price": 129, "tag": "", "was": null, "rating": 4.4, "reviews": 221, "gallery": ["../_shared/accessories/04.jpg", "assets/c3.jpg", "assets/c7.jpg", "../_shared/accessories/03.jpg"]}, {"name": "Silver Charm Collection", "cat": "Jewellery", "img": "../_shared/accessories/05.jpg", "id": 12, "price": 239, "tag": "New", "was": null, "rating": 4.7, "reviews": 402, "gallery": ["../_shared/accessories/05.jpg", "assets/c3.jpg", "assets/c7.jpg", "../_shared/accessories/03.jpg"]}, {"name": "Minimal Gold Rings", "cat": "Jewellery", "img": "../_shared/accessories/06.jpg", "id": 13, "price": 189, "tag": "", "was": null, "rating": 4.6, "reviews": 169, "gallery": ["../_shared/accessories/06.jpg", "assets/c3.jpg", "assets/c7.jpg", "../_shared/accessories/03.jpg"]}, {"name": "Gold Drop Earrings", "cat": "Jewellery", "img": "../_shared/accessories/07.jpg", "id": 14, "price": 179, "tag": "Bestseller", "was": null, "rating": 4.8, "reviews": 93, "gallery": ["../_shared/accessories/07.jpg", "assets/c3.jpg", "assets/c7.jpg", "../_shared/accessories/03.jpg"]}, {"name": "Amethyst Bloom Ring", "cat": "Jewellery", "img": "../_shared/accessories/09.jpg", "id": 15, "price": 189, "tag": "", "was": null, "rating": 4.5, "reviews": 370, "gallery": ["../_shared/accessories/09.jpg", "assets/c3.jpg", "assets/c7.jpg", "../_shared/accessories/03.jpg"]}], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="020">
+
+<div class="ann"><div class="wrap"><span>📞 +1 546 4444 9940</span><span>FREE DELIVERY ON ALL ORDERS. DON'T MISS THIS CHANCE.</span><span>EN ▾</span></div></div>
+<header data-xnav=""><div class="wrap">
+<a class="logo" href="index.html">Luné<small>ACCESSORIES FOR HER</small></a>
+<nav class="menu"><a href="shop.html">Shop ▾</a><a href="shop.html?c=Sunglasses">Sunglasses</a><a href="shop.html?c=Bags">Bags</a><a href="shop.html?c=Jewellery">Jewellery</a><a href="about.html">Watches</a><a href="shop.html?c=Hair">Hair</a><a href="shop.html">More ▾</a></nav>
+<label class="search">🔍<input placeholder="Search for accessories…"/></label>
+<a aria-label="Bag" href="cart.html" style="font-size:20px">👜</a>
+</div></header><div class="xi v2" id="main"><div class="xi-top"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div><h1 class="xi-h1 xi-rv">Contact Us</h1><p class=xi-rv>Questions, feedback or a project in mind? Reach out and a real person will get back to you shortly.</p></div></div><section class="xi-sec tight"><div class="x-in"><div class="xi-contact"><div><span class="xi-eye">Get in touch</span><h2 class="xi-h2" style="margin-bottom:24px">We'd love to hear from you</h2><div class="xi-cinfo"><div><i>⌖</i><span><b>Visit us</b><small>214 Mercer Street, New York, NY 10012</small></span></div><div><i>☎</i><span><b>Call us</b><small><a href="tel:+15552104480">+1 (555) 210 4480</a></small></span></div><div><i>✉</i><span><b>Email</b><small><a href="mailto:hello@lun.com">hello@lun.com</a></small></span></div><div><i>◷</i><span><b>Opening hours</b><small>Mon–Fri · 9am–6pm</small></span></div></div></div><div class="xi-card" style="padding:clamp(24px,3vw,44px)"><h3 class="xi-h3" style="margin-bottom:20px">Send us a message</h3><form class="xi-form" data-ok="Thanks! Your message has been sent — we&#x27;ll reply within one business day."><div class="two"><label>Full name<input name="name" required placeholder="Jane Cooper"></label><label>Email<input type="email" name="email" required placeholder="jane@example.com"></label></div><div class="two"><label>Phone<input type="tel" name="phone" placeholder="+1 555 000 0000"></label><label>Topic<select name="topic"><option>Order support</option><option>Returns &amp; exchanges</option><option>Product question</option><option>Wholesale</option><option>Press</option></select></label></div><label>Message<textarea name="message" required minlength="10" placeholder="How can we help?"></textarea></label><label class="xi-check"><input type="checkbox" required> I agree to the privacy policy and to be contacted about my enquiry.</label><button class="x-btn" type="submit">Send message</button><div class="xi-success" hidden></div></form></div></div></div></section><section class="xi-sec tight"><div class="x-in"><div class="xi-map xi-rv"><iframe title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.006,40.720,-73.994,40.728&amp;layer=mapnik"></iframe></div></div></section><section class="xi-sec alt"><div class="x-in"><div class="xi-head"><div><span class="xi-eye">FAQ</span><h2 class="xi-h2 xi-rv">Common questions</h2></div><a class="x-btn xi-ghost" href="faq.html">See all FAQs</a></div><details class="xi-faq" open><summary>How long does delivery take?<i>+</i></summary><p>Standard delivery takes 3–5 business days; express arrives in 1–2 days. You&#x27;ll receive tracking as soon as your order ships.</p></details><details class="xi-faq"><summary>Do you ship internationally?<i>+</i></summary><p>Yes, we ship to over 30 countries. Duties and taxes are calculated at checkout so there are no surprises.</p></details><details class="xi-faq"><summary>How can I track my order?<i>+</i></summary><p>Use the tracking link in your shipping email or log in to your account to see live updates.</p></details></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Luné</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">f</a><a aria-label="X" href="https://x.com/" target="_blank" rel="noopener">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a></div></div><div><h6>Shop</h6><a href="shop.html">New Arrivals</a><a href="shop.html">Best Sellers</a><a href="shop.html">Collections</a><a href="shop.html">Gift Cards</a><a href="shop.html">Sale</a></div><div><h6>Help</h6><a href="account.html">Track Order</a><a href="faq.html">Shipping</a><a href="faq.html">Returns &amp; Exchanges</a><a href="faq.html">Size Guide</a><a href="faq.html">FAQs</a></div><div><h6>Company</h6><a href="about.html">About Us</a><a href="about.html">Sustainability</a><a href="about.html">Careers</a><a href="about.html">Press</a><a href="contact.html">Contact</a></div><div><h6>Stay in touch</h6><p>hello@lun.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Luné. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

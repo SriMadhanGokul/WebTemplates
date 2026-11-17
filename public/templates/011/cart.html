@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart — FOODIE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--green:#2f7a2a;--lime:#7dd04a;--dark:#121512;--ink:#151815;--muted:#6f746f;--bg:#fbfcf8;--orange:#f2a024}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button,input{font-family:inherit}
+  button{cursor:pointer;border:0;background:none}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+
+  .hero-box{container-type:inline-size;margin-top:28px}
+  .hero{position:relative;border-radius:32px;overflow:hidden;height:clamp(640px,52vw,900px);color:#fff;background:#14240f url(assets/hero.jpg) center/cover no-repeat}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,12,4,.65),rgba(5,12,4,.2) 55%,transparent),linear-gradient(180deg,rgba(0,0,0,.4),transparent 20%)}
+  .hero>*{position:relative}
+  .nav{display:flex;align-items:center;padding:30px 40px}
+  .logo{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800;letter-spacing:1px}
+  .logo i{width:34px;height:34px;border-radius:9px;background:var(--orange);display:grid;place-items:center;font-style:normal}
+  .menu{display:flex;gap:34px;margin:0 auto;font-size:14px}
+  .menu a{opacity:.85;padding-bottom:4px}
+  .menu a.on{opacity:1;border-bottom:2px solid #fff}
+  .menu a:hover{opacity:1}
+  .icons{display:flex;gap:20px;align-items:center}
+  .icons a{position:relative}
+  .icons em{position:absolute;top:-4px;right:-5px;width:9px;height:9px;border-radius:50%;background:var(--orange)}
+  .sign{background:#fff;color:var(--ink);height:40px;padding:0 20px;border-radius:30px;display:flex;align-items:center;font-size:13px;font-weight:700}
+  .copy{position:absolute;left:clamp(40px,8cqw,140px);top:16%;}
+  .tag{font-size:12px;letter-spacing:3px;font-weight:700;opacity:.85}
+  .copy h3{font-size:clamp(32px,2.8cqw,46px);font-weight:700;line-height:1.15;margin:12px 0 0}
+  .copy h1{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(110px,12.5cqw,220px);line-height:.95;letter-spacing:1px;text-transform:uppercase}
+  .copy h1 span{background:linear-gradient(180deg,#b8f06a,#3f9b2a);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .copy p{font-size:16px;opacity:.9;max-width:480px;line-height:1.6;margin:16px 0 26px}
+  .find{display:flex;align-items:center;background:rgba(255,255,255,.92);border-radius:40px;padding:6px 6px 6px 20px;width:min(620px,48cqw);gap:10px}
+  .find input{flex:1;border:0;background:transparent;outline:0;font-size:14px;color:var(--ink)}
+  .find button{background:var(--green);color:#fff;height:46px;padding:0 26px;border-radius:30px;font-size:14px;font-weight:600}
+  .find button:hover{background:#246222}
+  .perks{display:flex;gap:40px;margin-top:30px}
+  .perk{display:flex;align-items:center;gap:10px}
+  .perk i{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-style:normal;font-size:14px}
+  .perk b{display:block;font-size:13px}
+  .perk small{font-size:11px;opacity:.7}
+  .badge{position:absolute;right:5%;top:17%;width:clamp(150px,13cqw,220px);aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,255,255,.75);display:grid;place-items:center;font-family:Caveat,cursive;font-size:clamp(46px,4cqw,70px);line-height:.85;text-align:center;transform:rotate(-8deg)}
+  .badge small{position:absolute;right:-24px;top:-10px;width:44%;aspect-ratio:1;border-radius:50%;background:#1a2a14;font-size:clamp(16px,1.3cqw,22px);display:grid;place-items:center;line-height:1.1;transform:rotate(8deg)}
+  .dishes{position:absolute;right:3%;bottom:12%;display:flex;align-items:center;gap:14px;background:rgba(10,15,10,.65);backdrop-filter:blur(6px);border-radius:16px;padding:12px 16px}
+  .dishes img{width:60px;height:40px;object-fit:cover;border-radius:20px}
+  .dishes b{display:block;font-size:20px}
+  .dishes small{font-size:11px;opacity:.75}
+
+  .cats{display:flex;align-items:center;gap:20px;padding:40px 0}
+  .cats .arr{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.08);display:grid;place-items:center}
+  .cats .list{flex:1;display:grid;grid-template-columns:repeat(8,1fr);gap:16px}
+  .cat{text-align:center;font-size:15px;font-weight:600}
+  .cat .c{width:min(120px,100%);aspect-ratio:1;margin:0 auto 12px;border-radius:50%;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.08);border:5px solid #fff;transition:transform .25s}
+  .cat:hover .c{transform:translateY(-4px) scale(1.04)}
+  .cat img{width:100%;height:100%;object-fit:cover}
+
+  .offer{position:relative;border-radius:22px;overflow:hidden;height:clamp(360px,28vw,480px);color:#fff;background:#1e3a1a url(assets/offer.jpg) right center/cover}
+  .offer::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,40,14,.95) 0%,rgba(14,40,14,.75) 38%,transparent 65%)}
+  .offer .in{position:absolute;left:clamp(40px,4vw,70px);top:50%;transform:translateY(-50%)}
+  .offer .tag{display:flex;align-items:center;gap:20px;letter-spacing:8px;font-weight:500;font-size:clamp(14px,1.1vw,18px)}
+  .offer .tag::before,.offer .tag::after{content:"";width:60px;height:1px;background:#fff}
+  .offer h3{font-size:clamp(56px,4.8vw,88px);font-weight:800;margin:18px 0 6px;letter-spacing:-1px}
+  .offer p{font-size:clamp(22px,1.8vw,32px);font-weight:500;margin-bottom:30px}
+  .order{display:inline-flex;background:#fff;color:var(--ink);height:56px;padding:0 36px;align-items:center;border-radius:30px;font-size:17px;font-weight:700}
+  .order:hover{background:var(--lime)}
+
+  .head{display:flex;justify-content:space-between;align-items:flex-end;margin:90px 0 30px}
+  .head small{display:block;font-size:13px;letter-spacing:4px;font-weight:600;color:var(--muted);margin-bottom:8px}
+  .head h2{font-size:clamp(36px,2.8vw,50px);font-weight:800;letter-spacing:-1px}
+  .head a{font-size:17px;font-weight:600;color:var(--green)}
+  .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:90px}
+  .prod{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 26px rgba(0,0,0,.06);transition:transform .25s}
+  .prod:hover{transform:translateY(-5px)}
+  .prod .ph{position:relative;aspect-ratio:4/3.4}
+  .prod .ph img{width:100%;height:100%;object-fit:cover}
+  .fav{position:absolute;right:16px;top:16px;color:#fff;font-size:24px;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+  .prod .b{padding:20px 22px 22px}
+  .prod h4{font-size:19px;font-weight:700}
+  .prod .s{font-size:14px;color:var(--muted);margin:4px 0 10px}
+  .prod .r{font-size:15px;font-weight:600}
+  .prod .r span{color:var(--muted);font-weight:400}
+  .prod .f{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+  .prod .f b{font-size:22px}
+  .add{width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;font-size:22px;display:grid;place-items:center}
+  .add:hover{background:var(--lime)}
+
+  footer{background:var(--dark);color:#a7ada7;border-radius:24px;margin:0 clamp(20px,3vw,48px) 30px}
+  .foot{display:grid;grid-template-columns:2fr 1fr 1fr 1.6fr;gap:40px;padding:60px 50px 40px}
+  footer .logo{color:#fff;margin-bottom:18px}
+  footer p{font-size:14px;line-height:1.7;max-width:360px}
+  footer h6{color:#fff;font-size:14px;letter-spacing:1px;margin-bottom:16px}
+  footer .col a{display:block;font-size:14px;margin-bottom:10px}
+  footer .col a:hover{color:#fff}
+  .join{display:flex;gap:10px;margin-top:16px}
+  .join input{flex:1;height:44px;background:#1d221d;border:1px solid #2a312a;border-radius:6px;padding:0 14px;color:#fff;outline:0}
+  .join button{background:var(--green);color:#fff;padding:0 20px;border-radius:6px;font-weight:600}
+  .copy-r{display:flex;justify-content:space-between;border-top:1px solid #232823;padding:22px 50px;font-size:13px}
+  .copy-r nav{display:flex;gap:26px}
+
+  @media (max-width:1000px){
+    .menu,.badge,.dishes,.perks{display:none}.nav{padding:22px}
+    .cats .list{grid-template-columns:repeat(4,1fr)}
+    .prods{grid-template-columns:repeat(2,1fr)}
+    .foot{grid-template-columns:1fr 1fr;padding:40px 24px}
+    .find{width:85vw}
+  }
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#fbfcf8;--xs:#ffffff;--xi:#151815;--xm:#6f746f;--xa:#2f7a2a;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:16px;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Plus Jakarta Sans',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#121512;color:#a7ada7;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#a7ada7;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#121512;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#fbfcf8;--xs:#ffffff;--xi:#151815;--xm:#6f746f;--xa:#2f7a2a;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:16px;--xbr:999px;--xbf:'Plus Jakarta Sans';--xalt:#ffffff}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "FOODIE", "cur": "₹", "pages": [["menu", "Menu"], ["product", "Dish"], ["cart", "Cart"], ["about", "About"], ["blog", "Blog"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"]], "listing": "menu.html", "freeShip": 8000, "shipFee": 99, "products": [{"name": "Hyderabadi Chicken Biryani", "cat": "Biryani", "img": "assets/p-biryani.jpg", "id": 0, "price": 269, "tag": "Bestseller", "was": null, "rating": 4.6, "reviews": 232, "gallery": ["assets/p-biryani.jpg", "assets/c-biryani.jpg", "assets/p-burger.jpg", "assets/p-lava.jpg"]}, {"name": "Smash Double Cheeseburger", "cat": "Burgers", "img": "assets/p-burger.jpg", "id": 1, "price": 569, "tag": "", "was": null, "rating": 4.5, "reviews": 328, "gallery": ["assets/p-burger.jpg", "assets/c-burger.jpg", "assets/p-biryani.jpg", "assets/p-lava.jpg"]}, {"name": "Molten Lava Cake", "cat": "Desserts", "img": "assets/p-lava.jpg", "id": 2, "price": 269, "tag": "", "was": null, "rating": 4.6, "reviews": 317, "gallery": ["assets/p-lava.jpg", "assets/c-desserts.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg"]}, {"name": "Creamy Penne Alfredo", "cat": "Italian", "img": "assets/p-pasta.jpg", "id": 3, "price": 359, "tag": "New", "was": null, "rating": 4.5, "reviews": 310, "gallery": ["assets/p-pasta.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg", "assets/p-lava.jpg"]}, {"name": "Wood-Fired Margherita", "cat": "Pizza", "img": "assets/c-pizza.jpg", "id": 4, "price": 209, "tag": "", "was": null, "rating": 4.8, "reviews": 112, "gallery": ["assets/c-pizza.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg", "assets/p-lava.jpg"]}, {"name": "Hakka Veg Noodles", "cat": "Chinese", "img": "assets/c-chinese.jpg", "id": 5, "price": 539, "tag": "New", "was": null, "rating": 4.7, "reviews": 136, "gallery": ["assets/c-chinese.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg", "assets/p-lava.jpg"]}, {"name": "Feta & Avocado Salad", "cat": "Salads", "img": "assets/c-salads.jpg", "id": 6, "price": 209, "tag": "", "was": null, "rating": 4.4, "reviews": 244, "gallery": ["assets/c-salads.jpg", "../_shared/food/09.jpg", "../_shared/food/10.jpg", "assets/p-biryani.jpg"]}, {"name": "Chocolate Fudge Slice", "cat": "Desserts", "img": "assets/c-desserts.jpg", "id": 7, "price": 209, "tag": "Bestseller", "was": null, "rating": 4.7, "reviews": 401, "gallery": ["assets/c-desserts.jpg", "assets/p-lava.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg"]}, {"name": "Fresh Lime Mojito", "cat": "Drinks", "img": "assets/c-drinks.jpg", "id": 8, "price": 449, "tag": "", "was": null, "rating": 4.7, "reviews": 80, "gallery": ["assets/c-drinks.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg", "assets/p-lava.jpg"]}, {"name": "Butter Chicken Thali", "cat": "Indian", "img": "assets/c-indian.jpg", "id": 9, "price": 389, "tag": "Sale", "was": 505, "rating": 4.5, "reviews": 255, "gallery": ["assets/c-indian.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg", "assets/p-lava.jpg"]}, {"name": "Classic Beef Burger", "cat": "Burgers", "img": "assets/c-burger.jpg", "id": 10, "price": 479, "tag": "", "was": null, "rating": 4.7, "reviews": 52, "gallery": ["assets/c-burger.jpg", "assets/p-burger.jpg", "assets/p-biryani.jpg", "assets/p-lava.jpg"]}, {"name": "Mutton Dum Biryani", "cat": "Biryani", "img": "assets/c-biryani.jpg", "id": 11, "price": 209, "tag": "", "was": null, "rating": 4.7, "reviews": 47, "gallery": ["assets/c-biryani.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg", "assets/p-lava.jpg"]}, {"name": "Sweet Potato Buddha Bowl", "cat": "Bowls", "img": "../_shared/food/08.jpg", "id": 12, "price": 299, "tag": "New", "was": null, "rating": 4.9, "reviews": 106, "gallery": ["../_shared/food/08.jpg", "../_shared/food/11.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg"]}, {"name": "Fresh Fruit Salad", "cat": "Salads", "img": "../_shared/food/09.jpg", "id": 13, "price": 329, "tag": "", "was": null, "rating": 4.4, "reviews": 382, "gallery": ["../_shared/food/09.jpg", "assets/c-salads.jpg", "../_shared/food/10.jpg", "assets/p-biryani.jpg"]}, {"name": "Greek Feta Salad", "cat": "Salads", "img": "../_shared/food/10.jpg", "id": 14, "price": 329, "tag": "Sale", "was": 427, "rating": 4.5, "reviews": 399, "gallery": ["../_shared/food/10.jpg", "assets/c-salads.jpg", "../_shared/food/09.jpg", "assets/p-biryani.jpg"]}, {"name": "Egg & Sprout Bowl", "cat": "Bowls", "img": "../_shared/food/11.jpg", "id": 15, "price": 269, "tag": "", "was": null, "rating": 4.9, "reviews": 304, "gallery": ["../_shared/food/11.jpg", "../_shared/food/08.jpg", "assets/p-biryani.jpg", "assets/p-burger.jpg"]}], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="011">
+
+<main class="wrap">
+<div class="hero-box xi-band"><section class="hero xi-band">
+<div class="nav" data-xnav="">
+<a class="logo" href="index.html"><i>🍽</i>FOODIE</a>
+<nav class="menu"><a class="on" href="index.html">Home</a><a href="menu.html">Menu</a><a href="menu.html">Restaurants</a><a href="menu.html">Offers</a><a href="about.html">About</a></nav>
+<div class="icons">
+<a aria-label="Search" href="menu.html"><svg fill="none" height="18" stroke="#fff" stroke-width="1.8" viewbox="0 0 24 24" width="18"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+<a aria-label="Bag" href="cart.html"><svg fill="none" height="18" stroke="#fff" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M6 7h12l-1 13H7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg><em></em></a>
+<a class="sign" href="contact.html">Sign In</a>
+</div>
+</div><div class="xi xi-ph-band v2"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Cart</span></div><h1 class="xi-h1 xi-rv">Your Cart</h1><p class=xi-rv>Review your items, apply a promo code and check out securely.</p></div></div>
+
+
+
+</section></div><div class="xi v2" id="main"><section class="xi-sec tight"><div class="x-in"><div class="xi-done" data-cart-done hidden><b>✓ Thank you — your order is confirmed!</b><p class="xi-muted" style="margin:6px 0 0">We've emailed your receipt. You'll get tracking details as soon as it ships.</p></div><div class="xi-cart" data-cart><div><div class="xi-bar" style="margin:0;padding-bottom:16px;border-bottom:1px solid var(--xl)"><b style="font-size:18px">Your items (<span data-cart-count>0</span>)</b><a class="xi-link" href="menu.html">Continue shopping</a></div><div data-cart-list></div></div><aside class="xi-card xi-sum"><h3 class="xi-h3" style="margin-bottom:14px">Order summary</h3><div class="xi-r"><span>Subtotal</span><span data-sub>₹0</span></div><div class="xi-r"><span>Shipping</span><span data-ship>Free</span></div><div class="xi-coupon"><input class="xi-in" placeholder="Promo code" aria-label="Promo code"><button class="x-btn xi-ghost" data-coupon>Apply</button></div><div class="xi-r xi-t"><span>Total</span><span data-total>₹0</span></div><a href="cart.html" class="x-btn wide" data-checkout style="margin-top:14px">Checkout securely</a><p class="xi-muted" style="font-size:13px;text-align:center;margin:14px 0 0">🔒 Secure SSL checkout · Visa · Mastercard · PayPal · UPI</p></aside></div></div></section><section class="xi-sec alt"><div class="x-in"><div class="xi-head"><div><span class="xi-eye">Don't miss</span><h2 class="xi-h2 xi-rv">Popular right now</h2></div></div><div class="xi-grid" style="--cols:4;--pa:1/1"><a class="xi-prod xi-rv" href="product.html?id=4" data-cat="Pizza" data-price="209" data-i="4"><div class="xi-ph"><img src="assets/c-pizza.jpg" alt="Wood-Fired Margherita" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="4" role="button">Add to cart</span></div></div><small>Pizza</small><b>Wood-Fired Margherita</b><div class="xi-price">₹209 </div></a><a class="xi-prod xi-rv" href="product.html?id=5" data-cat="Chinese" data-price="539" data-i="5"><div class="xi-ph"><span class="xi-tag">New</span><img src="assets/c-chinese.jpg" alt="Hakka Veg Noodles" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="5" role="button">Add to cart</span></div></div><small>Chinese</small><b>Hakka Veg Noodles</b><div class="xi-price">₹539 </div></a><a class="xi-prod xi-rv" href="product.html?id=6" data-cat="Salads" data-price="209" data-i="6"><div class="xi-ph"><img src="assets/c-salads.jpg" alt="Feta &amp; Avocado Salad" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="6" role="button">Add to cart</span></div></div><small>Salads</small><b>Feta &amp; Avocado Salad</b><div class="xi-price">₹209 </div></a><a class="xi-prod xi-rv" href="product.html?id=7" data-cat="Desserts" data-price="209" data-i="7"><div class="xi-ph"><span class="xi-tag">Bestseller</span><img src="assets/c-desserts.jpg" alt="Chocolate Fudge Slice" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="7" role="button">Add to cart</span></div></div><small>Desserts</small><b>Chocolate Fudge Slice</b><div class="xi-price">₹209 </div></a></div></div></section></div></main><footer>
+<div class="foot">
+<div><a class="logo" href="index.html"><i>🍽</i>FOODIE</a><p>Delivering mouth-watering goodness straight from your favorite local kitchens right to your door with love and speed.</p></div>
+<div class="col"><h6>COMPANY</h6><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="menu.html">Partner with Us</a><a href="blog.html">Blog</a></div>
+<div class="col"><h6>SUPPORT</h6><a href="contact.html">Help Center</a><a href="blog.html">Safety Guidelines</a><a href="faq.html">Terms of Service</a><a href="faq.html">Privacy Policy</a></div>
+<div class="col"><h6>STAY HUNGRY</h6><p>Get weekly coupons and curated meal suggestions directly in your inbox.</p><form class="join" onsubmit="event.preventDefault();this.reset()"><input placeholder="Your email" required="" type="email"/><button>Join</button></form></div>
+</div>
+<div class="copy-r"><span>© 2026 FOODIE Inc. All rights reserved.</span><nav><a href="menu.html">Instagram</a><a href="menu.html">Twitter</a><a href="menu.html">Facebook</a></nav></div>
+</footer>
+</body>
+</html>

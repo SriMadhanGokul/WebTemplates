@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — fresh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,system-ui,sans-serif;color:#1d1640;background:#f6f3ff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.ann{background:#5b2be0;color:#fff;font-size:13px}
+.ann .wrap{display:flex;justify-content:space-between;align-items:center;height:40px}
+.ann .soc{display:flex;gap:14px;opacity:.9}
+header{background:#fff;box-shadow:0 6px 30px -18px rgba(60,30,160,.35);position:relative;z-index:5}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;gap:30px}
+.logo{font-family:Pacifico,cursive;font-size:32px;color:#5b2be0;line-height:1}
+.logo small{display:block;font-family:Poppins;font-size:9px;letter-spacing:4px;color:#1d1640;text-align:center;margin-top:-2px}
+.menu{display:flex;gap:38px;font-weight:500;font-size:15px}
+.menu a{position:relative;padding:6px 0}
+.menu a.active,.menu a:hover{color:#5b2be0}
+.menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:#5b2be0;border-radius:2px}
+.act{display:flex;align-items:center;gap:20px}
+.act .ic{font-size:19px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:15px 30px;font-weight:600;font-size:15px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.b1{background:#5b2be0;color:#fff;box-shadow:0 14px 30px -12px rgba(91,43,224,.7)}
+.b2{border:1.5px solid #5b2be0;color:#5b2be0;background:#fff}
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 75% 40%,#cdbbff 0%,#e7deff 35%,#f6f3ff 70%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;min-height:clamp(560px,46vw,760px);gap:40px}
+.tag{display:inline-block;background:#fff;color:#5b2be0;font-size:12px;font-weight:700;letter-spacing:1.5px;padding:8px 16px;border-radius:30px;box-shadow:0 6px 18px -10px rgba(91,43,224,.6)}
+.hero h1{font-size:clamp(46px,5vw,86px);line-height:1.04;font-weight:800;margin:22px 0 22px;letter-spacing:-1.5px}
+.hero h1 span{color:#5b2be0}
+.hero p{color:#5f5880;font-size:18px;line-height:1.7;max-width:520px}
+.hero .row{display:flex;gap:16px;margin:34px 0 36px;flex-wrap:wrap}
+.chips{display:flex;gap:28px;flex-wrap:wrap}
+.chips div{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;color:#4c4570}
+.chips i{font-style:normal;width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 16px -10px rgba(91,43,224,.7)}
+.visual{position:relative;height:100%;min-height:520px}
+.visual .berry{position:absolute;inset:6% 0 6% 12%;border-radius:50% 50% 46% 54%/55% 45% 55% 45%;overflow:hidden;box-shadow:0 40px 80px -30px rgba(60,20,170,.6)}
+.visual .berry img{width:100%;height:100%;object-fit:cover}
+.visual .drink{position:absolute;left:30%;top:10%;width:40%;aspect-ratio:3/4.4;border-radius:28px;overflow:hidden;border:8px solid #fff;box-shadow:0 30px 60px -20px rgba(30,10,90,.55);animation:bob 5s ease-in-out infinite}
+.visual .drink img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;right:2%;bottom:14%;background:#fff;border-radius:20px;padding:16px 20px;box-shadow:0 20px 40px -20px rgba(30,10,90,.5);font-size:13px}
+.badge b{display:block;font-size:22px;color:#5b2be0}
+.leaf{position:absolute;font-size:34px;animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-14px)}}
+.perks{position:relative;margin-top:-56px;z-index:3}
+.perks .box{background:#fff;border-radius:26px;box-shadow:0 24px 60px -30px rgba(60,30,160,.45);display:grid;grid-template-columns:repeat(4,1fr);padding:34px 20px}
+.perks .p{display:flex;gap:16px;align-items:center;padding:0 26px;border-right:1px solid #ece7fb}
+.perks .p:last-child{border:0}
+.perks .p i{font-style:normal;font-size:34px;width:64px;height:64px;border-radius:50%;background:#f1ecff;display:grid;place-items:center;flex:0 0 64px}
+.perks b{display:block;font-size:15px;letter-spacing:.5px}
+.perks small{color:#6d6690;font-size:13px}
+.sec{padding:clamp(70px,7vw,110px) 0}
+.st{text-align:center;margin-bottom:46px}
+.st small{color:#5b2be0;font-weight:700;letter-spacing:2px;font-size:12px}
+.st h2{font-size:clamp(30px,3vw,48px);margin-top:10px;font-weight:700}
+.st h2 span{color:#5b2be0}
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.prod{background:#fff;border-radius:24px;padding:16px 16px 24px;text-align:center;box-shadow:0 18px 40px -30px rgba(60,30,160,.5);transition:transform .3s}
+.prod:hover{transform:translateY(-6px)}
+.prod .ph{border-radius:18px;overflow:hidden;aspect-ratio:1;margin-bottom:18px}
+.prod .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.prod:hover img{transform:scale(1.06)}
+.prod b{font-size:18px;display:block}
+.prod p{color:#6d6690;font-size:13.5px;margin:6px 0 10px;min-height:40px}
+.prod .pr{font-weight:700;color:#5b2be0;font-size:18px;margin-bottom:14px}
+.prod .btn{padding:11px 24px;font-size:14px}
+.c1{background:linear-gradient(160deg,#ece5ff,#fff)}.c2{background:linear-gradient(160deg,#fff1dd,#fff)}.c3{background:linear-gradient(160deg,#ffe3e6,#fff)}.c4{background:linear-gradient(160deg,#fff0de,#fff)}
+.more{text-align:center;margin-top:40px}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.why .pic{border-radius:30px;overflow:hidden;aspect-ratio:1/1.05;position:relative}
+.why .pic img{width:100%;height:100%;object-fit:cover}
+.why h2{font-size:clamp(30px,3vw,48px);line-height:1.15;margin:12px 0 18px}
+.why h2 span{color:#5b2be0}
+.why p{color:#5f5880;line-height:1.8}
+.why ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0 34px}
+.why li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#4c4570}
+.why li i{font-style:normal;width:40px;height:40px;flex:0 0 40px;border-radius:12px;background:#ede7ff;display:grid;place-items:center}
+.why li b{display:block;color:#1d1640;font-size:15px}
+.band{background:#5b2be0;color:#fff;border-radius:34px;padding:clamp(40px,5vw,70px);display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.band::after{content:"";position:absolute;right:-80px;top:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.08)}
+.band h2{font-size:clamp(30px,3vw,46px);line-height:1.15}
+.band p{opacity:.85;margin:14px 0 26px;line-height:1.7;max-width:520px}
+.band .btn{background:#fff;color:#5b2be0}
+.band .nums{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;z-index:1}
+.band .nums div{background:rgba(255,255,255,.12);border-radius:20px;padding:22px}
+.band .nums b{font-size:34px;display:block}
+.band .nums small{opacity:.8}
+footer{}
+@media(max-width:1000px){.hero .wrap,.why,.band{grid-template-columns:1fr}.visual{min-height:440px}.perks .box{grid-template-columns:1fr 1fr;row-gap:24px}.perks .p:nth-child(2){border:0}.prods{grid-template-columns:1fr 1fr}.menu{display:none}}
+@media(max-width:600px){.prods,.perks .box,.why ul{grid-template-columns:1fr}.perks .p{border:0}.act .btn{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#f6f3ff;--xs:#ffffff;--xi:#1d1640;--xm:#6d6690;--xa:#5b2be0;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:22px;font-family:'Poppins',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Poppins',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Poppins',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Poppins',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Poppins',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Poppins',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#2a1470;color:#cfc4f2;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#cfc4f2;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#2a1470;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#f6f3ff;--xs:#ffffff;--xi:#1d1640;--xm:#6d6690;--xa:#5b2be0;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:22px;--xbr:999px;--xbf:'Poppins';--xalt:#ffffff}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Poppins',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "fresh", "cur": "$", "pages": [["menu", "Menu"], ["product", "Dish"], ["cart", "Cart"], ["about", "About"], ["blog", "Blog"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"]], "listing": "menu.html", "freeShip": 100, "shipFee": 9, "products": [{"name": "Blueberry Boost", "cat": "Juices", "img": "assets/hero.jpg", "id": 0, "price": 19, "tag": "", "was": null, "rating": 4.5, "reviews": 119, "gallery": ["assets/hero.jpg", "assets/p-mango.jpg", "assets/p-orange.jpg", "assets/p-berry.jpg"]}, {"name": "Mango Bliss", "cat": "Juices", "img": "assets/p-mango.jpg", "id": 1, "price": 19, "tag": "New", "was": null, "rating": 4.8, "reviews": 261, "gallery": ["assets/p-mango.jpg", "assets/hero.jpg", "assets/p-orange.jpg", "assets/p-berry.jpg"]}, {"name": "Strawberry Delight", "cat": "Smoothies", "img": "assets/p-straw.jpg", "id": 2, "price": 14, "tag": "", "was": null, "rating": 4.9, "reviews": 118, "gallery": ["assets/p-straw.jpg", "../_shared/food/22.jpg", "assets/hero.jpg", "assets/p-mango.jpg"]}, {"name": "Orange Sunrise", "cat": "Juices", "img": "assets/p-orange.jpg", "id": 3, "price": 14, "tag": "New", "was": null, "rating": 4.8, "reviews": 81, "gallery": ["assets/p-orange.jpg", "assets/hero.jpg", "assets/p-mango.jpg", "assets/p-berry.jpg"]}, {"name": "Berry Splash", "cat": "Juices", "img": "assets/p-berry.jpg", "id": 4, "price": 9, "tag": "", "was": null, "rating": 4.5, "reviews": 378, "gallery": ["assets/p-berry.jpg", "assets/hero.jpg", "assets/p-mango.jpg", "assets/p-orange.jpg"]}, {"name": "Citrus Sunrise", "cat": "Juices", "img": "../_shared/food/23.jpg", "id": 5, "price": 19, "tag": "Bestseller", "was": null, "rating": 4.5, "reviews": 358, "gallery": ["../_shared/food/23.jpg", "assets/hero.jpg", "assets/p-mango.jpg", "assets/p-orange.jpg"]}, {"name": "Fresh Orange Juice", "cat": "Juices", "img": "../_shared/food/16.jpg", "id": 6, "price": 19, "tag": "", "was": null, "rating": 4.4, "reviews": 180, "gallery": ["../_shared/food/16.jpg", "assets/hero.jpg", "assets/p-mango.jpg", "assets/p-orange.jpg"]}, {"name": "Berry Splash Juice", "cat": "Juices", "img": "../_shared/food/18.jpg", "id": 7, "price": 14, "tag": "Sale", "was": 18, "rating": 4.4, "reviews": 76, "gallery": ["../_shared/food/18.jpg", "assets/hero.jpg", "assets/p-mango.jpg", "assets/p-orange.jpg"]}, {"name": "Mango Cold-Press", "cat": "Juices", "img": "../_shared/food/19.jpg", "id": 8, "price": 14, "tag": "", "was": null, "rating": 4.8, "reviews": 400, "gallery": ["../_shared/food/19.jpg", "assets/hero.jpg", "assets/p-mango.jpg", "assets/p-orange.jpg"]}, {"name": "Cold-Press Trio", "cat": "Juices", "img": "../_shared/food/20.jpg", "id": 9, "price": 14, "tag": "", "was": null, "rating": 4.5, "reviews": 131, "gallery": ["../_shared/food/20.jpg", "assets/hero.jpg", "assets/p-mango.jpg", "assets/p-orange.jpg"]}, {"name": "Golden Mango Bottle", "cat": "Juices", "img": "../_shared/food/21.jpg", "id": 10, "price": 19, "tag": "New", "was": null, "rating": 4.6, "reviews": 242, "gallery": ["../_shared/food/21.jpg", "assets/hero.jpg", "assets/p-mango.jpg", "assets/p-orange.jpg"]}, {"name": "Strawberry Kiwi Smoothie", "cat": "Smoothies", "img": "../_shared/food/22.jpg", "id": 11, "price": 9, "tag": "", "was": null, "rating": 4.4, "reviews": 376, "gallery": ["../_shared/food/22.jpg", "assets/p-straw.jpg", "assets/hero.jpg", "assets/p-mango.jpg"]}, {"name": "Salmon Power Bowl", "cat": "Bowls", "img": "../_shared/food/01.jpg", "id": 12, "price": 19, "tag": "Sale", "was": 24, "rating": 4.7, "reviews": 69, "gallery": ["../_shared/food/01.jpg", "../_shared/food/02.jpg", "../_shared/food/03.jpg", "../_shared/food/04.jpg"]}, {"name": "Green Goddess Bowl", "cat": "Bowls", "img": "../_shared/food/02.jpg", "id": 13, "price": 14, "tag": "", "was": null, "rating": 4.8, "reviews": 372, "gallery": ["../_shared/food/02.jpg", "../_shared/food/01.jpg", "../_shared/food/03.jpg", "../_shared/food/04.jpg"]}, {"name": "Tuna Poke Bowl", "cat": "Bowls", "img": "../_shared/food/03.jpg", "id": 14, "price": 19, "tag": "Bestseller", "was": null, "rating": 4.9, "reviews": 201, "gallery": ["../_shared/food/03.jpg", "../_shared/food/01.jpg", "../_shared/food/02.jpg", "../_shared/food/04.jpg"]}, {"name": "Rainbow Veg Bowl", "cat": "Bowls", "img": "../_shared/food/04.jpg", "id": 15, "price": 9, "tag": "", "was": null, "rating": 4.7, "reviews": 265, "gallery": ["../_shared/food/04.jpg", "../_shared/food/01.jpg", "../_shared/food/02.jpg", "../_shared/food/03.jpg"]}], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="061">
+
+<div class="ann"><div class="wrap"><span>🚚 Free Shipping on all orders over $30</span><div class="soc"><a aria-label="Instagram" href="https://www.instagram.com/" rel="noopener" target="_blank">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" rel="noopener" target="_blank">f</a><a aria-label="YouTube" href="https://www.youtube.com/" rel="noopener" target="_blank">▶</a></div></div></div>
+<header data-xnav=""><div class="wrap">
+<a class="logo" href="index.html">fresh<small>JUICE</small></a>
+<nav class="menu"><a class="active" href="index.html">Home</a><a href="about.html">About Us</a><a href="menu.html">Products</a><a href="about.html">Benefits</a><a href="about.html">Reviews</a><a href="contact.html">Contact</a></nav>
+<div class="act"><a aria-label="Search" class="ic" href="menu.html">⌕</a><a aria-label="Cart" class="ic" href="cart.html">🛍</a><a class="btn b1" href="menu.html" style="padding:12px 24px">Shop Now</a></div>
+</div></header><div class="xi v1" id="main"><div class="xi-top"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>FAQ</span></div><h1 class="xi-h1 xi-rv">Frequently Asked Questions</h1><p class=xi-rv>Quick answers to the questions we hear most. Can't find what you need? We're here to help.</p></div></div><section class="xi-sec tight"><div class="x-in"><div style="display:grid;grid-template-columns:260px 1fr;gap:clamp(30px,5vw,80px)" class="xi-faqwrap"><div class="xi-faqnav"><a href="#faq0">Orders &amp; Delivery</a><a href="#faq1">Food &amp; Allergens</a><a href="#faq2">Payments</a><div class="xi-card" style="margin-top:20px"><b>Still need help?</b><p class="xi-muted" style="font-size:14px">Our team replies within a few hours.</p><a class="x-btn" href="contact.html">Contact us</a></div></div><div><div id="faq0" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Orders &amp; Delivery</h2><details class="xi-faq" open><summary>Where do you deliver?<i>+</i></summary><p>We deliver across the city within a 12 km radius of our kitchens. Enter your postcode at checkout to confirm.</p></details><details class="xi-faq"><summary>How long does delivery take?<i>+</i></summary><p>Most orders arrive in 25–40 minutes. You can track your rider live in the app.</p></details><details class="xi-faq"><summary>Is there a minimum order?<i>+</i></summary><p>Orders over $25 get free delivery; smaller orders have a small fee.</p></details></div><div id="faq1" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Food &amp; Allergens</h2><details class="xi-faq"><summary>Do you cater for allergies?<i>+</i></summary><p>Every dish lists allergens. Add a note at checkout and our kitchen will take extra care.</p></details><details class="xi-faq"><summary>Are your ingredients fresh?<i>+</i></summary><p>Yes — produce arrives daily from partner farms and nothing is frozen.</p></details><details class="xi-faq"><summary>Do you have vegan options?<i>+</i></summary><p>Plenty! Filter the menu by Vegan or Vegetarian to see them all.</p></details></div><div id="faq2" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Payments</h2><details class="xi-faq"><summary>Which payment methods do you accept?<i>+</i></summary><p>Cards, UPI, wallets and cash on delivery.</p></details><details class="xi-faq"><summary>Can I cancel my order?<i>+</i></summary><p>You can cancel within 2 minutes of placing it from the order screen.</p></details></div></div></div><style>@media(max-width:900px){.xi-faqwrap{grid-template-columns:1fr!important}.xi-faqnav{position:static}}</style></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">fresh</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" rel="noopener" target="_blank">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" rel="noopener" target="_blank">f</a><a aria-label="X" href="https://x.com/" rel="noopener" target="_blank">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" rel="noopener" target="_blank">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" rel="noopener" target="_blank">in</a></div></div><div><h6>Visit</h6><a href="menu.html">Menu</a><a href="contact.html">Reservations</a><a href="menu.html">Private Dining</a><a href="menu.html">Gift Cards</a></div><div><h6>About</h6><a href="about.html">Our Story</a><a href="menu.html">Chefs</a><a href="about.html">Careers</a><a href="about.html">Press</a></div><div><h6>Help</h6><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@fresh.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 fresh. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aureli — Fashion That Feels Like You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--red:#a3221f;--ink:#141212;--muted:#76706a;--bg:#f2efea;--card:#e9e4dc}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+  .cg{font-family:"Cormorant Garamond",serif;font-weight:400}
+
+  .hero{position:relative;margin-top:24px;height:clamp(640px,50vw,880px);background:#ece8e2 url(assets/hero.jpg) right center/cover no-repeat;overflow:hidden}
+  .nav{display:flex;align-items:center;padding:34px 52px}
+  .logo{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:500}
+  .menu{display:flex;gap:40px;margin:0 auto;font-size:14px;color:#4a4540}
+  .menu a{padding-bottom:4px}.menu a.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--red)}
+  .menu a:hover{color:var(--red)}
+  .icons{display:flex;gap:22px;align-items:center}
+  .shop{background:#fff;height:40px;padding:0 20px;border-radius:30px;display:flex;align-items:center;font-size:13px;font-weight:500;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+  .copy{position:absolute;left:clamp(52px,5vw,100px);top:20%}
+  .tag{font-size:12px;letter-spacing:3px;font-weight:600;color:var(--red)}
+  .hero h1{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(84px,7.6vw,140px);line-height:1;margin-top:20px}
+  .hero h2{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;font-size:clamp(84px,7.6vw,140px);line-height:1;color:var(--red);margin-top:-6px}
+  .hero p{font-size:19px;color:#5a544e;max-width:460px;line-height:1.55;margin:24px 0 36px}
+  .row{display:flex;align-items:center;gap:24px}
+  .btn{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;height:54px;padding:0 30px;border-radius:30px;font-size:15px}
+  .btn:hover{background:var(--red)}
+  .film{display:flex;align-items:center;gap:12px;font-size:15px}
+  .film i{width:42px;height:42px;border-radius:50%;border:1px solid #bbb;display:grid;place-items:center;font-style:normal;font-size:11px}
+  .count{display:flex;gap:20px;margin-top:70px;font-size:14px;color:#8a837c}
+  .count b{color:var(--ink);border-bottom:2px solid var(--red)}
+  .side{position:absolute;right:52px;top:30%;text-align:right;font-size:11px;letter-spacing:3px;color:#fff;line-height:2}
+  .side2{position:absolute;right:52px;top:60%;text-align:right;font-family:"Cormorant Garamond",serif;font-style:italic;color:#fff;font-size:20px;line-height:1.3}
+
+  .head{display:flex;justify-content:space-between;align-items:flex-end;margin:80px 0 26px}
+  .head h2{font-style:italic;font-size:clamp(40px,3.2vw,58px);font-weight:500;font-family:Poppins;letter-spacing:-1px}
+  .head a{font-size:13px;letter-spacing:1.5px;font-weight:500}
+  .grid{display:grid;gap:22px;margin-bottom:22px}
+  .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+  .tile{position:relative;border-radius:14px;overflow:hidden;background:var(--card);box-shadow:0 8px 24px rgba(0,0,0,.05);transition:transform .3s}
+  .tile:hover{transform:translateY(-4px)}
+  .g2 .tile{aspect-ratio:1.75}.g3 .tile{aspect-ratio:1.35}
+  .tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .tile:hover img{transform:scale(1.04)}
+  .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(236,230,221,.92) 0%,rgba(236,230,221,.55) 32%,transparent 55%)}
+  .tile .t{z-index:2;position:absolute;left:clamp(22px,2.2vw,40px);top:clamp(22px,2.2vw,40px)}
+  .tile h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(28px,2.2vw,40px);line-height:1.05}
+  .tile p{font-size:14px;color:#55504a;margin:8px 0 18px;max-width:220px}
+  .tile .sn{font-size:13px;font-weight:500;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+
+  .quote{text-align:center;padding:90px 20px}
+  .quote p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(34px,3vw,54px);line-height:1.25;max-width:980px;margin:0 auto}
+  .quote small{display:block;margin-top:20px;letter-spacing:3px;font-size:12px;color:var(--red)}
+  footer{background:var(--ink);color:#bdb6ae;margin-top:20px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:34px;padding-bottom:34px;font-size:13px}
+  footer .logo{color:#fff;font-size:24px}
+  footer nav{display:flex;gap:28px}footer nav a:hover{color:#fff}
+
+  @media (max-width:1000px){.menu,.side,.side2{display:none}.nav{padding:22px}.g3{grid-template-columns:1fr 1fr}}
+  @media (max-width:700px){.g2,.g3{grid-template-columns:1fr}footer .wrap{flex-direction:column;gap:14px}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#f2efea;--xs:#e9e4dc;--xi:#141212;--xm:#76706a;--xa:#a3221f;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:14px;font-family:'Poppins',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#e9e4dc}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Poppins',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Poppins',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#141212;color:#bdb6ae;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#bdb6ae;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#141212;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<!--xi:head--><link rel="stylesheet" href="../_shared/inner.css"><script>window.XI_DATA={"brand": "aureli", "cur": "$", "pages": [["shop", "Shop"], ["product", "Product"], ["cart", "Cart"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Account"]], "listing": "shop.html", "products": [{"name": "Noir Leather Tote", "cat": "Accessories", "img": "assets/accessories.jpg", "id": 0, "price": 54, "tag": "New", "was": null, "rating": 4.4, "reviews": 151, "gallery": ["assets/accessories.jpg", "assets/sunglasses.jpg", "assets/watches.jpg", "../_shared/fashion/29.jpg"]}, {"name": "Black Halter Dress", "cat": "Dresses", "img": "assets/dresses.jpg", "id": 1, "price": 119, "tag": "", "was": null, "rating": 4.5, "reviews": 161, "gallery": ["assets/dresses.jpg", "assets/accessories.jpg", "assets/essentials.jpg", "assets/footwear.jpg"]}, {"name": "Onyx Blazer", "cat": "Essentials", "img": "assets/essentials.jpg", "id": 2, "price": 124, "tag": "Sale", "was": 161, "rating": 4.9, "reviews": 364, "gallery": ["assets/essentials.jpg", "assets/accessories.jpg", "assets/dresses.jpg", "assets/footwear.jpg"]}, {"name": "Leather Ankle Boots", "cat": "Footwear", "img": "assets/footwear.jpg", "id": 3, "price": 144, "tag": "", "was": null, "rating": 4.5, "reviews": 280, "gallery": ["assets/footwear.jpg", "assets/accessories.jpg", "assets/dresses.jpg", "assets/essentials.jpg"]}, {"name": "Gold Stack Rings", "cat": "Jewellery", "img": "assets/jewellery.jpg", "id": 4, "price": 189, "tag": "Bestseller", "was": null, "rating": 4.5, "reviews": 121, "gallery": ["assets/jewellery.jpg", "assets/accessories.jpg", "assets/dresses.jpg", "assets/essentials.jpg"]}, {"name": "Aureli Eau de Parfum", "cat": "Lifestyle", "img": "assets/lifestyle.jpg", "id": 5, "price": 99, "tag": "", "was": null, "rating": 4.9, "reviews": 103, "gallery": ["assets/lifestyle.jpg", "assets/accessories.jpg", "assets/dresses.jpg", "assets/essentials.jpg"]}, {"name": "Wool Tailored Coat", "cat": "Outerwear", "img": "assets/outwear.jpg", "id": 6, "price": 159, "tag": "", "was": null, "rating": 4.5, "reviews": 242, "gallery": ["assets/outwear.jpg", "assets/accessories.jpg", "assets/dresses.jpg", "assets/essentials.jpg"]}, {"name": "Black Acetate Sunglasses", "cat": "Accessories", "img": "assets/sunglasses.jpg", "id": 7, "price": 69, "tag": "New", "was": null, "rating": 4.7, "reviews": 26, "gallery": ["assets/sunglasses.jpg", "assets/accessories.jpg", "assets/watches.jpg", "../_shared/fashion/29.jpg"]}, {"name": "Square Leather Watch", "cat": "Accessories", "img": "assets/watches.jpg", "id": 8, "price": 69, "tag": "", "was": null, "rating": 4.7, "reviews": 226, "gallery": ["assets/watches.jpg", "assets/accessories.jpg", "assets/sunglasses.jpg", "../_shared/fashion/29.jpg"]}, {"name": "Sage Hoodie Weekend Edit", "cat": "Men", "img": "../_shared/fashion/23.jpg", "id": 9, "price": 149, "tag": "New", "was": null, "rating": 4.9, "reviews": 352, "gallery": ["../_shared/fashion/23.jpg", "../_shared/fashion/25.jpg", "../_shared/fashion/28.jpg", "assets/accessories.jpg"]}, {"name": "Grey Cardigan Edit", "cat": "Men", "img": "../_shared/fashion/25.jpg", "id": 10, "price": 114, "tag": "", "was": null, "rating": 4.8, "reviews": 259, "gallery": ["../_shared/fashion/25.jpg", "../_shared/fashion/23.jpg", "../_shared/fashion/28.jpg", "assets/accessories.jpg"]}, {"name": "White Ruffle Summer Set", "cat": "Women", "img": "../_shared/fashion/26.jpg", "id": 11, "price": 39, "tag": "Bestseller", "was": null, "rating": 4.8, "reviews": 27, "gallery": ["../_shared/fashion/26.jpg", "../_shared/fashion/30.jpg", "../_shared/fashion/31.jpg", "assets/accessories.jpg"]}, {"name": "Classic Indigo Denim", "cat": "Men", "img": "../_shared/fashion/28.jpg", "id": 12, "price": 74, "tag": "", "was": null, "rating": 4.5, "reviews": 237, "gallery": ["../_shared/fashion/28.jpg", "../_shared/fashion/23.jpg", "../_shared/fashion/25.jpg", "assets/accessories.jpg"]}, {"name": "Orange Beanie & Denim", "cat": "Accessories", "img": "../_shared/fashion/29.jpg", "id": 13, "price": 189, "tag": "Sale", "was": 245, "rating": 4.8, "reviews": 116, "gallery": ["../_shared/fashion/29.jpg", "assets/accessories.jpg", "assets/sunglasses.jpg", "assets/watches.jpg"]}, {"name": "Breton Stripe Tee", "cat": "Women", "img": "../_shared/fashion/30.jpg", "id": 14, "price": 54, "tag": "", "was": null, "rating": 4.8, "reviews": 83, "gallery": ["../_shared/fashion/30.jpg", "../_shared/fashion/26.jpg", "../_shared/fashion/31.jpg", "assets/accessories.jpg"]}, {"name": "Striped Cotton Tee", "cat": "Women", "img": "../_shared/fashion/31.jpg", "id": 15, "price": 184, "tag": "", "was": null, "rating": 4.5, "reviews": 352, "gallery": ["../_shared/fashion/31.jpg", "../_shared/fashion/26.jpg", "../_shared/fashion/30.jpg", "assets/accessories.jpg"]}], "burgerAlways": false}</script><script src="../_shared/site.js" defer></script><!--/xi:head--></head>
+<body data-tpl="023">
+<main class="wrap">
+  <section class="hero">
+    <div class="nav">
+      <a href="index.html" class="logo">aureli</a>
+      <nav class="menu"><a href="index.html" class="on">Home</a><a href="shop.html">Shop</a><a href="shop.html">Collections</a><a href="about.html">About</a><a href="blog.html">Journal</a><a href="contact.html">Contact</a></nav>
+      <div class="icons"><span>🔍</span><span>👜</span><a href="shop.html" class="shop">Shop Now →</a></div>
+    </div>
+    <div class="copy">
+      <div class="tag">MODERN STYLE, REAL YOU</div>
+      <h1>Fashion<br>that feels</h1>
+      <h2>like you</h2>
+      <p>Timeless pieces for bold, independent women who embrace their own story.</p>
+      <div class="row"><a href="shop.html" class="btn">Discover Collection →</a><a href="about.html" class="film"><i>▶</i>Watch Film</a></div>
+      <div class="count"><b>01</b><span>02</span><span>03</span><span>—</span></div>
+    </div>
+    <div class="side">CLOTHES<br>PEOPLE<br>STORIES<br>YOU</div>
+    <div class="side2">Style<br>today<br>for a<br>brighter<br>tomorrow.</div>
+  </section>
+
+  <div class="head"><h2>Featured Collection</h2><a href="shop.html">VIEW ALL</a></div>
+  <section class="grid g2">
+    <a href="product.html" class="tile"><img src="assets/essentials.jpg" alt="Elevated essentials"><div class="t"><h3>Elevated Essentials</h3><p>Modern tailoring for everyday confidence.</p><span class="sn">Shop Now →</span></div></a>
+    <a href="product.html" class="tile"><img src="assets/accessories.jpg" alt="Signature accessories"><div class="t"><h3>Signature Accessories</h3><p>The finishing touch to every look.</p><span class="sn">Shop Now →</span></div></a>
+  </section>
+  <section class="grid g3">
+    <a href="product.html" class="tile"><img src="assets/dresses.jpg" alt="Dresses"><div class="t"><h3>Dresses</h3><p>Effortless elegance.</p><span class="sn">Shop Now →</span></div></a>
+    <a href="product.html" class="tile"><img src="assets/watches.jpg" alt="Watches"><div class="t"><h3>Watches</h3><p>Time, refined.</p><span class="sn">Shop Now →</span></div></a>
+    <a href="product.html" class="tile"><img src="assets/sunglasses.jpg" alt="Sunglasses"><div class="t"><h3>Sunglasses</h3><p>A bolder outlook.</p><span class="sn">Shop Now →</span></div></a>
+  </section>
+  <section class="grid g2">
+    <a href="product.html" class="tile"><img src="assets/footwear.jpg" alt="Footwear"><div class="t"><h3>Footwear</h3><p>Step into confidence.</p><span class="sn">Shop Now →</span></div></a>
+    <a href="product.html" class="tile"><img src="assets/outwear.jpg" alt="Outwear"><div class="t"><h3>Outwear</h3><p>Step into confidence.</p><span class="sn">Shop Now →</span></div></a>
+  </section>
+  <section class="grid g2">
+    <a href="product.html" class="tile"><img src="assets/jewellery.jpg" alt="Jewellery"><div class="t"><h3>Jewellery</h3><p>Subtle details. Stronger statements.</p><span class="sn">Shop Now →</span></div></a>
+    <a href="product.html" class="tile"><img src="assets/lifestyle.jpg" alt="Lifestyle"><div class="t"><h3>Lifestyle</h3><p>Pieces for a more meaningful day.</p><span class="sn">Shop Now →</span></div></a>
+  </section>
+
+  <section class="quote"><p>“Style is a way to say who you are without having to speak.”</p><small>— THE AURELI EDIT</small></section>
+</main>
+
+<!-- x-complete:start -->
+<section class="x-sec" id="why"><div class="x-in"><div class="x-head"><span class="x-eye">Why aureli</span><h2 class="x-h2">Made with care, delivered with confidence</h2></div><div class="x-g4"><div class="x-card x-feat"><span class="x-ico">🚚</span><b>Free Shipping</b><small>On all orders over the minimum</small></div><div class="x-card x-feat"><span class="x-ico">↻</span><b>Easy Returns</b><small>Hassle-free 30-day returns</small></div><div class="x-card x-feat"><span class="x-ico">🛡</span><b>Secure Checkout</b><small>100% protected payments</small></div><div class="x-card x-feat"><span class="x-ico">☎</span><b>Real Support</b><small>Friendly help 7 days a week</small></div></div></div></section>
+<section class="x-sec" id="testimonials"><div class="x-in"><div class="x-head"><span class="x-eye">Testimonials</span><h2 class="x-h2">Loved by our customers</h2><p>Real words from real people who chose aureli.</p></div><div class="x-g3"><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“The fabric quality is incredible and everything fits exactly as described. My new go-to store for everyday style.”</blockquote><figcaption><i>A</i><b>Ananya R.</b><small>Verified Buyer</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Fast delivery, beautiful packaging and pieces that feel far more premium than the price. Already ordered twice!”</blockquote><figcaption><i>M</i><b>Meera S.</b><small>Verified Buyer</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Clean designs that actually last. The return process was effortless when I needed a different size.”</blockquote><figcaption><i>K</i><b>Kabir M.</b><small>Verified Buyer</small></figcaption></figure></div></div></section>
+<section class="x-sec" id="journal"><div class="x-in"><div class="x-head"><span class="x-eye">Journal</span><h2 class="x-h2">From the journal</h2></div><div class="x-g3"><a href="product.html" class="x-post"><div class="x-ph"><img src="assets/dresses.jpg" alt="How to build a capsule wardrobe that lasts" loading="lazy"></div><span class="x-eye">Style Guide · 4 min read</span><b>How to build a capsule wardrobe that lasts</b><small>Read article →</small></a><a href="product.html" class="x-post"><div class="x-ph"><img src="assets/footwear.jpg" alt="Inside our atelier: crafting the new collection" loading="lazy"></div><span class="x-eye">Behind the Seams · 5 min read</span><b>Inside our atelier: crafting the new collection</b><small>Read article →</small></a><a href="product.html" class="x-post"><div class="x-ph"><img src="assets/lifestyle.jpg" alt="5 colours defining the season ahead" loading="lazy"></div><span class="x-eye">Trends · 6 min read</span><b>5 colours defining the season ahead</b><small>Read article →</small></a></div></div></section>
+<section class="x-sec" id="newsletter"><div class="x-in"><div class="x-news"><div><h3 class="x-h3">Join the aureli community</h3><p>Be first to hear about new arrivals, exclusive offers and stories worth reading. 10% off your first order.</p></div><form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓';this.reset()"><input type="email" placeholder="Enter your email address" required aria-label="Email address"><button class="x-btn">Subscribe</button></form></div></div></section>
+<!-- x-complete:end -->
+<!-- x-footer:start --><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">aureli</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">◎</a><a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">f</a><a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">𝕏</a><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">▶</a><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">in</a></div></div><div><h6>Shop</h6><a href="shop.html">New Arrivals</a><a href="shop.html">Best Sellers</a><a href="shop.html">Collections</a><a href="shop.html">Gift Cards</a><a href="shop.html">Sale</a></div><div><h6>Help</h6><a href="account.html">Track Order</a><a href="faq.html">Shipping</a><a href="faq.html">Returns &amp; Exchanges</a><a href="faq.html">Size Guide</a><a href="faq.html">FAQs</a></div><div><h6>Company</h6><a href="about.html">About Us</a><a href="about.html">Sustainability</a><a href="about.html">Careers</a><a href="about.html">Press</a><a href="contact.html">Contact</a></div><div><h6>Stay in touch</h6><p>hello@aureli.com<br>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input type="email" placeholder="Your email" aria-label="Email" required><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 aureli. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div><!-- x-footer:end -->
+</body>
+</html>

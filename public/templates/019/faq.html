@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — LUMIÈRE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@500&family=Cinzel:wght@500&family=Archivo:wght@800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--sage:#6f8f7c;--peach:#e9a98a;--rust:#c8642f;--cream:#c86a35;--ink:#141414;--muted:#77706a;--line:#ece4da}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:#fdfaf6;color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button,input{font-family:inherit}
+  button{cursor:pointer;border:0;background:none}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+  .arch{font-family:Archivo,sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.5px}
+  .tiny{font-size:12px;letter-spacing:4px;font-weight:600;text-transform:uppercase}
+  .btn{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;height:52px;padding:0 28px;border-radius:30px;font-size:14px;font-weight:600;letter-spacing:.5px}
+  .btn:hover{background:var(--rust)}
+
+  .ann{background:#141414;color:#fff;font-size:12px}
+  .ann .wrap{display:flex;justify-content:space-between;align-items:center;height:38px}
+  .ann .r{display:flex;gap:18px;align-items:center}
+  header .wrap{display:flex;align-items:center;gap:40px;height:78px}
+  .logo{font-family:Cinzel,serif;font-size:26px;letter-spacing:7px}
+  .menu{display:flex;gap:28px;font-size:14px}
+  .menu a:hover{color:var(--rust)}
+  .menu .sale{color:var(--rust)}
+  .search{margin-left:auto;display:flex;align-items:center;gap:10px;width:min(340px,30vw);height:44px;border:1px solid #ddd;border-radius:30px;padding:0 16px;font-size:13px;color:#999;background:#fff}
+  .search input{border:0;outline:0;flex:1;background:transparent}
+
+  .hero{position:relative;height:clamp(600px,46vw,800px);background:#c86a35 url(assets/hero.jpg) right 15%/cover no-repeat;overflow:hidden;color:#fff}
+  .hero h1{color:#fff}.hero p{color:#fff3ea!important}
+  .hero .btn{background:#fff;color:var(--ink)}.hero .btn:hover{background:var(--ink);color:#fff}
+  .hero .in{position:absolute;left:clamp(30px,4vw,70px);top:50%;transform:translateY(-50%)}
+  .hero h1{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(100px,8.6vw,165px);line-height:.95;margin:18px 0 6px}
+  .hero h2{font-size:clamp(36px,3vw,56px);font-weight:500;letter-spacing:.5px}
+  .hero p{font-size:19px;color:#4a4540;line-height:1.6;margin:22px 0 32px}
+  .happy{display:flex;align-items:center;gap:14px;margin-top:34px}
+  .faces{display:flex}
+  .faces i{width:38px;height:38px;border-radius:50%;border:2px solid #fff;margin-left:-10px;background:linear-gradient(135deg,#c9a184,#5a3b2a)}
+  .faces i:first-child{margin-left:0}
+  .faces i:nth-child(2){background:linear-gradient(135deg,#e2c3a6,#7b5340)}
+  .faces i:nth-child(3){background:linear-gradient(135deg,#a77c5f,#3a2518)}
+  .happy b{display:block;font-size:15px}
+  .happy span{color:#e4a400;letter-spacing:3px}
+  .badge{position:absolute;left:54%;top:66%;transform:rotate(-12deg);background:var(--ink);color:#fff;padding:14px 28px 14px 26px;font-family:Archivo,sans-serif;font-weight:900;font-size:clamp(28px,2.4vw,42px);line-height:.95;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .badge::before{content:"⏰";position:absolute;right:-26px;top:-30px;width:60px;height:60px;border-radius:50%;background:#f5c518;display:grid;place-items:center;font-size:30px;transform:rotate(12deg)}
+  .badge span{color:#f5c518}
+
+  .feats{display:grid;grid-template-columns:repeat(4,1fr);padding:34px 0;border-bottom:1px solid var(--line);background:#fff}
+  .feat{display:flex;align-items:center;gap:16px;justify-content:center}
+  .feat b{display:block;font-size:13px;letter-spacing:1px}
+  .feat small{font-size:12px;color:var(--muted)}
+
+  .sec-head{display:flex;justify-content:space-between;align-items:center;margin:60px 0 28px}
+  .sec-head h3{font-size:20px;font-weight:600;letter-spacing:1px}
+  .sec-head a{font-size:13px}
+  .circles{display:grid;grid-template-columns:repeat(8,1fr);gap:18px;text-align:center}
+  .circle .c{aspect-ratio:1;border-radius:50%;overflow:hidden;background:#efebe6;box-shadow:0 6px 16px rgba(0,0,0,.05);transition:transform .25s}
+  .circle:hover .c{transform:translateY(-5px)}
+  .circle img{width:100%;height:100%;object-fit:cover}
+  .circle span{display:block;margin-top:14px;font-size:14px}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:70px 0}
+  .b{position:relative;border-radius:20px;overflow:hidden;height:clamp(320px,23vw,400px);background-size:cover;background-position:right center}
+  .b::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 30%,transparent 62%)}
+  .b .t{position:absolute;left:clamp(26px,2.4vw,44px);top:50%;transform:translateY(-50%);max-width:50%}
+  .b h3{font-size:clamp(34px,2.8vw,52px);line-height:1;margin:16px 0 14px}
+  .b p{font-size:16px;margin-bottom:24px}
+
+  .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .prod{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:transform .25s,box-shadow .25s}
+  .prod:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.07)}
+  .prod .ph{aspect-ratio:1.3;background:#f1eeea}
+  .prod .ph img{width:100%;height:100%;object-fit:cover}
+  .prod .b2{padding:18px 20px 20px}
+  .prod h4{font-size:16px;font-weight:600}
+  .stars{font-size:13px;color:#e4a400;margin:6px 0}.stars span{color:var(--muted)}
+  .prod .r{display:flex;justify-content:space-between;align-items:center}
+  .prod b{font-size:18px}
+  .sw{display:flex;gap:7px;margin-top:10px}.sw i{width:16px;height:16px;border-radius:50%}
+  .bag{width:42px;height:42px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center}
+  .bag:hover{background:var(--rust)}
+
+  .serif{font-family:'Playfair Display',serif;font-weight:500;text-transform:uppercase;letter-spacing:0}
+  .wbtn{background:#fff!important;color:var(--ink)!important}
+  .look{background:#c86a35 url(assets/look.jpg) right center/cover!important;color:#fff}.look::before{display:none}.look a{color:var(--ink)}
+  .every{position:relative;border-radius:20px;overflow:hidden;height:clamp(340px,24vw,420px);margin:70px 0;background:#efe1d4 url(assets/b-women.jpg) right top/auto 130% no-repeat}
+  .every::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#efe1d4 30%,rgba(239,225,212,.4) 55%,transparent 70%)}
+  .every .t{position:absolute;left:clamp(30px,4vw,70px);top:50%;transform:translateY(-50%)}
+  .every h3{font-size:clamp(56px,4.6vw,86px);line-height:1}
+  .every p{font-size:22px;margin:14px 0 28px}
+  .every a{display:inline-flex;align-items:center;gap:12px;background:#fff;height:58px;padding:0 30px;border-radius:30px;font-weight:700;letter-spacing:.5px}
+  .news{display:flex;align-items:center;gap:20px;border:1px solid var(--line);border-radius:14px;padding:26px 30px;margin-bottom:60px;background:#fff}
+  .news i{width:48px;height:48px;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;font-style:normal;font-size:20px}
+  .news b{display:block;font-size:17px}
+  .news small{color:var(--muted);font-size:13px}
+  .news form{margin-left:auto;display:flex;gap:10px}
+  .news input{width:min(320px,30vw);height:48px;border:1px solid #ddd;padding:0 16px;outline:0}
+  .news button{height:48px;padding:0 24px;background:var(--ink);color:#fff;font-weight:600}
+  footer{background:var(--ink);color:#aaa;padding:30px 0;font-size:13px}
+  footer.big{padding:60px 0 0}footer.big .wrap{display:block}
+  .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.2fr;gap:30px;padding-bottom:40px}
+  .fgrid h6{color:#fff;font-size:13px;letter-spacing:1.5px;margin-bottom:16px}
+  .fgrid a{display:block;margin-bottom:10px}.fgrid a:hover{color:#fff}.fgrid p{margin:14px 0}
+  .fgrid .app{width:170px;height:44px;border:1px solid #444;border-radius:8px;display:flex;align-items:center;padding:0 14px;color:#fff}
+  .fbot{display:flex;justify-content:space-between;border-top:1px solid #2a2a2a;padding:22px 0}
+  @media (max-width:900px){.fgrid{grid-template-columns:1fr 1fr}}
+  footer .wrap{display:flex;justify-content:space-between}
+  footer .logo{color:#fff;font-size:20px}
+
+  @media (max-width:1100px){.menu{display:none}.circles{grid-template-columns:repeat(4,1fr)}}
+  @media (max-width:900px){
+    .ann .r,.search{display:none}.badge{display:none}
+    .feats{grid-template-columns:repeat(2,1fr);row-gap:20px}
+    .duo{grid-template-columns:1fr}.prods{grid-template-columns:repeat(2,1fr)}
+    .news{flex-wrap:wrap}.news form{margin-left:0;width:100%}.news input{flex:1}
+  }
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#fdfaf6;--xs:#ffffff;--xi:#141414;--xm:#77706a;--xa:#c86a35;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:14px;font-family:'Inter',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:0;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#141414;color:#aaaaaa;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#aaaaaa;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#141414;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#fdfaf6;--xs:#ffffff;--xi:#141414;--xm:#77706a;--xa:#c86a35;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:14px;--xbr:7px;--xbf:'Inter';--xalt:#ffffff}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:0}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "LUMIÈRE", "cur": "$", "pages": [["shop", "Shop"], ["product", "Product"], ["cart", "Cart"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Account"]], "listing": "shop.html", "freeShip": 100, "shipFee": 9, "products": [{"name": "Ivory Tiered Gown", "cat": "Dresses", "img": "assets/p1.jpg", "id": 0, "price": 64, "tag": "", "was": null, "rating": 4.6, "reviews": 363, "gallery": ["assets/p1.jpg", "assets/c1.jpg", "assets/p2.jpg", "assets/p3.jpg"]}, {"name": "Cream Tailored Blazer", "cat": "Tops", "img": "assets/p2.jpg", "id": 1, "price": 144, "tag": "Sale", "was": 187, "rating": 4.7, "reviews": 128, "gallery": ["assets/p2.jpg", "assets/c2.jpg", "assets/p1.jpg", "assets/p3.jpg"]}, {"name": "Ivory Kelly Bag", "cat": "Accessories", "img": "assets/p3.jpg", "id": 2, "price": 94, "tag": "", "was": null, "rating": 4.6, "reviews": 308, "gallery": ["assets/p3.jpg", "assets/p4.jpg", "assets/c6.jpg", "assets/c7.jpg"]}, {"name": "Tortoise Cat-Eye Sunglasses", "cat": "Accessories", "img": "assets/p4.jpg", "id": 3, "price": 119, "tag": "", "was": null, "rating": 4.6, "reviews": 341, "gallery": ["assets/p4.jpg", "assets/p3.jpg", "assets/c6.jpg", "assets/c7.jpg"]}, {"name": "Rust Wrap Dress", "cat": "Dresses", "img": "assets/c1.jpg", "id": 4, "price": 89, "tag": "New", "was": null, "rating": 4.9, "reviews": 239, "gallery": ["assets/c1.jpg", "assets/p1.jpg", "assets/p2.jpg", "assets/p3.jpg"]}, {"name": "White Rib Bralette Set", "cat": "Tops", "img": "assets/c2.jpg", "id": 5, "price": 159, "tag": "", "was": null, "rating": 4.9, "reviews": 96, "gallery": ["assets/c2.jpg", "assets/p2.jpg", "assets/p1.jpg", "assets/p3.jpg"]}, {"name": "Camel Wide Trousers", "cat": "Bottoms", "img": "assets/c3.jpg", "id": 6, "price": 169, "tag": "Sale", "was": 219, "rating": 4.8, "reviews": 165, "gallery": ["assets/c3.jpg", "assets/p1.jpg", "assets/p2.jpg", "assets/p3.jpg"]}, {"name": "Gold Hoop Earrings", "cat": "Accessories", "img": "assets/c6.jpg", "id": 7, "price": 144, "tag": "", "was": null, "rating": 4.4, "reviews": 256, "gallery": ["assets/c6.jpg", "assets/p3.jpg", "assets/p4.jpg", "assets/c7.jpg"]}, {"name": "Eau de Parfum No. 7", "cat": "Accessories", "img": "assets/c7.jpg", "id": 8, "price": 54, "tag": "Bestseller", "was": null, "rating": 4.7, "reviews": 296, "gallery": ["assets/c7.jpg", "assets/p3.jpg", "assets/p4.jpg", "assets/c6.jpg"]}, {"name": "White Leather Sneakers", "cat": "Accessories", "img": "assets/c8.jpg", "id": 9, "price": 104, "tag": "", "was": null, "rating": 4.7, "reviews": 53, "gallery": ["assets/c8.jpg", "assets/p3.jpg", "assets/p4.jpg", "assets/c6.jpg"]}, {"name": "Camel Wide-Leg Suit", "cat": "Women", "img": "../_shared/fashion/03.jpg", "id": 10, "price": 49, "tag": "", "was": null, "rating": 4.6, "reviews": 282, "gallery": ["../_shared/fashion/03.jpg", "../_shared/fashion/04.jpg", "../_shared/fashion/08.jpg", "../_shared/fashion/09.jpg"]}, {"name": "Navy Double-Breasted Suit", "cat": "Women", "img": "../_shared/fashion/04.jpg", "id": 11, "price": 84, "tag": "New", "was": null, "rating": 4.7, "reviews": 386, "gallery": ["../_shared/fashion/04.jpg", "../_shared/fashion/03.jpg", "../_shared/fashion/08.jpg", "../_shared/fashion/09.jpg"]}, {"name": "Olive Wool Overcoat", "cat": "Men", "img": "../_shared/fashion/06.jpg", "id": 12, "price": 94, "tag": "", "was": null, "rating": 4.7, "reviews": 399, "gallery": ["../_shared/fashion/06.jpg", "../_shared/fashion/07.jpg", "assets/p1.jpg", "assets/p2.jpg"]}, {"name": "Charcoal Ribbed Knit", "cat": "Men", "img": "../_shared/fashion/07.jpg", "id": 13, "price": 69, "tag": "New", "was": null, "rating": 4.8, "reviews": 373, "gallery": ["../_shared/fashion/07.jpg", "../_shared/fashion/06.jpg", "assets/p1.jpg", "assets/p2.jpg"]}, {"name": "Sand Lounge Co-ord", "cat": "Women", "img": "../_shared/fashion/08.jpg", "id": 14, "price": 164, "tag": "", "was": null, "rating": 4.6, "reviews": 322, "gallery": ["../_shared/fashion/08.jpg", "../_shared/fashion/03.jpg", "../_shared/fashion/04.jpg", "../_shared/fashion/09.jpg"]}, {"name": "Blush Modest Co-ord", "cat": "Women", "img": "../_shared/fashion/09.jpg", "id": 15, "price": 114, "tag": "Bestseller", "was": null, "rating": 4.9, "reviews": 55, "gallery": ["../_shared/fashion/09.jpg", "../_shared/fashion/03.jpg", "../_shared/fashion/04.jpg", "../_shared/fashion/08.jpg"]}], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="019">
+
+<div class="ann"><div class="wrap"><span>Free Shipping on All Orders Over $99</span><span>New Styles. Same Confidence →</span><div class="r"><span>EN ▾</span><span>🔍</span><span>👤</span><span>♡</span><span>👜</span></div></div></div>
+<header data-xnav=""><div class="wrap">
+<a class="logo" href="index.html">LUMIÈRE</a>
+<nav class="menu"><a href="shop.html">New In</a><a href="shop.html">Women ▾</a><a href="shop.html">Dresses ▾</a><a href="shop.html">Tops ▾</a><a href="shop.html">Bottoms ▾</a><a href="shop.html">Accessories ▾</a><a class="sale" href="shop.html">Sale</a></nav>
+<label class="search">🔍<input placeholder="Search for dresses, tops, accessories…"/></label>
+</div></header><div class="xi v1" id="main"><div class="xi-top"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>FAQ</span></div><h1 class="xi-h1 xi-rv">Frequently Asked Questions</h1><p class=xi-rv>Quick answers to the questions we hear most. Can't find what you need? We're here to help.</p></div></div><section class="xi-sec tight"><div class="x-in"><div style="display:grid;grid-template-columns:260px 1fr;gap:clamp(30px,5vw,80px)" class="xi-faqwrap"><div class="xi-faqnav"><a href="#faq0">Orders &amp; Shipping</a><a href="#faq1">Returns &amp; Exchanges</a><a href="#faq2">Products &amp; Care</a><div class="xi-card" style="margin-top:20px"><b>Still need help?</b><p class="xi-muted" style="font-size:14px">Our team replies within a few hours.</p><a class="x-btn" href="contact.html">Contact us</a></div></div><div><div id="faq0" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Orders &amp; Shipping</h2><details class="xi-faq" open><summary>How long does delivery take?<i>+</i></summary><p>Standard delivery takes 3–5 business days; express arrives in 1–2 days. You&#x27;ll receive tracking as soon as your order ships.</p></details><details class="xi-faq"><summary>Do you ship internationally?<i>+</i></summary><p>Yes, we ship to over 30 countries. Duties and taxes are calculated at checkout so there are no surprises.</p></details><details class="xi-faq"><summary>How can I track my order?<i>+</i></summary><p>Use the tracking link in your shipping email or log in to your account to see live updates.</p></details></div><div id="faq1" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Returns &amp; Exchanges</h2><details class="xi-faq"><summary>What is your return policy?<i>+</i></summary><p>Return unworn items within 30 days for a full refund. Returns are free for all domestic orders.</p></details><details class="xi-faq"><summary>How do exchanges work?<i>+</i></summary><p>Request an exchange from your account; we ship the new item as soon as your return is scanned.</p></details><details class="xi-faq"><summary>When will I get my refund?<i>+</i></summary><p>Refunds are processed within 3–5 business days of receiving your return.</p></details></div><div id="faq2" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Products &amp; Care</h2><details class="xi-faq"><summary>How do I find my size?<i>+</i></summary><p>Every product page has a size guide with measurements. Our team is also happy to help over chat.</p></details><details class="xi-faq"><summary>Are your products sustainable?<i>+</i></summary><p>We use certified and recycled materials wherever possible and plastic-free packaging.</p></details><details class="xi-faq"><summary>Do you offer gift wrapping?<i>+</i></summary><p>Yes — add gift wrapping and a handwritten note at checkout.</p></details></div></div></div><style>@media(max-width:900px){.xi-faqwrap{grid-template-columns:1fr!important}.xi-faqnav{position:static}}</style></div></section></div><footer class="big"><div class="wrap"><div class="fgrid">
+<div><span class="logo">LUMIÈRE</span><p>Fashion for a Brighter You.</p><p>◎  f  𝒫  ▶  ♪</p></div>
+<div><h6>SHOP</h6><a href="shop.html">New In</a><a href="shop.html?c=Dresses">Dresses</a><a href="shop.html?c=Tops">Tops</a><a href="shop.html?c=Bottoms">Bottoms</a><a href="shop.html?c=Accessories">Accessories</a><a href="shop.html">Sale</a></div>
+<div><h6>HELP</h6><a href="account.html">Track Order</a><a href="faq.html">Returns &amp; Exchanges</a><a href="faq.html">Shipping Info</a><a href="faq.html">Size Guide</a><a href="faq.html">FAQs</a><a href="contact.html">Contact Us</a></div>
+<div><h6>COMPANY</h6><a href="about.html">About Us</a><a href="about.html">Our Story</a><a href="about.html">Sustainability</a><a href="about.html">Careers</a><a href="about.html">Press</a><a href="faq.html">Privacy Policy</a></div>
+<div><h6>DOWNLOAD OUR APP</h6><p>Shop Anytime, Anywhere.</p><a class="app" href="contact.html"> App Store</a><a class="app" href="about.html">▶ Google Play</a></div>
+</div><div class="fbot"><span>© 2026 Lumière. All rights reserved.</span><span>VISA · MC · PayPal · Apple Pay</span></div></div></footer>
+</body>
+</html>

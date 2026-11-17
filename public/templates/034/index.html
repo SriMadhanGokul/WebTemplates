@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLARIS Energy — Clean Energy, Powered by the Sun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--sun:#f5b324;--dark:#0e1116;--ink:#111;--muted:#737373}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:#f5f5f3;color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+  .anton{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase}
+  .hero-box{container-type:inline-size;margin-top:24px}
+  .hero{position:relative;border-radius:20px;overflow:hidden;height:clamp(640px,52vw,900px);color:#fff;background:#1a1410 url(assets/hero.jpg) center 40%/cover}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,12,16,.92) 0%,rgba(10,12,16,.35) 40%,rgba(10,12,16,.55))}
+  .word{position:absolute;left:0;right:0;top:12%;text-align:center;font-family:Anton,Impact,sans-serif;font-size:30cqw;line-height:.85;color:#fff;opacity:.92;letter-spacing:-.5cqw}
+  .hero>.nav{position:relative}
+  .nav{display:flex;align-items:center;padding:24px 36px;z-index:2}
+  .logo{font-family:Anton,Impact,sans-serif;font-size:24px;color:var(--sun)}
+  .logo small{color:#fff;font-size:13px;margin-left:4px}
+  .menu{display:flex;gap:32px;margin:0 auto;font-size:13px;font-weight:600;letter-spacing:.5px}
+  .menu a.on{color:var(--sun);border-bottom:2px solid var(--sun);padding-bottom:4px}
+  .menu a:hover{color:var(--sun)}
+  .quote{background:var(--sun);color:var(--ink);padding:10px 18px;border-radius:30px;font-family:Anton,Impact,sans-serif;font-size:14px;margin-left:20px}
+  .copy{position:absolute;left:52px;bottom:200px;z-index:2;text-shadow:0 2px 16px rgba(0,0,0,.6)}
+  .copy h2{background:rgba(10,12,16,.35);padding:6px 10px;display:table}
+  .copy h2{font-size:clamp(28px,2.4vw,42px);line-height:1.05}
+  .copy h2 span{color:var(--sun)}
+  .copy a{display:inline-flex;margin-top:24px;background:var(--sun);color:var(--ink);padding:14px 24px;border-radius:30px;font-family:Anton,Impact,sans-serif;font-size:15px}
+  .tag{position:absolute;right:52px;bottom:220px;text-align:right;font-size:17px;opacity:.9;max-width:340px;line-height:1.5;z-index:2}
+  .stats{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);padding:30px 0;background:rgba(10,12,16,.85);z-index:2}
+  .stats div{display:flex;align-items:center;gap:14px;justify-content:center;border-right:1px solid rgba(255,255,255,.12)}
+  .stats div:last-child{border:0}
+  .stats i{font-style:normal;color:var(--sun);font-size:26px}
+  .stats b{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:34px}
+  .stats small{font-size:11px;letter-spacing:1px;opacity:.7}
+  .row2{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:center;padding:90px 0}
+  .tiny{font-size:12px;letter-spacing:2px;font-weight:700;color:#c48a12}
+  .row2 h2{font-size:clamp(56px,4.6vw,86px);line-height:.95;margin:16px 0 20px}
+  .row2 p{color:var(--muted);line-height:1.7;margin-bottom:26px}
+  .row2 .img{border-radius:20px;overflow:hidden;aspect-ratio:1.6}
+  .row2 img{width:100%;height:100%;object-fit:cover}
+  .dark-btn{display:inline-flex;background:var(--dark);color:#fff;padding:14px 24px;border-radius:30px;font-weight:600;font-size:14px}
+  .sol{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:80px}
+  .card{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:.95;color:#fff}
+  .card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .card:hover img{transform:scale(1.05)}
+  .card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.8))}
+  .card .t{position:absolute;left:26px;right:26px;bottom:26px;z-index:2}
+  .card h3{font-size:32px}.card p{opacity:.8;font-size:14px;margin-top:6px}
+  .cta{display:flex;justify-content:space-between;align-items:center;background:var(--dark);color:#fff;border-radius:20px;padding:56px;margin-bottom:60px}
+  .cta h2{font-size:clamp(40px,3.4vw,62px);line-height:1}
+  .cta h2 span{color:var(--sun)}
+  .cta a{background:var(--sun);color:var(--ink);padding:16px 30px;border-radius:30px;font-family:Anton,Impact,sans-serif;font-size:17px}
+  footer{border-top:1px solid #ddd;padding:26px 0;display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+  @media (max-width:1000px){.menu,.tag{display:none}.nav{padding:20px}.copy{left:24px}.stats{grid-template-columns:1fr 1fr;row-gap:16px}.stats div{border:0}.row2{grid-template-columns:1fr}.sol{grid-template-columns:1fr}.cta{flex-direction:column;align-items:flex-start;gap:24px}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#f5f5f3;--xs:#ffffff;--xi:#111111;--xm:#737373;--xa:#f5b324;--xai:#111;--xl:rgba(0,0,0,.08);--xr:18px;font-family:'Inter',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#0e1116;color:#9a9a9a;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#9a9a9a;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#0e1116;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<!--xi:head--><link rel="stylesheet" href="../_shared/inner.css"><script>window.XI_DATA={"brand": "SOLARIS", "cur": "$", "pages": [["services", "Solutions"], ["service", "Solution"], ["projects", "Projects"], ["project", "Project"], ["about", "About"], ["blog", "Blog"], ["post", "Article"], ["faq", "FAQ"], ["booking", "Get a Quote"], ["contact", "Contact"]], "listing": "services.html", "products": [], "burgerAlways": false}</script><script src="../_shared/site.js" defer></script><!--/xi:head--></head>
+<body data-tpl="034">
+<main class="wrap">
+  <div class="hero-box"><section class="hero">
+    <div class="word" aria-hidden="true">SOLAR</div>
+    <div class="nav"><a href="index.html" class="logo">☀ SOLARIS<small>ENERGY</small></a><nav class="menu"><a href="index.html" class="on">HOME</a><a href="services.html">SOLUTIONS</a><a href="services.html">PRODUCTS</a><a href="projects.html">PROJECTS</a><a href="about.html">ABOUT US</a><a href="blog.html">BLOG</a></nav><span>👤</span><a href="booking.html" class="quote">GET A QUOTE →</a></div>
+    <div class="copy"><h2 class="anton">Clean Energy.<br>Smarter Future.<br><span>Powered by the Sun.</span></h2><a href="services.html">EXPLORE SOLUTIONS →</a></div>
+    <div class="tag">High-efficiency solar solutions for homes, businesses &amp; industries.</div>
+    <div class="stats"><div><i>☀</i><span><b>10+</b><small>YEARS OF EXPERIENCE</small></span></div><div><i>⚡</i><span><b>5000+</b><small>HAPPY CUSTOMERS WORLDWIDE</small></span></div><div><i>▦</i><span><b>50+</b><small>MW INSTALLED CAPACITY</small></span></div><div><i>🍃</i><span><b>100%</b><small>CLEAN &amp; RENEWABLE ENERGY</small></span></div></div>
+  </section></div>
+
+  <section class="row2">
+    <div><div class="tiny">BUILT FOR A BETTER TOMORROW</div><h2 class="anton">Powering<br>Homes.</h2><p>From rooftop panels to battery storage, we design solar systems that cut bills and carbon — installed by certified experts and monitored 24/7.</p><a href="services.html" class="dark-btn">Learn More →</a></div>
+    <div class="img"><img src="assets/homes.jpg" alt="Home with solar roof at sunset"></div>
+  </section>
+  <section class="sol">
+    <a href="project.html" class="card"><img src="assets/roof.jpg" alt="Residential rooftop solar"><div class="t"><h3 class="anton">Residential</h3><p>Rooftop solar &amp; home batteries.</p></div></a>
+    <a href="project.html" class="card"><img src="assets/biz.jpg" alt="Commercial solar"><div class="t"><h3 class="anton">Commercial</h3><p>Lower operating costs at scale.</p></div></a>
+    <a href="project.html" class="card"><img src="assets/farm.jpg" alt="Solar farm"><div class="t"><h3 class="anton">Industrial</h3><p>Utility-scale solar farms.</p></div></a>
+  </section>
+  <section class="cta"><h2 class="anton">Ready to go<br><span>solar?</span></h2><a href="booking.html">GET A FREE QUOTE →</a></section>
+  
+<!-- x-complete:start -->
+<section class="x-sec x-alt" id="process"><div class="x-in"><div class="x-head"><span class="x-eye">How it works</span><h2 class="x-h2">Simple steps, remarkable results</h2></div><div class="x-g4 x-steps"><div class="x-step"><span class="x-num">01</span><b>Free Assessment</b><small>We analyse your roof and energy use.</small></div><div class="x-step"><span class="x-num">02</span><b>Custom Design</b><small>Engineers size the perfect system.</small></div><div class="x-step"><span class="x-num">03</span><b>Installation</b><small>Certified crews install in 1–3 days.</small></div><div class="x-step"><span class="x-num">04</span><b>Monitor &amp; Save</b><small>Track savings live in our app.</small></div></div></div></section>
+<section class="x-sec" id="testimonials"><div class="x-in"><div class="x-head"><span class="x-eye">Testimonials</span><h2 class="x-h2">Trusted by homeowners &amp; businesses</h2><p>Real words from real people who chose SOLARIS.</p></div><div class="x-g3"><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Our electricity bill dropped by 70% in the first month. Installation took just two days.”</blockquote><figcaption><i>T</i><b>The Sharma Family</b><small>Homeowners</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Clean energy now powers our entire facility — and the ROI beat projections.”</blockquote><figcaption><i>G</i><b>Greenleaf Foods</b><small>Commercial client</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Professional team, clear pricing and an app that shows every kilowatt we save.”</blockquote><figcaption><i>A</i><b>Ahmed R.</b><small>Homeowner</small></figcaption></figure></div></div></section>
+<section class="x-sec" id="faq"><div class="x-in x-split"><div><div class="x-head"><span class="x-eye">FAQ</span><h2 class="x-h2">Questions, answered</h2><p>Can’t find what you’re looking for? Our team is happy to help.</p></div><a href="#contact" class="x-btn">Contact support →</a></div><div><details class="x-faq" open><summary>How much can I save?<i>+</i></summary><p>Most homes save 50–80% on electricity bills from day one.</p></details><details class="x-faq"><summary>How long does installation take?<i>+</i></summary><p>Residential systems are installed in 1–3 days.</p></details><details class="x-faq"><summary>What about cloudy days?<i>+</i></summary><p>Panels still generate power and batteries store the surplus.</p></details><details class="x-faq"><summary>Is there a warranty?<i>+</i></summary><p>Panels carry a 25-year performance warranty.</p></details></div></div></section>
+<section class="x-sec x-alt" id="contact"><div class="x-in x-split"><div><span class="x-eye">Contact</span><h2 class="x-h2">Let’s talk about your project</h2><p class="x-lead">Tell us a little about what you need and we’ll get back within one business day.</p><ul class="x-info"><li>✉ hello@solaris.com</li><li>☎ +1 (555) 210 4480</li><li>📍 221 Market Street, Suite 8, New York</li><li>🕘 Mon – Sat, 9:00 – 19:00</li></ul></div><form class="x-card x-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we’ll be in touch ✓';this.reset()"><div class="x-two"><input placeholder="Full name" required aria-label="Full name"><input type="email" placeholder="Email address" required aria-label="Email"></div><div class="x-two"><input type="tel" placeholder="Phone number" aria-label="Phone"></div><textarea rows="4" placeholder="Your message" aria-label="Message"></textarea><button class="x-btn">Send message →</button></form></div></section>
+<!-- x-complete:end -->
+<!-- x-footer:start --><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">SOLARIS</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">◎</a><a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">f</a><a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">𝕏</a><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">▶</a><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">in</a></div></div><div><h6>Solutions</h6><a href="services.html">Overview</a><a href="contact.html">Pricing</a><a href="projects.html">Projects</a><a href="services.html">Resources</a></div><div><h6>Company</h6><a href="about.html">About</a><a href="about.html">Careers</a><a href="blog.html">News</a><a href="services.html">Partners</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@solaris.com<br>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input type="email" placeholder="Your email" aria-label="Email" required><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 SOLARIS. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div><!-- x-footer:end -->
+</main>
+</body>
+</html>

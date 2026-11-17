@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agents — Luxe Estates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1612;--muted:#7b736b;--bg:#fdf8f3;--line:#ece4da;--gold:#b58a5a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Montserrat,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button{font-family:inherit;cursor:pointer;border:0;background:none}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+  .cg{font-family:"Cormorant Garamond",serif;font-weight:500}
+  .tiny{font-size:11px;letter-spacing:4px;font-weight:600;text-transform:uppercase}
+
+  .hero{position:relative;margin-top:28px;border-radius:36px;overflow:hidden;height:clamp(680px,54vw,920px);color:#fff;background:#6a4a2a url(assets/hero.jpg) center/cover no-repeat}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,18,8,.6),rgba(30,18,8,.15) 55%,transparent),linear-gradient(180deg,rgba(0,0,0,.35),transparent 20%)}
+  .hero>*{position:relative}
+  .nav{display:flex;align-items:center;padding:34px 52px}
+  .logo b{display:block;font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:500;letter-spacing:6px}
+  .logo small{font-size:9px;letter-spacing:4px;opacity:.8}
+  .menu{display:flex;gap:40px;margin:0 auto;font-size:11px;letter-spacing:2.5px;font-weight:500}
+  .menu a{opacity:.85;padding-bottom:6px}
+  .menu a.on{opacity:1;border-bottom:1px solid #fff}
+  .menu a:hover{opacity:1}
+  .search{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;margin-right:14px}
+  .enq{background:#14110e;height:46px;padding:0 26px;border-radius:30px;display:flex;align-items:center;font-size:11px;letter-spacing:2.5px;font-weight:600}
+  .copy{position:absolute;left:clamp(52px,6vw,110px);top:44%;transform:translateY(-50%)}
+  .hero h1{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(84px,8vw,148px);line-height:1;text-transform:uppercase;margin:22px 0 28px}
+  .hero p{font-size:16px;line-height:1.7;opacity:.9;max-width:520px;margin-bottom:38px}
+  .row{display:flex;align-items:center;gap:26px}
+  .pill{background:#fff;color:var(--ink);height:52px;padding:0 30px;border-radius:30px;display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:2.5px;font-weight:600}
+  .pill:hover{background:#f4ece2}
+  .watch{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:2.5px;font-weight:600}
+  .watch i{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-style:normal;font-size:11px}
+  .stats{position:absolute;left:36px;right:36px;bottom:36px;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;color:var(--ink);border-radius:30px;padding:36px 0;box-shadow:0 20px 50px rgba(0,0,0,.18)}
+  .stat{text-align:center;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(40px,3vw,54px);line-height:1}
+  .stat small{font-size:10px;letter-spacing:3px;color:var(--muted);font-weight:600}
+
+  .head{display:flex;justify-content:space-between;align-items:flex-end;margin:100px 0 44px}
+  .head h2{font-size:clamp(48px,3.8vw,68px);line-height:1.05;margin-top:14px;text-transform:uppercase}
+  .head .r{max-width:440px}
+  .head p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+  .head a{font-size:11px;letter-spacing:3px;font-weight:600}
+  .props{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:100px}
+  .prop{background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line);transition:transform .3s,box-shadow .3s}
+  .prop:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(60,40,20,.1)}
+  .prop .ph{position:relative;aspect-ratio:4/3;overflow:hidden}
+  .prop .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .prop:hover .ph img{transform:scale(1.05)}
+  .tag{position:absolute;left:18px;top:18px;background:#fff;font-size:10px;letter-spacing:2px;font-weight:700;padding:6px 12px;border-radius:20px}
+  .fav{position:absolute;right:18px;top:18px;width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center}
+  .prop .body{padding:28px}
+  .prop .t{display:flex;justify-content:space-between;gap:16px}
+  .prop h4{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:24px;letter-spacing:1px;text-transform:uppercase;line-height:1.2}
+  .prop .price{font-size:17px;font-weight:700;white-space:nowrap}
+  .prop .loc{font-size:13px;color:var(--muted);margin:8px 0 24px}
+  .meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}
+
+  .cta{position:relative;border-radius:30px;overflow:hidden;height:clamp(400px,30vw,520px);color:#fff;background:#3a2a1a url(assets/cta.jpg) center/cover;margin-bottom:80px}
+  .cta::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,12,5,.7),rgba(20,12,5,.2) 70%)}
+  .cta .in{position:absolute;left:clamp(40px,5vw,90px);top:50%;transform:translateY(-50%);max-width:620px}
+  .cta h3{font-size:clamp(46px,3.8vw,68px);line-height:1.05;margin:16px 0 20px}
+  .cta p{font-size:15px;opacity:.9;line-height:1.7;margin-bottom:32px}
+
+  footer{border-top:1px solid var(--line);padding:60px 0 40px}
+  .foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+  footer p{font-size:14px;color:var(--muted);line-height:1.7;max-width:360px;margin-top:16px}
+  footer h6{font-size:11px;letter-spacing:3px;margin-bottom:18px}
+  footer .col a,footer .col span{display:block;font-size:14px;color:var(--muted);margin-bottom:10px}
+  footer .col a:hover{color:var(--ink)}
+  .copy-r{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:50px;padding-top:24px;border-top:1px solid var(--line)}
+
+  @media (max-width:1000px){
+    .menu{display:none}.nav{padding:24px}
+    .stats{grid-template-columns:repeat(2,1fr);row-gap:24px;left:16px;right:16px}
+    .props{grid-template-columns:1fr}.head{flex-direction:column;align-items:flex-start;gap:20px}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#fdf8f3;--xs:#ffffff;--xi:#1a1612;--xm:#7b736b;--xa:#b58a5a;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:22px;font-family:'Montserrat',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Montserrat',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Montserrat',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#1a1612;color:#c9bfb3;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#c9bfb3;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#1a1612;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#fdf8f3;--xs:#ffffff;--xi:#1a1612;--xm:#7b736b;--xa:#b58a5a;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:22px;--xbr:999px;--xbf:'Montserrat';--xalt:#ffffff}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "Luxe Estates", "cur": "$", "pages": [["properties", "Properties"], ["property", "Property"], ["services", "Services"], ["about", "About"], ["team", "Agents"], ["blog", "Insights"], ["post", "Article"], ["contact", "Contact"]], "listing": "properties.html", "freeShip": 100, "shipFee": 9, "products": [], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="008">
+
+<main class="wrap">
+<section class="hero xi-band">
+<div class="nav" data-xnav="">
+<a class="logo" href="index.html"><b>LUXE ESTATES</b><small>EXCEPTIONAL LIVING</small></a>
+<nav class="menu"><a class="on" href="index.html">HOME</a><a href="properties.html">PROPERTIES</a><a href="about.html">ABOUT</a><a href="services.html">SERVICES</a><a href="contact.html">CONTACT</a></nav>
+<a aria-label="Search" class="search" href="properties.html"><svg fill="none" height="16" stroke="#fff" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+<a class="enq" href="contact.html">ENQUIRE NOW →</a>
+</div><div class="xi xi-ph-band v2"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Agents</span></div><h1 class="xi-h1 xi-rv">Meet Our Agents</h1><p class=xi-rv>Local experts who know every street, school and secret garden in the city.</p></div></div>
+
+
+</section><div class="xi v2" id="main"><section class="xi-sec "><div class="x-in"><div class="xi-head"><div><span class="xi-eye">Our people</span><h2 class="xi-h2 xi-rv">The people you'll work with</h2></div></div><div class="xi-g4"><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/people/21.jpg" alt="Aisha Kapoor" loading="lazy"></div><b>Aisha Kapoor</b><small>Founder &amp; Principal Broker</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/men/13.jpg" alt="Daniel Reyes" loading="lazy"></div><b>Daniel Reyes</b><small>Senior Property Advisor</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/people/22.jpg" alt="Mira Chen" loading="lazy"></div><b>Mira Chen</b><small>Luxury Homes Specialist</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/men/14.jpg" alt="Omar Haddad" loading="lazy"></div><b>Omar Haddad</b><small>Rentals Manager</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/people/23.jpg" alt="Sofia Marin" loading="lazy"></div><b>Sofia Marin</b><small>Investment Analyst</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/men/01.jpg" alt="Rohan Mehta" loading="lazy"></div><b>Rohan Mehta</b><small>Client Relations</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/people/24.jpg" alt="Elena Petrova" loading="lazy"></div><b>Elena Petrova</b><small>Founder &amp; Principal Broker</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/men/02.jpg" alt="Lucas Martin" loading="lazy"></div><b>Lucas Martin</b><small>Senior Property Advisor</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div></div></div></section><section class="xi-sec tight"><div class="x-in"><div class="xi-cta xi-rv"><img src="../_shared/realestate/02.jpg" alt="" loading="lazy"><div><h2 class="xi-h2" style="color:#fff">Join our team</h2><p>We're always looking for passionate people to join us. Get in touch and tell us about yourself.</p></div><a class="x-btn" href="contact.html">Get in touch</a></div></div></section></div></main><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Luxe Estates</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">f</a><a aria-label="X" href="https://x.com/" target="_blank" rel="noopener">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a></div></div><div><h6>Explore</h6><a href="properties.html">Properties</a><a href="services.html">Services</a><a href="services.html">Process</a><a href="blog.html">Journal</a></div><div><h6>Company</h6><a href="about.html">About Us</a><a href="team.html">Our Team</a><a href="about.html">Careers</a><a href="about.html">Press</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="contact.html">FAQs</a><a href="about.html">Privacy Policy</a><a href="about.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@luxeestates.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Luxe Estates. All rights reserved.</span><span><a href="about.html">Privacy Policy</a> · <a href="about.html">Terms of Service</a> · <a href="about.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — INTER Interiors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--lime:#a6dc4a;--dark:#120c0a;--ink:#141110;--muted:#7a736d;--cream:#f4f0ea;--card:#ebe5dc}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+  .anton{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase}
+  .script{font-family:"Great Vibes",cursive;color:var(--lime);text-transform:none;font-weight:400}
+  .tiny{font-size:12px;letter-spacing:4px;font-weight:600;text-transform:uppercase}
+
+  .hero{position:relative;margin-top:24px;height:clamp(640px,50vw,880px);color:#fff;background:#2a1a10 url(assets/hero.jpg) center/cover no-repeat;border-radius:20px 20px 0 0;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,6,4,.6),transparent 60%),linear-gradient(180deg,rgba(0,0,0,.45),transparent 22%)}
+  .hero>*{position:relative}
+  .nav{display:flex;align-items:center;padding:30px 48px}
+  .logo{display:inline-block;font-family:Anton,Impact,sans-serif;font-size:30px;letter-spacing:1px;line-height:1;position:relative}
+  .logo::after{content:"";position:absolute;right:-14px;top:0;width:10px;height:10px;background:var(--lime)}
+  .logo small{display:block;font-family:Inter;font-size:9px;letter-spacing:4px;font-weight:600;opacity:.8;margin-top:4px}
+  .menu{display:flex;gap:40px;margin:0 auto;font-size:14px}
+  .menu a{opacity:.85}.menu a:hover{opacity:1;color:var(--lime)}
+  .quote{border:1px solid rgba(255,255,255,.5);height:44px;padding:0 22px;border-radius:30px;display:flex;align-items:center;gap:8px;font-size:14px}
+  .quote:hover{background:#fff;color:var(--ink)}
+  .box{position:absolute;left:clamp(40px,4vw,70px);top:50%;transform:translateY(-46%);border:1px solid rgba(255,255,255,.4);border-radius:14px;padding:44px 44px 40px;background:rgba(10,6,4,.25);backdrop-filter:blur(4px);max-width:640px}
+  .box .script{font-size:clamp(70px,6vw,110px);line-height:1;display:block;margin-top:14px}
+  .box h1{font-size:clamp(70px,6vw,110px);line-height:1;margin-top:-6px}
+  .box p{font-size:16px;opacity:.85;line-height:1.6;margin:20px 0 28px}
+  .pill{display:inline-flex;align-items:center;gap:14px;background:#fff;color:var(--ink);height:52px;padding:0 8px 0 26px;border-radius:30px;font-size:15px;font-weight:500}
+  .pill i{width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-style:normal}
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--dark);color:#fff;padding:30px 0;border-radius:0 0 20px 20px}
+  .strip div{display:flex;align-items:center;gap:16px;justify-content:center;border-right:1px solid rgba(255,255,255,.12)}
+  .strip div:last-child{border:0}
+  .strip b{display:block;font-size:15px;font-weight:600}.strip small{font-size:12px;opacity:.55}
+
+  .head{display:flex;justify-content:space-between;align-items:flex-end;margin:90px 0 40px}
+  .head h2{font-size:clamp(50px,4vw,74px);line-height:1;margin-top:14px}
+  .head h2 .script{font-size:1.1em;margin-left:10px}
+  .head p{max-width:380px;text-align:right;color:var(--muted);line-height:1.6}
+  .spaces{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .space{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 10px 28px rgba(40,25,10,.08);transition:transform .3s}
+  .space:hover{transform:translateY(-5px)}
+  .space .ph{aspect-ratio:16/8.5;overflow:hidden}
+  .space img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .space:hover img{transform:scale(1.05)}
+  .space .t{display:flex;justify-content:space-between;align-items:center;padding:26px 30px}
+  .space h3{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:28px;letter-spacing:.5px}
+  .space p{font-size:14px;color:var(--muted);margin-top:4px}
+  .space .go{width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center}
+  .about{padding:100px 0 90px;display:grid;grid-template-columns:1fr 2fr;gap:60px}
+  .about h2{font-size:clamp(50px,4vw,74px)}
+  .about p{font-size:19px;line-height:1.75;color:#3a342f}
+  .about .nums{display:flex;gap:50px;margin-top:36px}
+  .about .nums b{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:48px}
+  .about .nums small{font-size:14px;color:var(--muted)}
+
+  footer{background:var(--dark);color:#a59d96}
+  .cta{display:flex;justify-content:space-between;align-items:center;padding:80px 0 50px;border-bottom:1px solid #2a2320}
+  .cta h2{font-size:clamp(46px,3.6vw,66px);color:#fff;margin:14px 0 10px}
+  .cta .script{font-size:1.15em}
+  .cta .quote{color:#fff;height:54px;padding:0 30px}
+  .foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding:50px 0}
+  .foot .logo{color:#fff}
+  .foot p{color:var(--lime);font-size:14px;margin-top:30px}
+  .foot h6{color:#fff;font-size:15px;margin-bottom:18px}
+  .foot a{display:block;font-size:14px;margin-bottom:10px}.foot a:hover{color:#fff}
+  .soc{display:flex;gap:10px}.soc a{width:38px;height:38px;border-radius:50%;border:1px solid #3a322d;display:grid;place-items:center}
+  .bot{display:flex;justify-content:space-between;border-top:1px solid #2a2320;padding:24px 0 34px;font-size:13px}
+
+  @media (max-width:1000px){
+    .menu{display:none}.nav{padding:22px}
+    .box{left:16px;right:16px;padding:30px}
+    .strip{grid-template-columns:repeat(2,1fr);row-gap:20px}
+    .spaces,.about{grid-template-columns:1fr}.head{flex-direction:column;align-items:flex-start;gap:16px}.head p{text-align:left}
+    .cta{flex-direction:column;align-items:flex-start;gap:20px}.foot{grid-template-columns:1fr 1fr}
+  }
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#f4f0ea;--xs:#ebe5dc;--xi:#141110;--xm:#7a736d;--xa:#141110;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:16px;font-family:'Inter',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ebe5dc}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#120c0a;color:#a59d96;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#a59d96;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#120c0a;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#f4f0ea;--xs:#ebe5dc;--xi:#141110;--xm:#7a736d;--xa:#141110;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:16px;--xbr:999px;--xbf:'Inter';--xalt:#ebe5dc}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "INTER Interiors", "cur": "$", "pages": [["projects", "Projects"], ["project", "Project"], ["services", "Services"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["contact", "Contact"]], "listing": "projects.html", "freeShip": 100, "shipFee": 9, "products": [], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="021">
+
+<main class="wrap">
+<section class="hero xi-band">
+<div class="nav" data-xnav="">
+<a class="logo" href="index.html">INTER<small>INTERIORS</small></a>
+<nav class="menu"><a href="index.html">Home ▾</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+<a class="quote" href="contact.html">Get a Quote →</a>
+</div><div class="xi xi-ph-band v0"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div><h1 class="xi-h1 xi-rv">Contact Us</h1><p class=xi-rv>Questions, feedback or a project in mind? Reach out and a real person will get back to you shortly.</p></div></div>
+
+</section><div class="xi v0" id="main"><section class="xi-sec tight"><div class="x-in"><div class="xi-contact"><div><span class="xi-eye">Get in touch</span><h2 class="xi-h2" style="margin-bottom:24px">We'd love to hear from you</h2><div class="xi-cinfo"><div><i>⌖</i><span><b>Visit us</b><small>214 Mercer Street, New York, NY 10012</small></span></div><div><i>☎</i><span><b>Call us</b><small><a href="tel:+15552104480">+1 (555) 210 4480</a></small></span></div><div><i>✉</i><span><b>Email</b><small><a href="mailto:hello@interinteriors.com">hello@interinteriors.com</a></small></span></div><div><i>◷</i><span><b>Opening hours</b><small>Mon–Fri · 9am–6pm</small></span></div></div></div><div class="xi-card" style="padding:clamp(24px,3vw,44px)"><h3 class="xi-h3" style="margin-bottom:20px">Send us a message</h3><form class="xi-form" data-ok="Thanks! Your message has been sent — we&#x27;ll reply within one business day."><div class="two"><label>Full name<input name="name" required placeholder="Jane Cooper"></label><label>Email<input type="email" name="email" required placeholder="jane@example.com"></label></div><div class="two"><label>Phone<input type="tel" name="phone" placeholder="+1 555 000 0000"></label><label>Topic<select name="topic"><option>New project</option><option>General enquiry</option><option>Careers</option><option>Press</option></select></label></div><label>Message<textarea name="message" required minlength="10" placeholder="How can we help?"></textarea></label><label class="xi-check"><input type="checkbox" required> I agree to the privacy policy and to be contacted about my enquiry.</label><button class="x-btn" type="submit">Send message</button><div class="xi-success" hidden></div></form></div></div></div></section><section class="xi-sec tight"><div class="x-in"><div class="xi-map xi-rv"><iframe title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.006,40.720,-73.994,40.728&amp;layer=mapnik"></iframe></div></div></section><section class="xi-sec alt"><div class="x-in"><div class="xi-head"><div><span class="xi-eye">FAQ</span><h2 class="xi-h2 xi-rv">Common questions</h2></div></div><details class="xi-faq" open><summary>How do I get started?<i>+</i></summary><p>Book a free consultation through our contact form. We&#x27;ll discuss your goals, timeline and budget.</p></details><details class="xi-faq"><summary>Is the first consultation free?<i>+</i></summary><p>Yes, the first 30-minute consultation is always free and without obligation.</p></details><details class="xi-faq"><summary>How long does a typical project take?<i>+</i></summary><p>Most projects run 4–12 weeks depending on scope. We share a detailed timeline after discovery.</p></details></div></section></div></main><footer><div class="wrap">
+<div class="cta"><div><div class="tiny">Let's Create</div><h2 class="anton">Spaces You'll <span class="script">Love</span></h2><p>Get in touch today and let's bring your dream space to life.</p></div><a class="quote" href="contact.html">Get a Quote →</a></div>
+<div class="foot">
+<div><a class="logo" href="index.html">INTER<small>INTERIORS</small></a><p>Interiors for a better tomorrow.</p></div>
+<div><h6>Quick Links</h6><a href="index.html">Home</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+<div><h6>Our Services</h6><a href="projects.html">Residential Interiors</a><a href="projects.html">Modular Kitchens</a><a href="projects.html">Bedroom Interiors</a><a href="projects.html">Renovations</a><a href="contact.html">Consultation</a></div>
+<div><h6>Follow Us</h6><div class="soc"><a href="projects.html">◎</a><a href="projects.html">f</a><a href="projects.html">𝒫</a><a href="projects.html">▶</a><a href="projects.html">in</a></div></div>
+</div>
+<div class="bot"><span>© 2026 INTER Interiors. All rights reserved.</span><span>Privacy Policy  |  Terms &amp; Conditions  |  Sitemap</span></div>
+</div></footer>
+</body>
+</html>

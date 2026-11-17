@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Shopio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fdfcf9;
+    --beige:#e8decf;
+    --beige-2:#efe7dc;
+    --sand:#f4f0ea;
+    --ink:#161616;
+    --text:#2b2b2b;
+    --muted:#7c7a75;
+    --line:#ebe6de;
+    --gold:#c8963e;
+    --orange:#c2621f;
+    --red:#c0392b;
+    --green:#3c9a5f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button,input{font-family:inherit}
+  button{cursor:pointer;border:0;background:none}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+
+  /* ---------- Top bar ---------- */
+  .topbar{font-size:11px;color:var(--muted);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:36px}
+  .topbar .l,.topbar .r{display:flex;align-items:center;gap:16px}
+  .topbar .sep{width:1px;height:12px;background:#d8d3ca}
+  .topbar .dd{display:flex;align-items:center;gap:4px}
+
+  /* ---------- Header ---------- */
+  header .wrap{display:flex;align-items:center;height:72px}
+  .logo{font-size:24px;font-weight:800;letter-spacing:-.6px;color:var(--ink)}
+  .logo span{color:var(--gold)}
+  .menu{display:flex;gap:34px;margin:0 auto;font-size:13px;color:#3a3a3a}
+  .menu a{padding:6px 0;position:relative}
+  .menu a.active{color:var(--ink);font-weight:500}
+  .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--ink)}
+  .menu a:hover{color:var(--ink)}
+  .menu .dd{display:flex;align-items:center;gap:5px}
+  .icons{display:flex;gap:20px;align-items:center}
+  .icons a{position:relative;display:grid;place-items:center}
+  .icons .badge{position:absolute;top:-6px;right:-8px;background:var(--ink);color:#fff;font-size:9px;font-weight:600;width:15px;height:15px;border-radius:50%;display:grid;place-items:center}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;height:clamp(500px,36vw,640px);border-radius:22px;overflow:hidden;background:var(--beige);box-shadow:0 14px 40px rgba(70,50,20,.10);margin-top:8px}
+  .hero .photo{position:absolute;inset:0;background:url(assets/hero.jpg) right top/cover no-repeat}
+  .hero .copy{position:relative;z-index:2;padding:72px 0 0 56px;max-width:560px}
+  .pill{display:inline-block;background:rgba(255,255,255,.75);border-radius:30px;padding:6px 14px;font-size:10.5px;font-weight:600;letter-spacing:.6px;color:#2d2a25;text-transform:uppercase}
+  .hero h1{font-size:54px;font-weight:400;line-height:1.14;letter-spacing:-.5px;color:#1d1b18;margin:22px 0 22px}
+  .hero p{font-size:15px;line-height:1.7;color:#55514a;max-width:360px;margin-bottom:30px}
+  .btns{display:flex;gap:14px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 28px;border-radius:6px;font-size:13.5px;font-weight:500}
+  .btn-dark{background:#161616;color:#fff}
+  .btn-dark:hover{background:#333}
+  .btn-light{background:rgba(255,255,255,.85);color:#222;border:1px solid rgba(0,0,0,.06)}
+  .btn-light:hover{background:#fff}
+  .perks{position:absolute;left:56px;bottom:34px;z-index:2;display:flex;align-items:center;gap:26px;background:rgba(255,255,255,.82);backdrop-filter:blur(6px);border-radius:10px;padding:12px 22px}
+  .perk{display:flex;align-items:center;gap:10px}
+  .perk .ic{width:26px;height:26px;border-radius:50%;background:#f1ece4;display:grid;place-items:center}
+  .perk b{display:block;font-size:11px;font-weight:600;color:#1f1d1a}
+  .perk small{font-size:9.5px;color:var(--muted)}
+
+  /* ---------- Categories ---------- */
+  .cats{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin:40px 0 64px;text-align:center}
+  .cat .circle{width:120px;height:120px;margin:0 auto 14px;border-radius:50%;background:#f3f1ed;padding:6px;box-shadow:0 0 0 1px #f0ece6;transition:transform .25s}
+  .cat .circle img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%}
+  .cat:hover .circle{transform:translateY(-4px)}
+  .cat b{display:block;font-size:13.5px;font-weight:600;color:#1f1d1a;margin-bottom:4px}
+  .cat small{font-size:11px;color:var(--muted)}
+
+  /* ---------- Promo banners ---------- */
+  .promos{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:80px}
+  .promo{position:relative;height:clamp(280px,20vw,360px);border-radius:12px;overflow:hidden;background:var(--beige-2)}
+  .promo .photo{position:absolute;inset:0;background-size:cover;background-position:right center}
+  .promo .copy{position:relative;z-index:2;padding:46px 0 0 46px}
+  .promo .pill{font-size:9.5px;padding:5px 11px}
+  .promo h3{font-size:30px;font-weight:700;line-height:1.18;letter-spacing:-.4px;color:#1d1b18;margin:14px 0 12px}
+  .promo p{font-size:12.5px;color:#5c574f;margin-bottom:24px}
+  .promo .btn{height:36px;padding:0 22px;font-size:12px}
+  .promo.b .copy{padding-top:58px}
+  .promo.b h3{margin-bottom:22px}
+
+  /* ---------- Trending ---------- */
+  .sec-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+  .sec-head h2{font-size:21px;font-weight:700;color:#1d1b18;letter-spacing:-.2px}
+  .view{font-size:12px;color:#4a4740;display:flex;align-items:center;gap:6px}
+  .view:hover{color:var(--ink)}
+  .products{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-bottom:72px}
+  .prod .thumb{position:relative;background:#f6f4f0;border-radius:6px;padding:22px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .prod .thumb img{width:100%;aspect-ratio:126/164;object-fit:cover;transition:transform .35s}
+  .prod:hover .thumb img{transform:scale(1.03)}
+  .tag{position:absolute;top:10px;left:10px;font-size:9.5px;font-weight:700;padding:3px 7px;border-radius:3px}
+  .tag.sale{background:#fbe9d6;color:var(--orange)}
+  .tag.new{background:#e2f3e7;color:var(--green)}
+  .tag.hot{background:#fbe1dd;color:var(--red)}
+  .prod h4{font-size:13.5px;font-weight:500;color:#222;margin-bottom:6px}
+  .price{font-size:13.5px;font-weight:700;color:#1d1b18;display:flex;gap:8px;align-items:baseline;margin-bottom:6px}
+  .price.o{color:var(--orange)}
+  .price.r{color:var(--red)}
+  .price s{font-size:11px;font-weight:400;color:#a9a59d}
+  .rating{display:flex;align-items:center;gap:1px;font-size:10.5px;color:var(--muted)}
+  .rating svg{width:10px;height:10px}
+  .rating span{margin-left:5px}
+
+  /* ---------- Service strip ---------- */
+  .services{display:grid;grid-template-columns:repeat(4,1fr);background:var(--sand);border-radius:12px;padding:26px 0;margin-bottom:80px}
+  .svc{display:flex;align-items:center;justify-content:center;gap:14px;border-right:1px solid #e2dcd2}
+  .svc:last-child{border-right:0}
+  .svc b{display:block;font-size:12.5px;font-weight:600;color:#1f1d1a;margin-bottom:2px}
+  .svc small{font-size:11px;color:var(--muted)}
+
+  /* ---------- Brands ---------- */
+  .trusted{text-align:center;margin-bottom:80px}
+  .trusted .label{display:flex;align-items:center;justify-content:center;gap:24px;font-size:14px;color:#2a2824;margin-bottom:36px}
+  .trusted .label::before,.trusted .label::after{content:"";width:130px;height:1px;background:var(--line)}
+  .brands{display:grid;grid-template-columns:repeat(6,1fr);align-items:center;color:#55524c}
+  .brands span{font-size:26px}
+  .b-nike{font-weight:800;letter-spacing:-1px;font-style:italic}
+  .b-zara{font-weight:300;letter-spacing:5px;font-family:Georgia,serif}
+  .b-adidas{font-weight:700;letter-spacing:-.5px;text-transform:lowercase}
+  .b-fossil{font-weight:700;letter-spacing:5px;font-size:22px!important}
+  .b-puma{font-weight:800;letter-spacing:-.5px}
+  .b-casio{font-weight:700;letter-spacing:3px;font-size:22px!important}
+  .mini-dots{display:flex;justify-content:center;gap:6px;margin-top:30px}
+  .mini-dots i{width:6px;height:6px;border-radius:50%;background:#e2ded7}
+  .mini-dots i:first-child{background:#9b968d}
+
+  /* ---------- Newsletter ---------- */
+  .news{display:flex;align-items:center;justify-content:space-between;gap:40px;background:#e9dcca;border-radius:16px;padding:44px 54px;margin-bottom:60px}
+  .news h3{font-size:22px;font-weight:700;color:#1d1b18;margin-bottom:10px}
+  .news p{font-size:13.5px;color:#5c574f;line-height:1.6;max-width:430px}
+  .news form{display:flex;flex:0 0 480px;background:#fff;border-radius:6px;padding:5px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  .news input{flex:1;border:0;outline:none;padding:0 16px;font-size:13px;background:transparent;color:#222}
+  .news input::placeholder{color:#a9a59d}
+  .news button{background:#161616;color:#fff;font-size:13px;font-weight:500;padding:13px 28px;border-radius:5px}
+
+  @media (max-width:980px){
+    .menu{display:none}
+    .icons{margin-left:auto}
+    .hero{height:auto;padding-bottom:120px}
+    .hero .photo{width:100%;opacity:.35}
+    .hero h1{font-size:40px}
+    .perks{flex-wrap:wrap;right:24px;left:24px}
+    .cats{grid-template-columns:repeat(3,1fr)}
+    .promos,.news{grid-template-columns:1fr;flex-direction:column;align-items:flex-start}
+    .news form{flex:auto;width:100%}
+    .products{grid-template-columns:repeat(2,1fr)}
+    .services{grid-template-columns:repeat(2,1fr);row-gap:24px}
+    .brands{grid-template-columns:repeat(3,1fr);row-gap:24px}
+  }
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#fdfcf9;--xs:#f4f0ea;--xi:#161616;--xm:#7c7a75;--xa:#161616;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:12px;font-family:'Inter',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#f4f0ea}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#161616;color:#b9b6b0;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#b9b6b0;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#161616;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#fdfcf9;--xs:#f4f0ea;--xi:#161616;--xm:#7c7a75;--xa:#161616;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:12px;--xbr:6px;--xbf:'Inter';--xalt:#f4f0ea}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "Shopio", "cur": "$", "pages": [["shop", "Shop"], ["product", "Product"], ["cart", "Cart"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Account"]], "listing": "shop.html", "freeShip": 100, "shipFee": 9, "products": [{"name": "Cognac Leather Tote", "cat": "Bags", "img": "assets/p-handbag.jpg", "id": 0, "price": 79, "tag": "", "was": null, "rating": 4.4, "reviews": 268, "gallery": ["assets/p-handbag.jpg", "assets/p-sneakers.jpg", "assets/p-watch.jpg", "assets/p-headphones.jpg"]}, {"name": "Cloud White Sneakers", "cat": "Shoes", "img": "assets/p-sneakers.jpg", "id": 1, "price": 104, "tag": "Bestseller", "was": null, "rating": 4.8, "reviews": 104, "gallery": ["assets/p-sneakers.jpg", "assets/p-handbag.jpg", "assets/p-watch.jpg", "assets/p-headphones.jpg"]}, {"name": "Rose Gold Automatic Watch", "cat": "Watches", "img": "assets/p-watch.jpg", "id": 2, "price": 69, "tag": "", "was": null, "rating": 4.9, "reviews": 373, "gallery": ["assets/p-watch.jpg", "assets/p-handbag.jpg", "assets/p-sneakers.jpg", "assets/p-headphones.jpg"]}, {"name": "Tortoise Oversized Sunglasses", "cat": "Accessories", "img": "assets/p-headphones.jpg", "id": 3, "price": 114, "tag": "Sale", "was": 148, "rating": 4.6, "reviews": 187, "gallery": ["assets/p-headphones.jpg", "assets/p-backpack.jpg", "assets/p-handbag.jpg", "assets/p-sneakers.jpg"]}, {"name": "Clubmaster Sunglasses", "cat": "Accessories", "img": "assets/p-backpack.jpg", "id": 4, "price": 104, "tag": "", "was": null, "rating": 4.6, "reviews": 187, "gallery": ["assets/p-backpack.jpg", "assets/p-headphones.jpg", "assets/p-handbag.jpg", "assets/p-sneakers.jpg"]}, {"name": "Bomber Jacket & Chinos", "cat": "Men", "img": "assets/cat-men.jpg", "id": 5, "price": 129, "tag": "", "was": null, "rating": 4.4, "reviews": 27, "gallery": ["assets/cat-men.jpg", "../_shared/fashion/06.jpg", "../_shared/fashion/07.jpg", "../_shared/fashion/10.jpg"]}, {"name": "Camel Blazer Set", "cat": "Women", "img": "assets/cat-women.jpg", "id": 6, "price": 114, "tag": "New", "was": null, "rating": 4.8, "reviews": 384, "gallery": ["assets/cat-women.jpg", "../_shared/fashion/08.jpg", "../_shared/fashion/09.jpg", "../_shared/fashion/12.jpg"]}, {"name": "Olive Wool Overcoat", "cat": "Men", "img": "../_shared/fashion/06.jpg", "id": 7, "price": 64, "tag": "", "was": null, "rating": 4.7, "reviews": 399, "gallery": ["../_shared/fashion/06.jpg", "assets/cat-men.jpg", "../_shared/fashion/07.jpg", "../_shared/fashion/10.jpg"]}, {"name": "Charcoal Ribbed Knit", "cat": "Men", "img": "../_shared/fashion/07.jpg", "id": 8, "price": 164, "tag": "Sale", "was": 213, "rating": 4.8, "reviews": 373, "gallery": ["../_shared/fashion/07.jpg", "assets/cat-men.jpg", "../_shared/fashion/06.jpg", "../_shared/fashion/10.jpg"]}, {"name": "Sand Lounge Co-ord", "cat": "Women", "img": "../_shared/fashion/08.jpg", "id": 9, "price": 184, "tag": "", "was": null, "rating": 4.6, "reviews": 322, "gallery": ["../_shared/fashion/08.jpg", "assets/cat-women.jpg", "../_shared/fashion/09.jpg", "../_shared/fashion/12.jpg"]}, {"name": "Blush Modest Co-ord", "cat": "Women", "img": "../_shared/fashion/09.jpg", "id": 10, "price": 129, "tag": "Bestseller", "was": null, "rating": 4.9, "reviews": 55, "gallery": ["../_shared/fashion/09.jpg", "assets/cat-women.jpg", "../_shared/fashion/08.jpg", "../_shared/fashion/12.jpg"]}, {"name": "Moss Chunky Sweater", "cat": "Men", "img": "../_shared/fashion/10.jpg", "id": 11, "price": 159, "tag": "", "was": null, "rating": 4.4, "reviews": 243, "gallery": ["../_shared/fashion/10.jpg", "assets/cat-men.jpg", "../_shared/fashion/06.jpg", "../_shared/fashion/07.jpg"]}, {"name": "Dove Grey Crewneck", "cat": "Women", "img": "../_shared/fashion/12.jpg", "id": 12, "price": 184, "tag": "", "was": null, "rating": 4.6, "reviews": 62, "gallery": ["../_shared/fashion/12.jpg", "assets/cat-women.jpg", "../_shared/fashion/08.jpg", "../_shared/fashion/09.jpg"]}, {"name": "Rust Knit & Chelsea Boot Edit", "cat": "Men", "img": "../_shared/fashion/22.jpg", "id": 13, "price": 134, "tag": "New", "was": null, "rating": 4.9, "reviews": 29, "gallery": ["../_shared/fashion/22.jpg", "assets/cat-men.jpg", "../_shared/fashion/06.jpg", "../_shared/fashion/07.jpg"]}, {"name": "Sage Hoodie Weekend Edit", "cat": "Men", "img": "../_shared/fashion/23.jpg", "id": 14, "price": 139, "tag": "", "was": null, "rating": 4.9, "reviews": 352, "gallery": ["../_shared/fashion/23.jpg", "assets/cat-men.jpg", "../_shared/fashion/06.jpg", "../_shared/fashion/07.jpg"]}, {"name": "Grey Cardigan Edit", "cat": "Men", "img": "../_shared/fashion/25.jpg", "id": 15, "price": 139, "tag": "New", "was": null, "rating": 4.8, "reviews": 259, "gallery": ["../_shared/fashion/25.jpg", "assets/cat-men.jpg", "../_shared/fashion/06.jpg", "../_shared/fashion/07.jpg"]}], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="001">
+
+
+<div class="topbar">
+<div class="wrap">
+<div class="l"><span>Free shipping on all orders over $50</span><i class="sep"></i><span>Easy returns</span></div>
+<div class="r">
+<a href="contact.html">Help &amp; Support</a>
+<a href="account.html">Track Order</a>
+<span class="dd">USD <svg fill="none" height="8" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24" width="8"><path d="m6 9 6 6 6-6"></path></svg></span>
+<i class="sep"></i>
+<span class="dd">EN <svg fill="none" height="8" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24" width="8"><path d="m6 9 6 6 6-6"></path></svg></span>
+</div>
+</div>
+</div>
+
+<header data-xnav="">
+<div class="wrap">
+<a class="logo" href="index.html">Shopio<span>.</span></a>
+<nav class="menu">
+<a class="active" href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="shop.html">Categories</a>
+<a href="shop.html">Deals</a>
+<a href="shop.html">New Arrivals</a>
+<a class="dd" href="shop.html">Pages <svg fill="none" height="9" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="9"><path d="m6 9 6 6 6-6"></path></svg></a>
+</nav>
+<div class="icons">
+<a aria-label="Search" href="shop.html"><svg fill="none" height="18" stroke="#1d1b18" stroke-width="1.8" viewbox="0 0 24 24" width="18"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+<a aria-label="Account" href="account.html"><svg fill="none" height="18" stroke="#1d1b18" stroke-width="1.8" viewbox="0 0 24 24" width="18"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+<a aria-label="Wishlist" href="account.html"><svg fill="none" height="18" stroke="#1d1b18" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"></path></svg></a>
+<a aria-label="Cart" href="cart.html"><svg fill="none" height="18" stroke="#1d1b18" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M6 7h12l-1 13H7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg><span class="badge">2</span></a>
+</div>
+</div>
+</header><div class="xi v1" id="main"><div class="xi-top"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Shop</span></div><h1 class="xi-h1 xi-rv">Shop All</h1><p class=xi-rv>Explore the full Shopio collection — refined essentials, new arrivals and bestsellers, all in one place.</p></div></div><section class="xi-sec tight"><div class="x-in"><div class="xi-shop"><aside class="xi-side"><div><h6>Categories</h6><div class="xi-cats"><button data-filter="All" class=on>All<span>15</span></button><button data-filter="Bags">Bags<span>1</span></button><button data-filter="Shoes">Shoes<span>1</span></button><button data-filter="Watches">Watches<span>1</span></button><button data-filter="Accessories">Accessories<span>2</span></button><button data-filter="Men">Men<span>6</span></button><button data-filter="Women">Women<span>4</span></button></div></div><div><h6>Price</h6><label><input type="radio" name="pr" value="all" data-price-f checked> All prices</label><label><input type="radio" name="pr" value="0-104" data-price-f> Under $104</label><label><input type="radio" name="pr" value="104-144" data-price-f> $104 – $144</label><label><input type="radio" name="pr" value="144-999999" data-price-f> Over $144</label></div><div><a href="shop.html" class="xi-link" data-reset>Clear all filters</a></div><a class="xi-promo" href="product.html?id=0"><img src="assets/banner-bag.jpg" alt="" loading="lazy"><div><small>NEW SEASON</small><b>Up to 30% off selected styles</b></div></a></aside><div><div class="xi-bar"><p class="xi-muted" style="margin:0">Showing <b data-count>15</b> products</p><div class="xi-tools"><input class="xi-in" data-search type="search" placeholder="Search products…" aria-label="Search products"><select data-sort aria-label="Sort products"><option value="feat">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="name">Name A–Z</option></select></div></div><div class="xi-grid" data-grid style="--cols:3;--pa:3/4"><a class="xi-prod xi-rv" href="product.html?id=0" data-cat="Bags" data-price="79" data-i="0"><div class="xi-ph"><img src="assets/p-handbag.jpg" alt="Cognac Leather Tote" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="0" role="button">Add to cart</span></div></div><small>Bags</small><b>Cognac Leather Tote</b><div class="xi-price">$79 </div></a><a class="xi-prod xi-rv" href="product.html?id=1" data-cat="Shoes" data-price="104" data-i="1"><div class="xi-ph"><span class="xi-tag">Bestseller</span><img src="assets/p-sneakers.jpg" alt="Cloud White Sneakers" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="1" role="button">Add to cart</span></div></div><small>Shoes</small><b>Cloud White Sneakers</b><div class="xi-price">$104 </div></a><a class="xi-prod xi-rv" href="product.html?id=2" data-cat="Watches" data-price="69" data-i="2"><div class="xi-ph"><img src="assets/p-watch.jpg" alt="Rose Gold Automatic Watch" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="2" role="button">Add to cart</span></div></div><small>Watches</small><b>Rose Gold Automatic Watch</b><div class="xi-price">$69 </div></a><a class="xi-prod xi-rv" href="product.html?id=3" data-cat="Accessories" data-price="114" data-i="3"><div class="xi-ph"><span class="xi-tag">Sale</span><img src="assets/p-headphones.jpg" alt="Tortoise Oversized Sunglasses" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="3" role="button">Add to cart</span></div></div><small>Accessories</small><b>Tortoise Oversized Sunglasses</b><div class="xi-price">$114 <s>$148</s></div></a><a class="xi-prod xi-rv" href="product.html?id=4" data-cat="Accessories" data-price="104" data-i="4"><div class="xi-ph"><img src="assets/p-backpack.jpg" alt="Clubmaster Sunglasses" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="4" role="button">Add to cart</span></div></div><small>Accessories</small><b>Clubmaster Sunglasses</b><div class="xi-price">$104 </div></a><a class="xi-prod xi-rv" href="product.html?id=5" data-cat="Men" data-price="129" data-i="5"><div class="xi-ph"><img src="assets/cat-men.jpg" alt="Bomber Jacket &amp; Chinos" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="5" role="button">Add to cart</span></div></div><small>Men</small><b>Bomber Jacket &amp; Chinos</b><div class="xi-price">$129 </div></a><a class="xi-prod xi-rv" href="product.html?id=6" data-cat="Women" data-price="114" data-i="6"><div class="xi-ph"><span class="xi-tag">New</span><img src="assets/cat-women.jpg" alt="Camel Blazer Set" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="6" role="button">Add to cart</span></div></div><small>Women</small><b>Camel Blazer Set</b><div class="xi-price">$114 </div></a><a class="xi-prod xi-rv" href="product.html?id=7" data-cat="Men" data-price="64" data-i="7"><div class="xi-ph"><img src="../_shared/fashion/06.jpg" alt="Olive Wool Overcoat" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="7" role="button">Add to cart</span></div></div><small>Men</small><b>Olive Wool Overcoat</b><div class="xi-price">$64 </div></a><a class="xi-prod xi-rv" href="product.html?id=8" data-cat="Men" data-price="164" data-i="8"><div class="xi-ph"><span class="xi-tag">Sale</span><img src="../_shared/fashion/07.jpg" alt="Charcoal Ribbed Knit" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="8" role="button">Add to cart</span></div></div><small>Men</small><b>Charcoal Ribbed Knit</b><div class="xi-price">$164 <s>$213</s></div></a><a class="xi-prod xi-rv" href="product.html?id=9" data-cat="Women" data-price="184" data-i="9"><div class="xi-ph"><img src="../_shared/fashion/08.jpg" alt="Sand Lounge Co-ord" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="9" role="button">Add to cart</span></div></div><small>Women</small><b>Sand Lounge Co-ord</b><div class="xi-price">$184 </div></a><a class="xi-prod xi-rv" href="product.html?id=10" data-cat="Women" data-price="129" data-i="10"><div class="xi-ph"><span class="xi-tag">Bestseller</span><img src="../_shared/fashion/09.jpg" alt="Blush Modest Co-ord" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="10" role="button">Add to cart</span></div></div><small>Women</small><b>Blush Modest Co-ord</b><div class="xi-price">$129 </div></a><a class="xi-prod xi-rv" href="product.html?id=11" data-cat="Men" data-price="159" data-i="11"><div class="xi-ph"><img src="../_shared/fashion/10.jpg" alt="Moss Chunky Sweater" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="11" role="button">Add to cart</span></div></div><small>Men</small><b>Moss Chunky Sweater</b><div class="xi-price">$159 </div></a><a class="xi-prod xi-rv" href="product.html?id=12" data-cat="Women" data-price="184" data-i="12"><div class="xi-ph"><img src="../_shared/fashion/12.jpg" alt="Dove Grey Crewneck" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="12" role="button">Add to cart</span></div></div><small>Women</small><b>Dove Grey Crewneck</b><div class="xi-price">$184 </div></a><a class="xi-prod xi-rv" href="product.html?id=13" data-cat="Men" data-price="134" data-i="13"><div class="xi-ph"><span class="xi-tag">New</span><img src="../_shared/fashion/22.jpg" alt="Rust Knit &amp; Chelsea Boot Edit" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="13" role="button">Add to cart</span></div></div><small>Men</small><b>Rust Knit &amp; Chelsea Boot Edit</b><div class="xi-price">$134 </div></a><a class="xi-prod xi-rv" href="product.html?id=14" data-cat="Men" data-price="139" data-i="14"><div class="xi-ph"><img src="../_shared/fashion/23.jpg" alt="Sage Hoodie Weekend Edit" loading="lazy"><span class="xi-wish" data-wish role="button" aria-label="Add to wishlist">♡</span><div class="xi-qa"><span class="x-btn" data-add="14" role="button">Add to cart</span></div></div><small>Men</small><b>Sage Hoodie Weekend Edit</b><div class="xi-price">$139 </div></a></div><div class="xi-empty" data-none hidden><b>No products match</b><p>Try a different category or clear your filters.</p></div></div></div></div></section><section class="xi-sec alt"><div class="x-in"><div class="xi-g4"><div class="xi-card xi-rv" style="display:flex;gap:16px;align-items:center"><div class="xi-ico" style="margin:0">🚚</div><div><b style="display:block">Free shipping</b><small class="xi-muted">On orders over $100</small></div></div><div class="xi-card xi-rv" style="display:flex;gap:16px;align-items:center"><div class="xi-ico" style="margin:0">↺</div><div><b style="display:block">Easy returns</b><small class="xi-muted">30-day free returns</small></div></div><div class="xi-card xi-rv" style="display:flex;gap:16px;align-items:center"><div class="xi-ico" style="margin:0">🔒</div><div><b style="display:block">Secure payment</b><small class="xi-muted">100% protected checkout</small></div></div><div class="xi-card xi-rv" style="display:flex;gap:16px;align-items:center"><div class="xi-ico" style="margin:0">☎</div><div><b style="display:block">Real support</b><small class="xi-muted">Mon–Sat, 9am–8pm</small></div></div></div></div></section><section class="xi-sec tight"><div class="x-in"><div class="xi-card" style="display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding:clamp(28px,4vw,56px)"><div style="max-width:560px"><span class="xi-eye">Newsletter</span><h2 class="xi-h2">Stay in the loop</h2><p class="xi-muted" style="margin:12px 0 0">Join for early access to new drops, members-only offers and 10% off your first order.</p></div><form class="xi-form" style="flex:0 1 460px;grid-template-columns:1fr auto;align-items:start" data-ok="You're subscribed! Watch your inbox for a welcome note."><input type="email" name="email" placeholder="Your email address" aria-label="Email address" required><button class="x-btn" type="submit">Subscribe</button><div class="xi-success" hidden style="grid-column:1/-1"></div></form></div></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Shopio</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">f</a><a aria-label="X" href="https://x.com/" target="_blank" rel="noopener">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a></div></div><div><h6>Shop</h6><a href="shop.html">New Arrivals</a><a href="shop.html">Best Sellers</a><a href="shop.html">Collections</a><a href="shop.html">Gift Cards</a><a href="shop.html">Sale</a></div><div><h6>Help</h6><a href="account.html">Track Order</a><a href="faq.html">Shipping</a><a href="faq.html">Returns &amp; Exchanges</a><a href="faq.html">Size Guide</a><a href="faq.html">FAQs</a></div><div><h6>Company</h6><a href="about.html">About Us</a><a href="about.html">Sustainability</a><a href="about.html">Careers</a><a href="about.html">Press</a><a href="contact.html">Contact</a></div><div><h6>Stay in touch</h6><p>hello@shopio.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Shopio. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

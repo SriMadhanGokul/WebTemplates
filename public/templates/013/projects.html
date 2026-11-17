@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — SUNNOVA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1633;--blue:#1d4fd8;--sun:#f6b73c;--ink:#0e1525;--muted:#6b7385;--line:#e8ecf3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button,input{font-family:inherit}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+  .anton{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase}
+  .tiny{font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase}
+  .btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:30px;font-size:14px;font-weight:600;transition:.2s}
+  .btn-w{background:#fff;color:var(--ink)}.btn-w:hover{background:#eef3ff}
+  .btn-g{background:rgba(255,255,255,.18);color:#fff;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3)}
+  .btn-n{background:var(--navy);color:#fff}.btn-n:hover{background:var(--blue)}
+
+  .hero-box{container-type:inline-size;margin-top:24px}
+  .hero{position:relative;border-radius:34px;overflow:hidden;height:clamp(640px,52vw,900px);color:#fff;background:#3f78c9 url(assets/hero.jpg) center bottom/cover no-repeat}
+  .word{position:absolute;left:0;right:0;top:16%;text-align:center;font-family:Anton,Impact,sans-serif;font-size:27cqw;line-height:.85;letter-spacing:-.3cqw;color:rgba(255,255,255,.92);
+    -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 82%);mask-image:linear-gradient(180deg,#000 55%,transparent 82%)}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,15,40,.55),transparent 50%),linear-gradient(0deg,rgba(5,15,40,.45),transparent 40%)}
+  .hero>*{position:relative;z-index:2}
+  .hero>.word{position:absolute;z-index:1}
+  .nav{display:flex;align-items:center;padding:30px 44px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:1.5px;font-size:18px;line-height:1}
+  .logo small{display:block;font-size:8px;letter-spacing:2px;opacity:.75;margin-top:3px;font-weight:600}
+  .logo i{font-style:normal;color:var(--sun);font-size:24px}
+  .menu{display:flex;gap:36px;margin:0 auto;font-size:14px}
+  .menu a{opacity:.85;padding-bottom:4px}.menu a.on{opacity:1;border-bottom:2px solid #fff}.menu a:hover{opacity:1}
+  .quote{background:#fff;color:var(--ink);height:42px;padding:0 20px;border-radius:30px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-left:22px}
+  .top{display:flex;justify-content:space-between;padding:0 44px;font-size:11px;letter-spacing:3px;font-weight:600;line-height:1.5}
+  .watch{display:flex;align-items:center;gap:12px}
+  .watch i{width:38px;height:38px;border-radius:50%;border:1.5px solid #fff;display:grid;place-items:center;font-style:normal;font-size:11px}
+  .copy{position:absolute;left:44px;bottom:110px}
+  .copy h1{font-size:clamp(38px,3.4cqw,60px);font-weight:800;line-height:1.1;letter-spacing:-1px}
+  .copy p{font-size:16px;opacity:.9;margin:14px 0 26px;max-width:520px;line-height:1.6}
+  .row{display:flex;gap:14px}
+
+  .solutions{position:relative;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:-80px 40px 0}
+  .sol{display:flex;gap:18px;background:#fff;border-radius:20px;padding:22px;box-shadow:0 20px 50px rgba(15,30,70,.12);transition:transform .25s}
+  .sol:hover{transform:translateY(-5px)}
+  .sol .t{flex:1;display:flex;flex-direction:column}
+  .sol small{font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:600}
+  .sol h3{font-size:19px;margin:10px 0 8px;line-height:1.25}
+  .sol p{font-size:13px;color:var(--muted);line-height:1.5}
+  .sol .go{margin-top:auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center}
+  .sol img{width:46%;aspect-ratio:1/1.1;object-fit:cover;border-radius:14px}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);padding:70px 40px}
+  .stat{display:flex;align-items:center;gap:16px;justify-content:center}
+  .stat i{width:44px;height:44px;border-radius:50%;background:#fff6e2;display:grid;place-items:center;font-style:normal;font-size:20px}
+  .stat b{display:block;font-size:34px;font-weight:800;letter-spacing:-1px}
+  .stat small{font-size:13px;color:var(--muted)}
+
+  .why{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:center;padding:40px 40px 60px}
+  .why h2{font-size:clamp(52px,4.4vw,80px);line-height:1;color:var(--navy);margin:14px 0 22px}
+  .why p{font-size:17px;color:var(--muted);line-height:1.7;max-width:480px;margin-bottom:30px}
+  .why .ph{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 24px 60px rgba(15,30,70,.15)}
+  .why .ph img{width:100%;height:100%;object-fit:cover}
+  .why .ph span{position:absolute;left:24px;bottom:24px;display:flex;align-items:center;gap:12px;color:#fff;font-size:14px;font-weight:500}
+  .why .ph span i{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.25);backdrop-filter:blur(6px);display:grid;place-items:center;font-style:normal}
+  .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:20px 40px 70px}
+  .ben{display:flex;gap:16px}
+  .ben i{flex:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-style:normal;font-size:18px}
+  .ben b{display:block;font-size:17px;margin-bottom:6px}
+  .ben small{font-size:14px;color:var(--muted);line-height:1.55}
+
+  .cta{position:relative;border-radius:26px;overflow:hidden;height:clamp(360px,28vw,480px);color:#fff;margin:0 0 70px;background:#0b1633 url(assets/cta.jpg) right center/cover}
+  .cta .in{position:absolute;left:clamp(40px,4vw,70px);top:50%;transform:translateY(-50%);max-width:620px}
+  .cta h2{font-size:clamp(40px,3.4vw,62px);font-weight:800;line-height:1.08;margin:18px 0 18px}
+  .cta h2 span{color:var(--sun)}
+  .cta p{font-size:16px;opacity:.85;line-height:1.6;margin-bottom:28px}
+  .cta form{display:flex;gap:12px}
+  .cta input{flex:1;height:54px;border-radius:30px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;padding:0 22px;outline:0;font-size:14px}
+  .cta button{height:54px;padding:0 28px;border-radius:30px;border:0;background:var(--sun);color:var(--ink);font-weight:700;cursor:pointer}
+
+  footer{background:var(--navy);color:#a9b2c8}
+  .foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;padding:80px 0 50px}
+  footer .logo{color:#fff;margin-bottom:18px}
+  footer p{font-size:14px;line-height:1.7;max-width:360px}
+  .badges{display:flex;gap:10px;margin-top:22px}
+  .badges span{font-size:11px;border:1px solid #2a3554;padding:6px 12px;border-radius:20px}
+  footer h6{color:#fff;font-size:13px;letter-spacing:1.5px;margin-bottom:18px}
+  footer .col a{display:block;font-size:14px;margin-bottom:12px}
+  footer .col a:hover{color:#fff}
+  .bot{display:flex;justify-content:space-between;border-top:1px solid #1d2846;padding:24px 0;font-size:13px}
+  .bot nav{display:flex;gap:24px}
+
+  @media (max-width:1000px){
+    .menu,.top{display:none}.nav{padding:22px}.copy{left:22px;bottom:60px}
+    .solutions{grid-template-columns:1fr;margin:24px 0 0}
+    .stats{grid-template-columns:repeat(2,1fr);row-gap:30px;padding:50px 0}
+    .why,.benefits{grid-template-columns:1fr;padding-left:0;padding-right:0}
+    .foot{grid-template-columns:1fr 1fr}
+    .cta form{flex-direction:column}
+  }
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#ffffff;--xs:#f5f7fb;--xi:#0e1525;--xm:#6b7385;--xa:#1d4fd8;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:20px;font-family:'Inter',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#f5f7fb}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Inter',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Inter',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Inter',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#0b1633;color:#a9b2c8;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#a9b2c8;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#0b1633;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#ffffff;--xs:#f5f7fb;--xi:#0e1525;--xm:#6b7385;--xa:#1d4fd8;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:20px;--xbr:999px;--xbf:'Inter';--xalt:#f5f7fb}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Inter',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "SUNNOVA", "cur": "$", "pages": [["services", "Solutions"], ["service", "Solution"], ["projects", "Projects"], ["project", "Project"], ["about", "About"], ["blog", "Blog"], ["post", "Article"], ["faq", "FAQ"], ["booking", "Get a Quote"], ["contact", "Contact"]], "listing": "services.html", "freeShip": 100, "shipFee": 9, "products": [], "burgerAlways": false, "projects": [{"id": 0, "title": "Greenfield School", "cat": "Commercial", "loc": "420 kW rooftop", "img": "../_shared/energy/25.jpg", "gallery": ["../_shared/energy/25.jpg", "../_shared/energy/26.jpg", "../_shared/energy/01.jpg", "../_shared/energy/02.jpg"], "year": "2025", "client": "Greenfield Holdings", "overview": "Greenfield School is a commercial project where we were asked to create something both distinctive and deeply practical. Working closely with the client from the earliest workshops, our team shaped a solution that responds to real needs, real constraints and a clear ambition.", "result": "The finished project has been celebrated by its users and recognised by the industry — a result of honest collaboration, careful detailing and a shared commitment to quality."}, {"id": 1, "title": "Harbor Warehouse", "cat": "Industrial", "loc": "1.2 MW rooftop", "img": "../_shared/energy/03.jpg", "gallery": ["../_shared/energy/03.jpg", "../_shared/energy/05.jpg", "../_shared/energy/06.jpg", "../_shared/energy/07.jpg"], "year": "2024", "client": "Harbor Holdings", "overview": "Harbor Warehouse is a industrial project where we were asked to create something both distinctive and deeply practical. Working closely with the client from the earliest workshops, our team shaped a solution that responds to real needs, real constraints and a clear ambition.", "result": "The finished project has been celebrated by its users and recognised by the industry — a result of honest collaboration, careful detailing and a shared commitment to quality."}, {"id": 2, "title": "Maple Residence", "cat": "Residential", "loc": "9.6 kW + battery", "img": "../_shared/energy/08.jpg", "gallery": ["../_shared/energy/08.jpg", "../_shared/energy/09.jpg", "../_shared/energy/10.jpg", "../_shared/energy/11.jpg"], "year": "2023", "client": "Maple Holdings", "overview": "Maple Residence is a residential project where we were asked to create something both distinctive and deeply practical. Working closely with the client from the earliest workshops, our team shaped a solution that responds to real needs, real constraints and a clear ambition.", "result": "The finished project has been celebrated by its users and recognised by the industry — a result of honest collaboration, careful detailing and a shared commitment to quality."}, {"id": 3, "title": "Sunrise Farm", "cat": "Agricultural", "loc": "650 kW ground-mount", "img": "../_shared/energy/12.jpg", "gallery": ["../_shared/energy/12.jpg", "../_shared/energy/13.jpg", "../_shared/energy/14.jpg", "../_shared/energy/15.jpg"], "year": "2022", "client": "Sunrise Holdings", "overview": "Sunrise Farm is a agricultural project where we were asked to create something both distinctive and deeply practical. Working closely with the client from the earliest workshops, our team shaped a solution that responds to real needs, real constraints and a clear ambition.", "result": "The finished project has been celebrated by its users and recognised by the industry — a result of honest collaboration, careful detailing and a shared commitment to quality."}, {"id": 4, "title": "City Hospital", "cat": "Commercial", "loc": "800 kW + storage", "img": "../_shared/energy/16.jpg", "gallery": ["../_shared/energy/16.jpg", "assets/cta.jpg", "assets/hero.jpg", "assets/s-business.jpg"], "year": "2025", "client": "City Holdings", "overview": "City Hospital is a commercial project where we were asked to create something both distinctive and deeply practical. Working closely with the client from the earliest workshops, our team shaped a solution that responds to real needs, real constraints and a clear ambition.", "result": "The finished project has been celebrated by its users and recognised by the industry — a result of honest collaboration, careful detailing and a shared commitment to quality."}, {"id": 5, "title": "Lakeview Homes", "cat": "Residential", "loc": "48 homes, 380 kW", "img": "assets/s-home.jpg", "gallery": ["assets/s-home.jpg", "assets/s-industry.jpg", "assets/why.jpg", "../_shared/energy/17.jpg"], "year": "2024", "client": "Lakeview Holdings", "overview": "Lakeview Homes is a residential project where we were asked to create something both distinctive and deeply practical. Working closely with the client from the earliest workshops, our team shaped a solution that responds to real needs, real constraints and a clear ambition.", "result": "The finished project has been celebrated by its users and recognised by the industry — a result of honest collaboration, careful detailing and a shared commitment to quality."}, {"id": 6, "title": "Coastal Wind Park", "cat": "Utility", "loc": "24 MW wind", "img": "../_shared/energy/18.jpg", "gallery": ["../_shared/energy/18.jpg", "../_shared/energy/19.jpg", "../_shared/energy/20.jpg", "../_shared/energy/21.jpg"], "year": "2023", "client": "Coastal Holdings", "overview": "Coastal Wind Park is a utility project where we were asked to create something both distinctive and deeply practical. Working closely with the client from the earliest workshops, our team shaped a solution that responds to real needs, real constraints and a clear ambition.", "result": "The finished project has been celebrated by its users and recognised by the industry — a result of honest collaboration, careful detailing and a shared commitment to quality."}, {"id": 7, "title": "Valley Community", "cat": "Community", "loc": "2 MW solar garden", "img": "../_shared/energy/22.jpg", "gallery": ["../_shared/energy/22.jpg", "../_shared/energy/23.jpg", "../_shared/energy/24.jpg", "../_shared/energy/25.jpg"], "year": "2022", "client": "Valley Holdings", "overview": "Valley Community is a community project where we were asked to create something both distinctive and deeply practical. Working closely with the client from the earliest workshops, our team shaped a solution that responds to real needs, real constraints and a clear ambition.", "result": "The finished project has been celebrated by its users and recognised by the industry — a result of honest collaboration, careful detailing and a shared commitment to quality."}]}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="013">
+
+<main class="wrap">
+<div class="hero-box xi-band"><section class="hero xi-band">
+
+<div class="nav" data-xnav="">
+<a class="logo" href="index.html"><i>☀</i><div>SUNNOVA<small>CLEAN ENERGY</small></div></a>
+<nav class="menu"><a class="on" href="index.html">Home</a><a href="services.html">Solutions</a><a href="services.html">Products</a><a href="projects.html">Projects</a><a href="about.html">About</a></nav>
+<a aria-label="Search" href="services.html"><svg fill="none" height="18" stroke="#fff" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+<a class="quote" href="booking.html">Get a Free Quote →</a>
+</div><div class="xi xi-ph-band v1"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Projects</span></div><h1 class="xi-h1 xi-rv">Our Projects</h1><p class=xi-rv>A selection of recent work — each one shaped by close collaboration and attention to detail.</p></div></div>
+
+
+</section></div><div class="xi v1" id="main"><section class="xi-sec tight"><div class="x-in"><div class="xi-bar"><div class="xi-chips"><button data-filter="All" class=on>All</button><button data-filter="Commercial">Commercial</button><button data-filter="Industrial">Industrial</button><button data-filter="Residential">Residential</button><button data-filter="Agricultural">Agricultural</button><button data-filter="Utility">Utility</button><button data-filter="Community">Community</button></div><span class="xi-muted"><b data-count>8</b> projects</span></div><div class="xi-works" data-grid><a class="xi-work xi-rv" href="project.html?id=0" data-cat="Commercial" data-price="0" data-i="0"><div class="xi-ph"><img src="../_shared/energy/25.jpg" alt="Greenfield School" loading="lazy"></div><small>Commercial · 420 kW rooftop</small><b>Greenfield School</b></a><a class="xi-work xi-rv" href="project.html?id=1" data-cat="Industrial" data-price="0" data-i="1"><div class="xi-ph"><img src="../_shared/energy/03.jpg" alt="Harbor Warehouse" loading="lazy"></div><small>Industrial · 1.2 MW rooftop</small><b>Harbor Warehouse</b></a><a class="xi-work xi-rv" href="project.html?id=2" data-cat="Residential" data-price="0" data-i="2"><div class="xi-ph"><img src="../_shared/energy/08.jpg" alt="Maple Residence" loading="lazy"></div><small>Residential · 9.6 kW + battery</small><b>Maple Residence</b></a><a class="xi-work xi-rv" href="project.html?id=3" data-cat="Agricultural" data-price="0" data-i="3"><div class="xi-ph"><img src="../_shared/energy/12.jpg" alt="Sunrise Farm" loading="lazy"></div><small>Agricultural · 650 kW ground-mount</small><b>Sunrise Farm</b></a><a class="xi-work xi-rv" href="project.html?id=4" data-cat="Commercial" data-price="0" data-i="4"><div class="xi-ph"><img src="../_shared/energy/16.jpg" alt="City Hospital" loading="lazy"></div><small>Commercial · 800 kW + storage</small><b>City Hospital</b></a><a class="xi-work xi-rv" href="project.html?id=5" data-cat="Residential" data-price="0" data-i="5"><div class="xi-ph"><img src="assets/s-home.jpg" alt="Lakeview Homes" loading="lazy"></div><small>Residential · 48 homes, 380 kW</small><b>Lakeview Homes</b></a><a class="xi-work xi-rv" href="project.html?id=6" data-cat="Utility" data-price="0" data-i="6"><div class="xi-ph"><img src="../_shared/energy/18.jpg" alt="Coastal Wind Park" loading="lazy"></div><small>Utility · 24 MW wind</small><b>Coastal Wind Park</b></a><a class="xi-work xi-rv" href="project.html?id=7" data-cat="Community" data-price="0" data-i="7"><div class="xi-ph"><img src="../_shared/energy/22.jpg" alt="Valley Community" loading="lazy"></div><small>Community · 2 MW solar garden</small><b>Valley Community</b></a></div></div></section><section class="xi-sec alt"><div class="x-in"><div class="xi-stats"><div class="xi-rv"><b>12K+</b><small>Systems installed</small></div><div class="xi-rv"><b>50 MW</b><small>Capacity</small></div><div class="xi-rv"><b>38K t</b><small>CO₂ saved / yr</small></div><div class="xi-rv"><b>4.9★</b><small>Customer rating</small></div></div></div></section><section class="xi-sec tight"><div class="x-in"><div class="xi-cta xi-rv"><img src="../_shared/energy/26.jpg" alt="" loading="lazy"><div><h2 class="xi-h2" style="color:#fff">Have a project in mind?</h2><p>We'd love to hear about it. Tell us what you're planning and we'll get back within a day.</p></div><a class="x-btn" href="booking.html">Start a conversation</a></div></div></section></div></main><footer><div class="wrap">
+<div class="foot">
+<div><a class="logo" href="index.html"><i>☀</i><div>SUNNOVA<small>CLEAN ENERGY</small></div></a><p>Pioneering the transition to independent, resilient clean energy for homes, enterprises, and communities nationwide.</p><div class="badges"><span>NABCEP Certified</span><span>ISO 14001 Compliant</span></div></div>
+<div class="col"><h6>SOLUTIONS</h6><a href="services.html">Residential Solar</a><a href="services.html">Commercial &amp; Industrial</a><a href="services.html">Battery Energy Storage</a><a href="services.html">EV Infrastructure</a><a href="services.html">Microgrid Systems</a></div>
+<div class="col"><h6>PRODUCTS &amp; TECH</h6><a href="services.html">Smart Solar Panels</a><a href="services.html">Powerwall Batteries</a><a href="services.html">Energy Management App</a><a href="services.html">Solar Roof Tiles</a><a href="services.html">Commercial Inverters</a></div>
+<div class="col"><h6>COMPANY</h6><a href="about.html">About Us</a><a href="about.html">Sustainability Report</a><a href="about.html">Careers</a><a href="about.html">Press &amp; Media</a><a href="services.html">Investor Relations</a></div>
+<div class="col"><h6>SUPPORT</h6><a href="services.html">Customer Portal</a><a href="services.html">Solar Calculator</a><a href="faq.html">FAQs &amp; Knowledge Base</a><a href="services.html">Warranty &amp; Care</a><a href="contact.html">Contact Support</a></div>
+</div>
+<div class="bot"><span>© 2026 Sunnova Clean Energy Inc. All rights reserved.</span><nav><a href="faq.html">Privacy Policy</a><a href="faq.html">Terms of Service</a><a href="services.html">Energy Disclosures</a><a href="services.html">Accessibility</a></nav><span>🌐 United States (EN)</span></div>
+</div></footer>
+</body>
+</html>
