@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — Mindful</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Lexend,system-ui,sans-serif;color:#1b2a4a;background:#f6f9fe;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{font-weight:600;font-size:22px}.logo span{color:#5b7fe0}
+.menu{display:flex;gap:34px;font-size:14.5px;color:#5c6b8a}
+.menu a:hover,.menu a.on{color:#1b2a4a}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:14px 26px;font-weight:500;font-size:14.5px;transition:all .25s}
+.bl{background:#4f72d8;color:#fff;box-shadow:0 14px 30px -14px rgba(79,114,216,.9)}.bl:hover{background:#3f61c4;transform:translateY(-2px)}
+.ln{color:#1b2a4a}.ln:hover{color:#4f72d8}
+.wh{background:#fff;color:#1b2a4a}
+.hero{position:relative;border-radius:30px;overflow:hidden;min-height:clamp(520px,42vw,700px);display:flex;align-items:center}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(230,238,252,.96) 0%,rgba(230,238,252,.8) 35%,rgba(230,238,252,0) 65%)}
+.copy{position:relative;z-index:2;padding:clamp(30px,4vw,72px);max-width:640px}
+.copy h1{font-size:clamp(42px,4.6vw,78px);line-height:1.08;font-weight:600;letter-spacing:-1.5px}
+.copy p{color:#4c5c7d;font-size:17px;line-height:1.7;margin:20px 0 30px;max-width:440px}
+.copy .row{display:flex;gap:10px;flex-wrap:wrap}
+.trust{display:flex;align-items:center;gap:12px;margin-top:34px;font-size:13px;color:#4c5c7d}
+.trust .av{display:flex}.trust .av span{width:34px;height:34px;border-radius:50%;border:2px solid #fff;margin-left:-10px;background:center/cover}.trust .av span:first-child{margin-left:0}
+.next{position:absolute;right:clamp(20px,4vw,70px);top:50%;transform:translateY(-50%);z-index:2;width:240px;border-radius:22px;padding:20px;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(16px);color:#fff}
+.next small{font-size:11px;opacity:.9;letter-spacing:1px}
+.next b{display:block;font-size:22px;margin:6px 0}
+.next .btn{width:100%;justify-content:center;margin-top:14px;padding:11px;background:#fff;color:#1b2a4a}
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:46px 0 10px}
+.feats div{display:flex;gap:14px}
+.feats i{font-style:normal;width:46px;height:46px;flex:0 0 46px;border-radius:14px;background:#e6edfb;color:#4f72d8;display:grid;place-items:center;font-size:18px}
+.feats b{display:block;font-weight:500;margin-bottom:4px}.feats small{color:#6b7896;line-height:1.55;font-size:13.5px}
+.sec{padding:clamp(70px,7vw,120px) 0}
+.eye{color:#4f72d8;font-size:12px;letter-spacing:2.5px;font-weight:500}
+.h2{font-size:clamp(32px,3.2vw,54px);font-weight:600;line-height:1.12;letter-spacing:-1px;margin-top:10px}
+.split{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,90px);align-items:center}
+.split p{color:#4c5c7d;line-height:1.8;margin:16px 0 22px}
+.split ul{list-style:none;display:grid;gap:14px;margin-bottom:30px}
+.split li{display:flex;gap:12px;align-items:center;color:#2f3f60}
+.split li i{font-style:normal;width:30px;height:30px;border-radius:50%;background:#e6edfb;color:#4f72d8;display:grid;place-items:center;font-size:13px}
+.pic{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:1.35}
+.pic img{width:100%;height:100%;object-fit:cover}
+.pic .q{position:absolute;left:24px;bottom:24px;max-width:300px;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(14px);color:#fff}
+.pic .q small{font-size:11px;letter-spacing:1px;opacity:.9}.pic .q b{display:block;font-weight:500;margin-top:6px;line-height:1.5}
+.progs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.pg{background:#fff;border-radius:24px;overflow:hidden;border:1px solid #e3eaf7;transition:all .3s}
+.pg:hover{transform:translateY(-6px);box-shadow:0 24px 44px -30px rgba(27,42,74,.5)}
+.pg .ph{aspect-ratio:1.5;overflow:hidden}.pg img{width:100%;height:100%;object-fit:cover}
+.pg .bd{padding:22px 24px}.pg small{color:#4f72d8;font-size:12px;letter-spacing:1px}.pg b{display:block;font-size:20px;font-weight:500;margin:6px 0 8px}.pg p{color:#6b7896;font-size:14.5px;line-height:1.6}
+.band{background:#1b2a4a;color:#fff;border-radius:30px;display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:30px;padding:clamp(36px,5vw,70px);position:relative;overflow:hidden}
+.band img{position:absolute;right:0;top:0;bottom:0;width:45%;height:100%;object-fit:cover;opacity:.55;-webkit-mask-image:linear-gradient(90deg,transparent,#000 50%);mask-image:linear-gradient(90deg,transparent,#000 50%)}
+.band>*{position:relative}
+.band h2{font-size:clamp(28px,2.8vw,46px);font-weight:600;line-height:1.15}
+.band p{color:#b7c3dd;margin:14px 0 26px;line-height:1.7}
+.band .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.band .nums b{font-size:clamp(30px,3vw,46px);font-weight:600;display:block}.band .nums small{color:#b7c3dd}
+footer{}
+@media(max-width:1000px){.menu{display:none}.next{display:none}.feats{grid-template-columns:1fr 1fr}.split,.band{grid-template-columns:1fr}.progs{grid-template-columns:1fr 1fr}.band img{display:none}}
+@media(max-width:600px){.feats,.progs{grid-template-columns:1fr}.hero::after{background:rgba(230,238,252,.85)}header .bl{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#f6f9fe;--xs:#ffffff;--xi:#1b2a4a;--xm:#5c6b8a;--xa:#4f72d8;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:22px;font-family:'Lexend',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Lexend',system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Lexend',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Lexend',system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Lexend',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Lexend',system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#1b2a4a;color:#b7c3dd;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#b7c3dd;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#1b2a4a;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#f6f9fe;--xs:#ffffff;--xi:#1b2a4a;--xm:#5c6b8a;--xa:#4f72d8;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:22px;--xbr:999px;--xbf:'Lexend';--xalt:#ffffff}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Lexend',system-ui,sans-serif;font-weight:600;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "Mindful", "cur": "$", "pages": [["services", "Programs"], ["service", "Program"], ["team", "Therapists"], ["pricing", "Pricing"], ["booking", "Book a Session"], ["about", "About"], ["blog", "Resources"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"]], "listing": "services.html", "freeShip": 100, "shipFee": 9, "products": [], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="074">
+
+<header data-xnav=""><div class="wrap">
+<a class="logo" href="index.html">Mindful<span>+</span></a>
+<nav class="menu"><a class="on" href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="services.html">Resources</a><a href="contact.html">Contact</a></nav>
+<a class="btn bl" href="services.html">Book a Session</a>
+</div></header><div class="xi v2" id="main"><div class="xi-top"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>FAQ</span></div><h1 class="xi-h1 xi-rv">Frequently Asked Questions</h1><p class=xi-rv>Quick answers to the questions we hear most. Can't find what you need? We're here to help.</p></div></div><section class="xi-sec tight"><div class="x-in"><div style="display:grid;grid-template-columns:260px 1fr;gap:clamp(30px,5vw,80px)" class="xi-faqwrap"><div class="xi-faqnav"><a href="#faq0">Getting Started</a><a href="#faq1">Privacy &amp; Safety</a><a href="#faq2">Billing</a><div class="xi-card" style="margin-top:20px"><b>Still need help?</b><p class="xi-muted" style="font-size:14px">Our team replies within a few hours.</p><a class="x-btn" href="contact.html">Contact us</a></div></div><div><div id="faq0" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Getting Started</h2><details class="xi-faq" open><summary>How does matching work?<i>+</i></summary><p>After a short assessment we match you with a licensed therapist who fits your needs, usually within 48 hours.</p></details><details class="xi-faq"><summary>Is the first session free?<i>+</i></summary><p>Your first 20-minute consultation is free with no obligation.</p></details><details class="xi-faq"><summary>Can I use Mindful on my phone?<i>+</i></summary><p>Yes — sessions, exercises and messaging all work in our iOS and Android apps.</p></details></div><div id="faq1" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Privacy &amp; Safety</h2><details class="xi-faq"><summary>Is my data private?<i>+</i></summary><p>Everything is encrypted and protected under strict confidentiality rules.</p></details><details class="xi-faq"><summary>What if I&#x27;m in crisis?<i>+</i></summary><p>Mindful isn&#x27;t an emergency service — please contact local emergency services or a crisis line.</p></details></div><div id="faq2" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Billing</h2><details class="xi-faq"><summary>Do you accept insurance?<i>+</i></summary><p>Many plans cover our sessions; we provide superbills for reimbursement.</p></details><details class="xi-faq"><summary>Can I cancel anytime?<i>+</i></summary><p>Yes. Memberships can be paused or cancelled at any time.</p></details></div></div></div><style>@media(max-width:900px){.xi-faqwrap{grid-template-columns:1fr!important}.xi-faqnav{position:static}}</style></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Mindful</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" rel="noopener" target="_blank">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" rel="noopener" target="_blank">f</a><a aria-label="X" href="https://x.com/" rel="noopener" target="_blank">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" rel="noopener" target="_blank">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" rel="noopener" target="_blank">in</a></div></div><div><h6>Solutions</h6><a href="services.html">Overview</a><a href="pricing.html">Pricing</a><a href="blog.html">Projects</a><a href="services.html">Resources</a></div><div><h6>Company</h6><a href="about.html">About</a><a href="about.html">Careers</a><a href="blog.html">News</a><a href="services.html">Partners</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@mindful.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Mindful. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

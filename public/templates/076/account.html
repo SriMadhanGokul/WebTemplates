@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account — NatureCart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Nunito,system-ui,sans-serif;color:#17301a;background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(16px,2.6vw,40px)}
+.ann{background:#2e7d32;color:#fff;font-size:13px}
+.ann .wrap{display:flex;justify-content:space-between;height:38px;align-items:center}
+header{border-bottom:1px solid #e7efe5}
+.hm .wrap{display:flex;align-items:center;gap:26px;height:82px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:22px;color:#2e7d32}
+.logo i{font-style:normal;font-size:28px}
+.logo small{display:block;font-size:10px;color:#6c8a6e;font-weight:700;margin-top:-4px}
+.loc{font-size:12px;color:#6c8a6e;line-height:1.3}.loc b{display:block;color:#17301a;font-size:14px}
+.search{flex:1;display:flex;border:2px solid #2e7d32;border-radius:12px;overflow:hidden}
+.search input{flex:1;border:0;outline:0;padding:12px 16px;font:15px Nunito}
+.search button{border:0;background:#2e7d32;color:#fff;width:60px;font-size:18px;cursor:pointer}
+.tools{display:flex;gap:22px;font-size:13px;font-weight:700}
+.tools a{display:flex;gap:6px;align-items:center}
+.cnav{background:#f4f9f3}
+.cnav .wrap{display:flex;gap:30px;height:50px;align-items:center;font-weight:700;font-size:14px}
+.cnav a.on,.cnav a:hover{color:#2e7d32}
+.cnav .all{background:#2e7d32;color:#fff;padding:8px 14px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:14px 24px;font-weight:800;font-size:14.5px;transition:all .2s}
+.gr{background:#2e7d32;color:#fff}.gr:hover{background:#256528;transform:translateY(-2px)}
+.ow{background:#fff;color:#2e7d32;border:2px solid #2e7d32}
+.hero{margin-top:22px;border-radius:26px;background:linear-gradient(110deg,#eef8ea,#dcf0d3);display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:clamp(440px,36vw,600px);overflow:hidden;position:relative}
+.hero .t{padding:clamp(30px,4vw,70px)}
+.hero small{font-weight:900;letter-spacing:2px;font-size:12px;color:#2e7d32}
+.hero h1{font-size:clamp(40px,4.4vw,76px);line-height:1.05;font-weight:900;margin:14px 0 16px}
+.hero h1 span{color:#2e7d32}
+.hero p{color:#4f6b52;font-size:17px;line-height:1.6;max-width:430px}
+.hb{display:flex;gap:22px;margin:26px 0 30px;flex-wrap:wrap}
+.hb div{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:700;color:#4f6b52}
+.hb i{font-style:normal;width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.hero .pic{position:relative;height:100%}
+.hero .pic img{position:absolute;right:6%;top:8%;width:82%;height:84%;object-fit:cover;border-radius:24px;box-shadow:0 40px 70px -40px rgba(20,60,20,.6)}
+.badge60{position:absolute;left:8%;top:12%;width:110px;height:110px;border-radius:50%;background:#fff;border:3px dashed #2e7d32;display:grid;place-items:center;text-align:center;font-weight:900;color:#2e7d32;line-height:1;z-index:2;box-shadow:0 14px 30px -14px rgba(0,0,0,.3)}
+.badge60 b{font-size:34px;display:block}.badge60 small{font-size:10px;color:#4f6b52;letter-spacing:1px}
+.sec{padding:clamp(40px,4vw,64px) 0}
+.hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:16px}
+.hd h2{font-size:clamp(22px,2vw,30px);font-weight:900}
+.hd a{color:#2e7d32;font-weight:800;font-size:14px}
+.cats{display:grid;grid-template-columns:repeat(8,1fr);gap:16px}
+.cat{text-align:center;font-weight:700;font-size:14px}
+.cat .ph{aspect-ratio:1;border-radius:50%;overflow:hidden;background:#f4f9f3;margin-bottom:10px;border:3px solid #fff;box-shadow:0 10px 24px -16px rgba(20,60,20,.5);transition:transform .3s}
+.cat:hover .ph{transform:translateY(-6px)}
+.cat img{width:100%;height:100%;object-fit:cover}
+.offers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.of{border-radius:20px;padding:24px;display:grid;grid-template-columns:1fr 90px;gap:10px;align-items:center;min-height:170px}
+.of small{font-weight:800;font-size:12px;opacity:.75}.of b{display:block;font-size:32px;font-weight:900;line-height:1}.of span{display:block;font-size:13px;margin:6px 0 12px;font-weight:600}
+.of img{width:90px;height:90px;object-fit:cover;border-radius:16px}
+.of .btn{padding:8px 14px;font-size:12px}
+.o1{background:#fff4d9}.o2{background:#e3f4e1}.o3{background:#fde4ea}.o4{background:#e4eefc}
+.prods{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.pd{border:1px solid #e7efe5;border-radius:18px;padding:12px;position:relative;transition:all .3s;background:#fff}
+.pd:hover{box-shadow:0 20px 40px -28px rgba(20,60,20,.6);transform:translateY(-4px)}
+.pd em{position:absolute;left:12px;top:12px;z-index:2;background:#e53935;color:#fff;font-style:normal;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px}
+.pd .ph{aspect-ratio:1;border-radius:12px;overflow:hidden;margin-bottom:10px;background:#f4f9f3}
+.pd img{width:100%;height:100%;object-fit:cover}
+.pd small{color:#6c8a6e;font-size:12px;font-weight:700}.pd b{display:block;font-size:15px;margin:2px 0 8px;min-height:38px}
+.pd .r{display:flex;justify-content:space-between;align-items:center}.pd strong{font-size:16px}.pd s{color:#9ab09c;font-size:12px;margin-left:4px}
+.pd .add{border:1.5px solid #2e7d32;color:#2e7d32;border-radius:8px;padding:5px 12px;font-weight:800;font-size:13px}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:#f4f9f3;border-radius:22px;padding:24px}
+.trust div{display:flex;gap:12px;align-items:center}.trust i{font-style:normal;font-size:26px}
+.trust b{display:block}.trust small{color:#6c8a6e}
+.app{background:#2e7d32;color:#fff;border-radius:26px;display:grid;grid-template-columns:1.2fr 1fr;align-items:center;overflow:hidden}
+.app .t{padding:clamp(30px,4vw,64px)}
+.app h2{font-size:clamp(28px,2.8vw,44px);font-weight:900}
+.app p{opacity:.9;margin:12px 0 22px}
+.app form{display:flex;background:#fff;border-radius:12px;padding:5px;max-width:460px}
+.app input{flex:1;border:0;outline:0;padding:0 14px;font:15px Nunito;min-width:0}
+.app img{width:100%;height:100%;object-fit:cover;min-height:300px}
+footer{}
+@media(max-width:1200px){.cats{grid-template-columns:repeat(4,1fr)}.prods{grid-template-columns:repeat(3,1fr)}.offers{grid-template-columns:1fr 1fr}.cnav{display:none}.loc,.tools span{display:none}}
+@media(max-width:800px){.hero,.app{grid-template-columns:1fr}.hero .pic{min-height:320px}.trust{grid-template-columns:1fr 1fr}.search{display:none}.ann .wrap span:last-child{display:none}}
+@media(max-width:520px){.prods,.offers{grid-template-columns:1fr 1fr}.of{grid-template-columns:1fr}.of img{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#ffffff;--xs:#f4f9f3;--xi:#17301a;--xm:#6c8a6e;--xa:#2e7d32;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:14px;font-family:'Nunito',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#f4f9f3}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Nunito',system-ui,sans-serif;font-weight:900;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Nunito',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Nunito',system-ui,sans-serif;font-weight:900;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Nunito',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Nunito',system-ui,sans-serif;font-weight:900;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#17301a;color:#a9c2ab;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#a9c2ab;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#17301a;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#ffffff;--xs:#f4f9f3;--xi:#17301a;--xm:#6c8a6e;--xa:#2e7d32;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:14px;--xbr:7px;--xbf:'Nunito';--xalt:#f4f9f3}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Nunito',system-ui,sans-serif;font-weight:900;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "NatureCart", "cur": "₹", "pages": [["shop", "Shop"], ["product", "Product"], ["cart", "Cart"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Account"]], "listing": "shop.html", "freeShip": 8000, "shipFee": 99, "products": [{"name": "Cold-Pressed Orange Juice 1L", "cat": "Beverages", "img": "assets/p-juice.jpg", "id": 0, "price": 399, "tag": "", "was": null, "rating": 4.6, "reviews": 131, "gallery": ["assets/p-juice.jpg", "assets/p-tomato.jpg", "assets/p-carrot.jpg", "assets/basket.jpg"]}, {"name": "Heirloom Tomatoes 500g", "cat": "Vegetables", "img": "assets/p-tomato.jpg", "id": 1, "price": 99, "tag": "", "was": null, "rating": 4.9, "reviews": 116, "gallery": ["assets/p-tomato.jpg", "assets/p-carrot.jpg", "../_shared/agri/13.jpg", "../_shared/agri/14.jpg"]}, {"name": "Fresh Carrots 1kg", "cat": "Vegetables", "img": "assets/p-carrot.jpg", "id": 2, "price": 99, "tag": "New", "was": null, "rating": 4.8, "reviews": 60, "gallery": ["assets/p-carrot.jpg", "assets/p-tomato.jpg", "../_shared/agri/13.jpg", "../_shared/agri/14.jpg"]}, {"name": "Seasonal Veg Basket", "cat": "Combos", "img": "assets/basket.jpg", "id": 3, "price": 99, "tag": "", "was": null, "rating": 4.4, "reviews": 370, "gallery": ["assets/basket.jpg", "assets/box.jpg", "assets/net.jpg", "assets/hero.jpg"]}, {"name": "Weekly Grocery Box", "cat": "Combos", "img": "assets/box.jpg", "id": 4, "price": 299, "tag": "New", "was": null, "rating": 4.8, "reviews": 128, "gallery": ["assets/box.jpg", "assets/basket.jpg", "assets/net.jpg", "assets/hero.jpg"]}, {"name": "Market Net Bag Combo", "cat": "Combos", "img": "assets/net.jpg", "id": 5, "price": 399, "tag": "", "was": null, "rating": 4.8, "reviews": 262, "gallery": ["assets/net.jpg", "assets/basket.jpg", "assets/box.jpg", "assets/hero.jpg"]}, {"name": "Family Veg Bag", "cat": "Combos", "img": "assets/hero.jpg", "id": 6, "price": 299, "tag": "Bestseller", "was": null, "rating": 4.6, "reviews": 44, "gallery": ["assets/hero.jpg", "assets/basket.jpg", "assets/box.jpg", "assets/net.jpg"]}, {"name": "Mixed Root Box", "cat": "Vegetables", "img": "../_shared/agri/13.jpg", "id": 7, "price": 199, "tag": "", "was": null, "rating": 4.9, "reviews": 306, "gallery": ["../_shared/agri/13.jpg", "assets/p-tomato.jpg", "assets/p-carrot.jpg", "../_shared/agri/14.jpg"]}, {"name": "Pepper & Eggplant Pack", "cat": "Vegetables", "img": "../_shared/agri/14.jpg", "id": 8, "price": 399, "tag": "Sale", "was": 518, "rating": 4.8, "reviews": 115, "gallery": ["../_shared/agri/14.jpg", "assets/p-tomato.jpg", "assets/p-carrot.jpg", "../_shared/agri/13.jpg"]}, {"name": "Kale & Leafy Bundle", "cat": "Greens", "img": "../_shared/agri/15.jpg", "id": 9, "price": 299, "tag": "", "was": null, "rating": 4.8, "reviews": 153, "gallery": ["../_shared/agri/15.jpg", "../_shared/agri/16.jpg", "assets/p-juice.jpg", "assets/p-tomato.jpg"]}, {"name": "Broccoli & Squash Box", "cat": "Greens", "img": "../_shared/agri/16.jpg", "id": 10, "price": 299, "tag": "", "was": null, "rating": 4.7, "reviews": 312, "gallery": ["../_shared/agri/16.jpg", "../_shared/agri/15.jpg", "assets/p-juice.jpg", "assets/p-tomato.jpg"]}, {"name": "Farm Veg Basket", "cat": "Boxes", "img": "../_shared/agri/01.jpg", "id": 11, "price": 199, "tag": "New", "was": null, "rating": 4.5, "reviews": 111, "gallery": ["../_shared/agri/01.jpg", "../_shared/agri/02.jpg", "../_shared/agri/03.jpg", "assets/p-juice.jpg"]}, {"name": "Garden Medley Crate", "cat": "Boxes", "img": "../_shared/agri/02.jpg", "id": 12, "price": 5, "tag": "", "was": null, "rating": 4.6, "reviews": 268, "gallery": ["../_shared/agri/02.jpg", "../_shared/agri/01.jpg", "../_shared/agri/03.jpg", "assets/p-juice.jpg"]}, {"name": "Greens & Roots Box", "cat": "Boxes", "img": "../_shared/agri/03.jpg", "id": 13, "price": 399, "tag": "Sale", "was": 518, "rating": 4.8, "reviews": 45, "gallery": ["../_shared/agri/03.jpg", "../_shared/agri/01.jpg", "../_shared/agri/02.jpg", "assets/p-juice.jpg"]}, {"name": "Heirloom Carrot Bunch", "cat": "Vegetables", "img": "../_shared/agri/04.jpg", "id": 14, "price": 299, "tag": "", "was": null, "rating": 4.5, "reviews": 30, "gallery": ["../_shared/agri/04.jpg", "assets/p-tomato.jpg", "assets/p-carrot.jpg", "../_shared/agri/13.jpg"]}, {"name": "Radish & Beet Mix", "cat": "Vegetables", "img": "../_shared/agri/06.jpg", "id": 15, "price": 399, "tag": "Bestseller", "was": null, "rating": 4.4, "reviews": 27, "gallery": ["../_shared/agri/06.jpg", "assets/p-tomato.jpg", "assets/p-carrot.jpg", "../_shared/agri/13.jpg"]}], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="076">
+
+<div class="ann"><div class="wrap"><span>🚚 Free delivery on orders above ₹499</span><span>Delivering happiness in Maharashtra</span></div></div>
+<header data-xnav="">
+<div class="hm"><div class="wrap">
+<a class="logo" href="index.html"><i>🛒</i><span>NatureCart<small>Fresh. Natural. Delivered.</small></span></a>
+<div class="loc">Deliver to<b>📍 Mumbai 400050</b></div>
+<form class="search" role="search"><input aria-label="Search groceries" placeholder="Search for fruits, vegetables, dairy and more…"/><button aria-label="Search">⌕</button></form>
+<div class="tools"><a aria-label="Account" href="account.html">👤<span>Login / Sign up</span></a><a aria-label="Wishlist" href="account.html">♡<span>Wishlist</span></a><a aria-label="Cart" href="cart.html">🛒<span>Cart</span></a></div>
+</div></div>
+<nav class="cnav"><div class="wrap"><a class="all" href="shop.html">☰ Shop by Category</a><a class="on" href="index.html">Home</a><a href="shop.html">Categories</a><a href="shop.html">Offers</a><a href="contact.html">Combo Store</a><a href="shop.html">Brands</a><a href="shop.html">Household</a><a href="contact.html">Contact Us</a></div></nav>
+</header><div class="xi v1" id="main"><div class="xi-top"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Account</span></div><h1 class="xi-h1 xi-rv">My Account</h1><p class=xi-rv>Sign in to manage your orders, wishlist and preferences — or create an account in seconds.</p></div></div><section class="xi-sec tight"><div class="x-in"><div class="xi-split"><div class="xi-rv"><div class="xi-auth xi-card" data-tabs style="padding:clamp(26px,3vw,48px)"><div class="xi-tabbar"><button data-tab="in" class="on">Sign in</button><button data-tab="up">Create account</button></div><div data-pane="in"><form class="xi-form" data-ok="Welcome back! You are now signed in."><label>Email<input type="email" required placeholder="you@example.com"></label><label>Password<input type="password" required minlength="6" placeholder="••••••••"></label><div style="display:flex;justify-content:space-between;font-size:14px"><label class="xi-check" style="font-weight:400"><input type="checkbox"> Remember me</label><a href="contact.html" class="xi-link">Forgot password?</a></div><button class="x-btn wide" type="submit">Sign in</button><div class="xi-success" hidden></div><div class="xi-or">or continue with</div><div class="xi-social"><a class="x-btn xi-ghost" href="https://accounts.google.com/" target="_blank" rel="noopener">G  Google</a><a class="x-btn xi-ghost" href="https://appleid.apple.com/" target="_blank" rel="noopener">  Apple</a></div></form></div><div data-pane="up" hidden><form class="xi-form" data-ok="Account created! Check your inbox to verify your email."><div class="two"><label>First name<input required></label><label>Last name<input required></label></div><label>Email<input type="email" required placeholder="you@example.com"></label><label>Password<input type="password" required minlength="8" placeholder="At least 8 characters"></label><label class="xi-check"><input type="checkbox" required> I agree to the Terms and Privacy Policy</label><button class="x-btn wide" type="submit">Create account</button><div class="xi-success" hidden></div></form></div></div></div><div class="xi-rv"><div class="xi-ph" style="aspect-ratio:4/3;margin-bottom:26px"><img src="../_shared/agri/08.jpg" alt="" loading="lazy"></div><h2 class="xi-h3">Why create an account?</h2><ul class="xi-feats" style="grid-template-columns:1fr;margin-top:18px"><li>Track orders and returns in one place</li><li>Save your wishlist and addresses</li><li>Members-only offers and early access</li></ul></div></div></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">NatureCart</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">f</a><a aria-label="X" href="https://x.com/" target="_blank" rel="noopener">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a></div></div><div><h6>Solutions</h6><a href="shop.html">Overview</a><a href="contact.html">Pricing</a><a href="blog.html">Projects</a><a href="shop.html">Resources</a></div><div><h6>Company</h6><a href="about.html">About</a><a href="about.html">Careers</a><a href="blog.html">News</a><a href="shop.html">Partners</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@naturecart.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 NatureCart. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

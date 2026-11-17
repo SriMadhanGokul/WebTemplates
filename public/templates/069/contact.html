@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — ROAD Arena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:#f2f2f2;background:#070707;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.raj{font-family:Rajdhani,sans-serif;font-weight:700;letter-spacing:.5px}
+.hero{position:relative;min-height:min(100vh,940px);overflow:hidden;border-bottom:1px solid #2a0d0d}
+.hero .word{position:absolute;right:-2%;top:12%;font-family:'Bebas Neue',sans-serif;font-size:clamp(220px,30vw,520px);line-height:.82;color:transparent;-webkit-text-stroke:2px rgba(255,40,40,.55);letter-spacing:6px;pointer-events:none}
+.hero .ph{position:absolute;right:8%;top:0;bottom:0;width:46%}
+.hero .ph img{width:100%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent);mask-image:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent);filter:saturate(1.2) contrast(1.05)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 40%,rgba(255,30,30,.28),transparent 55%);pointer-events:none}
+.nav{position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;padding:24px clamp(18px,3vw,48px);border-bottom:1px solid rgba(255,50,50,.18)}
+.logo{display:flex;align-items:center;gap:10px;font-size:24px}
+.logo i{font-style:normal;width:34px;height:34px;background:#ff2a2a;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:grid;place-items:center;font-size:14px;color:#000}
+.menu{display:flex;gap:34px;font-family:Rajdhani,sans-serif;font-weight:600;font-size:15px;letter-spacing:2px;color:#bdbdbd}
+.menu a:hover,.menu a.on{color:#ff3b3b}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 28px;font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;letter-spacing:2px;transition:all .25s;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+.red{background:#ff2a2a;color:#fff}.red:hover{background:#ff4b4b;box-shadow:0 0 40px rgba(255,42,42,.6)}
+.ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);color:#fff}
+.copy{position:relative;z-index:3;padding:clamp(70px,9vw,150px) clamp(18px,3vw,48px) 60px;max-width:720px}
+.copy small{color:#ff3b3b;font-family:Rajdhani,sans-serif;font-weight:700;letter-spacing:4px;font-size:14px}
+.copy h1{font-size:clamp(64px,8vw,140px);line-height:.9;font-style:italic;font-weight:800;letter-spacing:-3px;margin:18px 0 20px}
+.copy p{color:#a8a8a8;font-size:18px;line-height:1.7;max-width:420px}
+.copy .row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.hstats{position:relative;z-index:3;display:flex;gap:40px;padding:0 clamp(18px,3vw,48px) 50px;flex-wrap:wrap}
+.hstats div{display:flex;gap:12px;align-items:center}
+.hstats i{font-style:normal;width:44px;height:44px;border:1px solid #ff2a2a;border-radius:50%;display:grid;place-items:center;color:#ff3b3b}
+.hstats b{font-family:Rajdhani,sans-serif;font-size:28px;display:block;line-height:1}.hstats small{color:#8a8a8a;font-size:12px;letter-spacing:1px}
+.vid{position:absolute;right:clamp(18px,3vw,48px);bottom:50px;z-index:3;width:260px;border:1px solid rgba(255,42,42,.5);background:rgba(10,10,10,.7);backdrop-filter:blur(10px);padding:10px}
+.vid .t{position:relative;aspect-ratio:16/9;overflow:hidden}
+.vid img{width:100%;height:100%;object-fit:cover}
+.vid .t span{position:absolute;inset:0;display:grid;place-items:center;font-size:26px}
+.vid b{display:block;font-family:Rajdhani;letter-spacing:2px;margin-top:10px}.vid small{color:#8a8a8a;font-size:12px}
+.lvl{position:absolute;right:clamp(18px,3vw,48px);top:110px;z-index:3;text-align:right;font-family:Rajdhani,sans-serif;color:#8a8a8a;letter-spacing:2px}
+.lvl b{display:block;font-size:56px;color:#ff3b3b;line-height:1}
+.sec{padding:clamp(70px,7vw,120px) 0}
+.eye{font-family:Rajdhani,sans-serif;font-weight:700;letter-spacing:4px;color:#ff3b3b;font-size:14px}
+.h2{font-size:clamp(36px,4vw,68px);font-family:Rajdhani,sans-serif;font-weight:700;line-height:1;margin-top:12px;text-transform:uppercase}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.mode{position:relative;min-height:440px;overflow:hidden;border:1px solid #241010;display:flex;align-items:flex-end;transition:border-color .3s}
+.mode:hover{border-color:#ff2a2a}
+.mode img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s;filter:grayscale(.3)}
+.mode:hover img{transform:scale(1.06);filter:none}
+.mode::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(7,7,7,.95))}
+.mode div{position:relative;z-index:1;padding:28px}
+.mode small{color:#ff3b3b;font-family:Rajdhani;letter-spacing:3px;font-weight:700}
+.mode b{display:block;font-family:Rajdhani;font-size:32px;margin:6px 0 8px}.mode p{color:#a8a8a8;font-size:14.5px;line-height:1.6}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #241010}
+.feat div{padding:34px;border-right:1px solid #241010;transition:background .3s}.feat div:last-child{border:0}
+.feat div:hover{background:#140808}
+.feat i{font-style:normal;font-size:28px;color:#ff3b3b}
+.feat b{display:block;font-family:Rajdhani;font-size:22px;letter-spacing:1px;margin:18px 0 8px}.feat p{color:#8f8f8f;font-size:14.5px;line-height:1.7}
+.board{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.board .ph{position:relative;aspect-ratio:1.1;overflow:hidden;border:1px solid #241010}
+.board .ph img{width:100%;height:100%;object-fit:cover}
+.rank{display:grid;gap:10px;margin-top:30px}
+.rank div{display:grid;grid-template-columns:40px 1fr auto;gap:16px;align-items:center;padding:16px 20px;background:#101010;border-left:3px solid #ff2a2a}
+.rank b{font-family:Rajdhani;font-size:22px;color:#ff3b3b}.rank span{font-weight:600}.rank small{color:#8a8a8a}
+.cta{position:relative;overflow:hidden;border:1px solid #ff2a2a;padding:clamp(50px,6vw,100px) clamp(26px,5vw,80px)}
+.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.cta>*{position:relative}
+.cta p{color:#bdbdbd;max-width:520px;margin:16px 0 30px;line-height:1.7}
+footer{}
+@media(max-width:1000px){.menu{display:none}.hero .ph{width:100%;right:0;opacity:.45}.vid,.lvl{display:none}.modes{grid-template-columns:1fr}.feat{grid-template-columns:1fr 1fr}.feat div{border-bottom:1px solid #241010}.board{grid-template-columns:1fr}}
+@media(max-width:560px){.feat{grid-template-columns:1fr}.nav .red{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#070707;--xs:#121212;--xi:#f2f2f2;--xm:#9a9a9a;--xa:#ff2a2a;--xai:#fff;--xl:rgba(255,255,255,.12);--xr:4px;font-family:'Inter',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:rgba(255,255,255,.03)}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:Rajdhani,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:Rajdhani,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;filter:brightness(1.6);}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:Rajdhani,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#050505;color:#8a8a8a;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#8a8a8a;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#050505;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#070707;--xs:#121212;--xi:#f2f2f2;--xm:#9a9a9a;--xa:#ff2a2a;--xai:#fff;--xl:rgba(255,255,255,.12);--xl2:rgba(255,255,255,.24);--xi-rv:4px;--xbr:3px;--xbf:'Inter';--xalt:rgba(255,255,255,.035)}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:Rajdhani,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "ROAD Arena", "cur": "$", "pages": [["features", "Features"], ["pricing", "Pricing"], ["about", "About"], ["blog", "Blog"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Sign In"]], "listing": "features.html", "freeShip": 100, "shipFee": 9, "products": [], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="069">
+
+<section class="hero xi-band">
+
+
+<div class="nav" data-xnav="">
+<a class="logo raj" href="index.html"><i>R</i>ROAD ARENA</a>
+<nav class="menu"><a class="on" href="features.html">EXPLORE</a><a href="features.html">RESOURCES</a><a href="features.html">ARENA</a><a href="features.html">MARKETPLACE</a><a href="about.html">ABOUT</a></nav>
+<a class="btn red" href="features.html">JOIN NOW</a>
+</div><div class="xi xi-ph-band v0"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div><h1 class="xi-h1 xi-rv">Contact Us</h1><p class=xi-rv>Questions, feedback or a project in mind? Reach out and a real person will get back to you shortly.</p></div></div>
+
+
+
+
+</section><div class="xi v0 xi-dark" id="main"><section class="xi-sec tight"><div class="x-in"><div class="xi-contact"><div><span class="xi-eye">Get in touch</span><h2 class="xi-h2" style="margin-bottom:24px">We'd love to hear from you</h2><div class="xi-cinfo"><div><i>⌖</i><span><b>Visit us</b><small>214 Mercer Street, New York, NY 10012</small></span></div><div><i>☎</i><span><b>Call us</b><small><a href="tel:+15552104480">+1 (555) 210 4480</a></small></span></div><div><i>✉</i><span><b>Email</b><small><a href="mailto:hello@roadarena.com">hello@roadarena.com</a></small></span></div><div><i>◷</i><span><b>Opening hours</b><small>Mon–Fri · 9am–6pm</small></span></div></div></div><div class="xi-card" style="padding:clamp(24px,3vw,44px)"><h3 class="xi-h3" style="margin-bottom:20px">Send us a message</h3><form class="xi-form" data-ok="Thanks! Your message has been sent — we&#x27;ll reply within one business day."><div class="two"><label>Full name<input name="name" required placeholder="Jane Cooper"></label><label>Email<input type="email" name="email" required placeholder="jane@example.com"></label></div><div class="two"><label>Phone<input type="tel" name="phone" placeholder="+1 555 000 0000"></label><label>Topic<select name="topic"><option>Account help</option><option>Billing</option><option>Bug report</option><option>Partnerships</option></select></label></div><label>Message<textarea name="message" required minlength="10" placeholder="How can we help?"></textarea></label><label class="xi-check"><input type="checkbox" required> I agree to the privacy policy and to be contacted about my enquiry.</label><button class="x-btn" type="submit">Send message</button><div class="xi-success" hidden></div></form></div></div></div></section><section class="xi-sec tight"><div class="x-in"><div class="xi-map xi-rv"><iframe title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.006,40.720,-73.994,40.728&amp;layer=mapnik"></iframe></div></div></section><section class="xi-sec alt"><div class="x-in"><div class="xi-head"><div><span class="xi-eye">FAQ</span><h2 class="xi-h2 xi-rv">Common questions</h2></div><a class="x-btn xi-ghost" href="faq.html">See all FAQs</a></div><details class="xi-faq" open><summary>Is the app free?<i>+</i></summary><p>Yes, the core app is free forever. Premium unlocks advanced features and removes limits.</p></details><details class="xi-faq"><summary>Which devices are supported?<i>+</i></summary><p>iOS 15+, Android 9+ and any modern web browser. Your data syncs across devices.</p></details><details class="xi-faq"><summary>How do I delete my account?<i>+</i></summary><p>Go to Settings → Account → Delete. All your data is permanently erased within 30 days.</p></details></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">ROAD Arena</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" rel="noopener" target="_blank">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" rel="noopener" target="_blank">f</a><a aria-label="X" href="https://x.com/" rel="noopener" target="_blank">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" rel="noopener" target="_blank">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" rel="noopener" target="_blank">in</a></div></div><div><h6>Product</h6><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="pricing.html">Download</a><a href="features.html">What's New</a></div><div><h6>Company</h6><a href="about.html">About</a><a href="about.html">Careers</a><a href="about.html">Press Kit</a><a href="blog.html">Blog</a></div><div><h6>Support</h6><a href="contact.html">Help Center</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a><a href="contact.html">Contact</a></div><div><h6>Stay in touch</h6><p>hello@roadarena.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 ROAD Arena. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

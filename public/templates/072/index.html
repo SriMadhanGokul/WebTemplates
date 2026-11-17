@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizon — We Build Digital Experiences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:#fff;background:#0a0420;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.ub{font-family:Unbounded,sans-serif;font-weight:800}
+.hero{position:relative;margin:16px;border:1.5px solid #6c4dff;border-radius:22px;overflow:hidden;min-height:min(calc(100vh - 32px),920px);background:radial-gradient(circle at 50% 45%,#3b1d9e 0%,#1a0b55 40%,#0a0420 75%);display:flex;flex-direction:column}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.5) 1px,transparent 1px);background-size:60px 60px;opacity:.12}
+.nav{position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,3vw,40px);font-size:13px;color:#c9c0ff}
+.nav .l{display:flex;align-items:center;gap:24px}
+.logo{font-family:Unbounded;font-weight:800;color:#fff;font-size:16px;letter-spacing:1px}
+.menu{display:flex;gap:28px}.menu a:hover,.menu a.on{color:#fff}
+.nav .r{display:flex;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:40px;padding:12px 22px;font-size:13.5px;font-weight:600;transition:all .25s}
+.vi{background:#7b5cff;color:#fff;box-shadow:0 10px 30px -10px #7b5cff}.vi:hover{background:#9479ff;transform:translateY(-2px)}
+.gh{border:1px solid rgba(255,255,255,.3)}.gh:hover{background:rgba(255,255,255,.1)}
+.stage{position:relative;flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;padding:0 clamp(20px,3vw,40px)}
+.big{position:absolute;left:0;right:0;top:50%;transform:translateY(-58%);text-align:center;font-family:Unbounded;font-weight:900;font-size:clamp(110px,17vw,300px);letter-spacing:-6px;line-height:1;color:#fff;z-index:1}
+.model{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:96%;width:min(560px,46%);z-index:2}
+.model img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent),radial-gradient(#000 60%,transparent 72%);mask-image:linear-gradient(180deg,#000 75%,transparent);border-radius:300px 300px 0 0}
+.lt{position:relative;z-index:3;align-self:end;padding-bottom:70px}
+.lt h1{font-size:clamp(30px,2.8vw,48px);line-height:1.1}
+.lt h1 em{font-style:italic;color:#a990ff}
+.lt p{color:#c9c0ff;margin:14px 0 22px;font-size:14px}
+.lt .row{display:flex;gap:12px;flex-wrap:wrap}
+.rt{position:relative;z-index:3;grid-column:3;justify-self:end;max-width:300px;display:grid;gap:18px}
+.rt p{color:#c9c0ff;font-size:14px;line-height:1.7}
+.mail{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:18px;backdrop-filter:blur(10px)}
+.mail b{display:block;margin-bottom:6px}.mail small{color:#c9c0ff;font-size:12px}
+.mail form{display:flex;margin-top:12px;background:rgba(0,0,0,.25);border-radius:30px;padding:4px}
+.mail input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 12px;font:13px Inter}
+.mail button{width:34px;height:34px;border-radius:50%;border:0;background:#7b5cff;color:#fff;cursor:pointer}
+.stats{position:relative;z-index:3;display:flex;justify-content:center;gap:70px;padding:0 0 26px}
+.stats div{text-align:center}.stats b{font-family:Unbounded;font-size:24px;display:block}.stats small{color:#c9c0ff;font-size:12px}
+.sec{padding:clamp(70px,7vw,120px) 0}
+.eye{color:#a990ff;font-size:12px;letter-spacing:3px;font-weight:600}
+.h2{font-family:Unbounded;font-weight:800;font-size:clamp(32px,3.4vw,58px);line-height:1.08;margin-top:12px}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
+.svc a{padding:30px;border-radius:22px;background:#140a3a;border:1px solid #2b1a6e;transition:all .3s}
+.svc a:hover{background:#1d0f52;border-color:#7b5cff;transform:translateY(-6px)}
+.svc i{font-style:normal;font-size:24px;width:54px;height:54px;border-radius:16px;background:#2b1a6e;display:grid;place-items:center}
+.svc b{display:block;font-size:19px;margin:24px 0 10px}.svc p{color:#b3a9e8;font-size:14.5px;line-height:1.7}
+.work{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:46px}
+.work .col{display:grid;gap:18px}
+.wk{position:relative;border-radius:22px;overflow:hidden;min-height:300px;display:flex;align-items:flex-end}
+.wk img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.wk:hover img{transform:scale(1.05)}
+.wk::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(10,4,32,.9))}
+.wk div{position:relative;z-index:1;padding:24px}.wk small{color:#a990ff;font-size:12px;letter-spacing:2px}.wk b{display:block;font-size:22px;margin-top:6px}
+.marq{border-top:1px solid #2b1a6e;border-bottom:1px solid #2b1a6e;overflow:hidden;white-space:nowrap;padding:22px 0}
+.marq div{display:inline-block;animation:m 30s linear infinite;font-family:Unbounded;font-weight:800;font-size:28px;color:#3b2a8e}
+.marq span{margin:0 26px}.marq span:nth-child(odd){color:#fff}
+@keyframes m{to{transform:translateX(-50%)}}
+.cta{text-align:center;border-radius:28px;padding:clamp(50px,6vw,110px) 20px;background:radial-gradient(circle at 50% 0,#4a26d8,#140a3a 70%);border:1px solid #2b1a6e}
+.cta p{color:#c9c0ff;max-width:520px;margin:16px auto 30px;line-height:1.7}
+footer{}
+@media(max-width:1100px){.menu{display:none}.stage{grid-template-columns:1fr}.rt{display:none}.model{width:70%;opacity:.6}.svc{grid-template-columns:1fr 1fr}.work{grid-template-columns:1fr}}
+@media(max-width:600px){.svc{grid-template-columns:1fr}.stats{gap:26px}.nav .r .gh{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#0a0420;--xs:#140a3a;--xi:#ffffff;--xm:#b3a9e8;--xa:#7b5cff;--xai:#fff;--xl:rgba(255,255,255,.12);--xr:22px;font-family:'Inter',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:rgba(255,255,255,.03)}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Unbounded',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Unbounded',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;filter:brightness(1.6);}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Unbounded',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#06021a;color:#b3a9e8;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#b3a9e8;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#06021a;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<!--xi:head--><link rel="stylesheet" href="../_shared/inner.css"><script>window.XI_DATA={"brand": "Horizon", "cur": "$", "pages": [["projects", "Work"], ["project", "Case Study"], ["services", "Services"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["contact", "Contact"]], "listing": "projects.html", "products": [], "burgerAlways": false}</script><script src="../_shared/site.js" defer></script><!--/xi:head--></head>
+<body data-tpl="072">
+<section class="hero">
+  <div class="nav">
+    <div class="l"><a href="index.html" class="logo">◉ HORIZON</a><span>📍 San Francisco, USA</span></div>
+    <nav class="menu"><a href="index.html" class="on">Home</a><a href="projects.html">Work</a><a href="services.html">Services</a><a href="about.html">About</a><a href="blog.html">Journal</a></nav>
+    <div class="r"><a href="projects.html" class="btn gh">💬 Chat With Us</a><a href="projects.html" class="btn vi">Start Now</a></div>
+  </div>
+  <div class="big">CREATE</div>
+  <div class="model"><img src="assets/hero.jpg" alt="Woman wearing a VR headset in violet light"></div>
+  <div class="stage">
+    <div class="lt"><h1 class="ub">We Build<br><em>Digital</em><br>Experiences</h1><p>Design. Develop. Elevate.</p><div class="row"><a href="projects.html" class="btn vi">Start Now</a><a href="services.html" class="btn gh">Explore Services</a></div></div>
+    <div class="rt"><p>We are a global branding and digital design agency focusing on building digital products, services and experiences.</p>
+      <div class="mail"><b>Contact by Email</b><small>Enter your email and we will contact you shortly.</small><form><input type="email" placeholder="Your Email" aria-label="Your email" required><button aria-label="Send">→</button></form></div></div>
+  </div>
+  <div class="stats"><div><b>100+</b><small>Projects Done</small></div><div><b>50+</b><small>Happy Clients</small></div><div><b>98%</b><small>Satisfaction</small></div></div>
+</section>
+
+<div class="marq"><div><span>BRANDING</span><span>✦</span><span>WEB DESIGN</span><span>✦</span><span>3D &amp; MOTION</span><span>✦</span><span>PRODUCT</span><span>✦</span><span>AR / VR</span><span>✦</span><span>BRANDING</span><span>✦</span><span>WEB DESIGN</span><span>✦</span><span>3D &amp; MOTION</span><span>✦</span><span>PRODUCT</span><span>✦</span><span>AR / VR</span><span>✦</span></div></div>
+
+<section class="sec"><div class="wrap">
+  <span class="eye">WHAT WE DO</span><h2 class="h2">Services built for<br>the immersive web</h2>
+  <div class="svc">
+    <a href="projects.html"><i>✦</i><b>Brand Identity</b><p>Strategy, naming and visual systems that stand out in every channel.</p></a>
+    <a href="about.html"><i>▢</i><b>Web Experiences</b><p>Fast, animated websites with WebGL and scroll-driven storytelling.</p></a>
+    <a href="projects.html"><i>◈</i><b>3D &amp; Motion</b><p>Product renders, launch films and real-time 3D for the browser.</p></a>
+    <a href="projects.html"><i>◎</i><b>AR / VR</b><p>Immersive apps and spatial experiences for headsets and mobile.</p></a>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap"><div><span class="eye">SELECTED WORK</span><h2 class="h2">Recent launches</h2></div><a href="projects.html" class="btn gh">View all work →</a></div>
+  <div class="work">
+    <a href="project.html" class="wk" style="min-height:620px"><img src="assets/galaxy.jpg" alt="Woman exploring a galaxy projection"><div><small>IMMERSIVE · 2026</small><b>Nebula Museum — VR exhibition</b></div></a>
+    <div class="col">
+      <a href="project.html" class="wk"><img src="assets/vr2.jpg" alt="Person using a VR headset"><div><small>PRODUCT</small><b>Pulse XR onboarding</b></div></a>
+      <a href="project.html" class="wk"><img src="assets/neon.jpg" alt="Neon portrait"><div><small>BRANDING</small><b>Volt Records identity</b></div></a>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="cta">
+  <span class="eye">HAVE AN IDEA?</span><h2 class="h2">Let's create something<br>unforgettable</h2>
+  <p>Tell us about your product, brand or experience. We reply within one business day.</p>
+  <a href="contact.html" class="btn vi">Start a Project →</a>
+</div></div></section>
+
+
+<!-- x-complete:start -->
+<section class="x-sec" id="testimonials"><div class="x-in"><div class="x-head"><span class="x-eye">Testimonials</span><h2 class="x-h2">What our clients say</h2><p>Real words from real people who chose Horizon.</p></div><div class="x-g3"><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Studio. transformed our vision into a stunning digital experience.”</blockquote><figcaption><i>S</i><b>Sarah Mitchell</b><small>CEO, Lume</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Strategic, fast and wildly creative — our conversions doubled after launch.”</blockquote><figcaption><i>D</i><b>David Chen</b><small>Founder, Aether</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“The best creative partner we&#x27;ve worked with. Every detail was considered.”</blockquote><figcaption><i>M</i><b>Maya Ortiz</b><small>CMO, Nova</small></figcaption></figure></div></div></section>
+<section class="x-sec x-alt" id="contact"><div class="x-in x-split"><div><span class="x-eye">Contact</span><h2 class="x-h2">Let’s talk about your project</h2><p class="x-lead">Tell us a little about what you need and we’ll get back within one business day.</p><ul class="x-info"><li>✉ hello@horizon.com</li><li>☎ +1 (555) 210 4480</li><li>📍 221 Market Street, Suite 8, New York</li><li>🕘 Mon – Sat, 9:00 – 19:00</li></ul></div><form class="x-card x-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we’ll be in touch ✓';this.reset()"><div class="x-two"><input placeholder="Full name" required aria-label="Full name"><input type="email" placeholder="Email address" required aria-label="Email"></div><div class="x-two"><input type="tel" placeholder="Phone number" aria-label="Phone"></div><textarea rows="4" placeholder="Your message" aria-label="Message"></textarea><button class="x-btn">Send message →</button></form></div></section>
+<!-- x-complete:end -->
+<!-- x-footer:start --><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Horizon</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">◎</a><a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">f</a><a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">𝕏</a><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">▶</a><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">in</a></div></div><div><h6>Studio</h6><a href="projects.html">Work</a><a href="services.html">Services</a><a href="about.html">About</a><a href="blog.html">Journal</a></div><div><h6>Connect</h6><a href="projects.html">Dribbble</a><a href="projects.html">Behance</a><a href="projects.html">LinkedIn</a><a href="projects.html">Instagram</a></div><div><h6>Info</h6><a href="contact.html">Contact</a><a href="contact.html">Start a Project</a><a href="about.html">Privacy</a><a href="about.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@horizon.com<br>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input type="email" placeholder="Your email" aria-label="Email" required><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Horizon. All rights reserved.</span><span><a href="about.html">Privacy Policy</a> · <a href="about.html">Terms of Service</a> · <a href="about.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div><!-- x-footer:end -->
+</body>
+</html>

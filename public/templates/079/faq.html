@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — Fashion+</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;color:#22161c;background:#fff6f8;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.ann{background:#2b1b23;color:#fbe3ea;font-size:12.5px}
+.ann>div{display:flex;justify-content:space-between;max-width:1584px;margin:0 auto;padding:0 clamp(16px,2.6vw,40px);height:36px;align-items:center}
+header{background:#fff;border-bottom:1px solid #f6dfe6;position:sticky;top:0;z-index:20}
+header .in{display:flex;align-items:center;gap:30px;height:76px;max-width:1584px;margin:0 auto;padding:0 clamp(16px,2.6vw,40px)}
+.logo{font-weight:800;font-size:23px}.logo span{color:#e8587c}
+.search{flex:1;max-width:560px;display:flex;align-items:center;gap:10px;background:#fff1f4;border-radius:40px;padding:11px 18px;color:#a3858f}
+.search input{border:0;background:transparent;outline:0;flex:1;font:14px 'DM Sans'}
+.tools{display:flex;gap:22px;margin-left:auto;font-size:13px;font-weight:500}
+.tools a{display:flex;gap:6px;align-items:center}
+.layout{display:grid;grid-template-columns:240px 1fr;max-width:1584px;margin:0 auto;gap:26px;padding:0 clamp(16px,2.6vw,40px)}
+.side{position:sticky;top:96px;align-self:start;padding:22px 0}
+.side nav{display:grid;gap:2px;background:#fff;border-radius:18px;padding:12px;border:1px solid #f6dfe6}
+.side nav a{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:12px;font-size:14.5px;color:#5c4650}
+.side nav a:hover,.side nav a.on{background:#ffe6ed;color:#e8587c;font-weight:700}
+.side .perks{margin-top:16px;display:grid;gap:12px;background:#fff;border-radius:18px;padding:16px;border:1px solid #f6dfe6;font-size:13px;color:#7a6470}
+.side .perks b{display:block;color:#22161c;font-size:13.5px}
+.main{padding:22px 0 0;min-width:0}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:40px;padding:13px 24px;font-weight:700;font-size:14px;transition:all .2s}
+.pk{background:#e8587c;color:#fff;box-shadow:0 12px 26px -12px rgba(232,88,124,.9)}.pk:hover{background:#d44368;transform:translateY(-2px)}
+.dk{background:#22161c;color:#fff}
+.hero{border-radius:26px;background:linear-gradient(110deg,#fde3ea,#f8c9d6);display:grid;grid-template-columns:1fr 1.1fr;align-items:center;min-height:clamp(420px,32vw,540px);overflow:hidden;position:relative}
+.hero .t{padding:clamp(28px,4vw,64px)}
+.hero small{color:#e8587c;font-weight:700;font-size:13px}
+.hero h1{font-size:clamp(40px,4.2vw,72px);line-height:1.05;font-weight:800;letter-spacing:-1.5px;margin:12px 0 14px}
+.hero p{color:#6b5560;max-width:360px;line-height:1.6;margin-bottom:26px}
+.hero .pic{height:100%;position:relative}
+.hero .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.arw{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:#fff;border:0;cursor:pointer;z-index:2}
+.a1{left:14px}.a2{right:14px}
+.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+.mini div{background:#fff;border-radius:16px;padding:14px 16px;display:flex;gap:12px;align-items:center;border:1px solid #f6dfe6;font-size:13px;color:#7a6470}
+.mini i{font-style:normal;font-size:20px}.mini b{display:block;color:#22161c;font-size:13.5px}
+.sec{padding:26px 0}
+.hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:14px;flex-wrap:wrap}
+.hd h2{font-size:clamp(20px,1.8vw,26px);font-weight:800}
+.hd a{color:#e8587c;font-weight:700;font-size:13.5px}
+.cats{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;text-align:center}
+.cat .ph{aspect-ratio:1;border-radius:50%;overflow:hidden;background:#ffe6ed;margin-bottom:8px;border:3px solid #fff;box-shadow:0 10px 24px -16px rgba(120,40,60,.5);transition:transform .3s}
+.cat:hover .ph{transform:translateY(-5px)}
+.cat img{width:100%;height:100%;object-fit:cover}
+.cat span{font-size:13.5px;font-weight:500}
+.tabs{display:flex;gap:20px;font-size:13.5px;font-weight:500;color:#9a8490}
+.tabs a.on{color:#e8587c;border-bottom:2px solid #e8587c;padding-bottom:4px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.pc{background:#fff;border-radius:18px;padding:10px;border:1px solid #f6dfe6;transition:all .3s;position:relative}
+.pc:hover{box-shadow:0 20px 40px -28px rgba(120,40,60,.6);transform:translateY(-4px)}
+.pc .ph{aspect-ratio:.85;border-radius:12px;overflow:hidden;background:#fff1f4;position:relative}
+.pc img{width:100%;height:100%;object-fit:cover}
+.pc em{position:absolute;left:10px;top:10px;background:#e8587c;color:#fff;font-style:normal;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;z-index:2}
+.pc .fav{position:absolute;right:10px;top:10px;width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;z-index:2;font-size:13px}
+.pc b{display:block;margin:10px 4px 2px;font-size:14.5px}
+.pc .pr{margin:0 4px;font-weight:800}.pc s{color:#b39aa5;font-weight:400;font-size:12.5px;margin-left:4px}
+.pc .add{display:block;text-align:center;margin:10px 4px 2px;border:1.5px solid #e8587c;color:#e8587c;border-radius:10px;padding:7px;font-weight:700;font-size:12.5px}
+.promos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pm{border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:220px}
+.pm .t{padding:26px;align-self:center}
+.pm small{font-weight:700;font-size:12px}.pm h3{font-size:26px;margin:6px 0}.pm p{color:#6b5560;font-size:13.5px;margin-bottom:14px}
+.pm img{width:100%;height:100%;object-fit:cover}
+.p1{background:#ffe3ea}.p2{background:#e4ecfb}
+footer{}
+@media(max-width:1100px){.layout{grid-template-columns:1fr}.side{display:none}.grid{grid-template-columns:repeat(3,1fr)}.cats{grid-template-columns:repeat(4,1fr)}.mini{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.hero,.promos,.pm{grid-template-columns:1fr}.hero .pic{min-height:320px}.grid{grid-template-columns:1fr 1fr}.search{display:none}.tools span{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#fff6f8;--xs:#ffffff;--xi:#22161c;--xm:#6b5560;--xa:#e8587c;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:18px;font-family:'DM Sans',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'DM Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'DM Sans',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'DM Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'DM Sans',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'DM Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#2b1b23;color:#d9bcc6;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#d9bcc6;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#2b1b23;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#fff6f8;--xs:#ffffff;--xi:#22161c;--xm:#6b5560;--xa:#e8587c;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:18px;--xbr:999px;--xbf:'DM Sans';--xalt:#ffffff}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'DM Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "Fashion+", "cur": "$", "pages": [["shop", "Shop"], ["product", "Product"], ["cart", "Cart"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Account"]], "listing": "shop.html", "freeShip": 100, "shipFee": 9, "products": [{"name": "Blush Knit Sweater", "cat": "Women", "img": "assets/hero.jpg", "id": 0, "price": 134, "tag": "", "was": null, "rating": 4.5, "reviews": 171, "gallery": ["assets/hero.jpg", "assets/i2.jpg", "assets/i3.jpg", "assets/i5.jpg"]}, {"name": "Pink Crew Sweater", "cat": "Women", "img": "assets/i2.jpg", "id": 1, "price": 134, "tag": "New", "was": null, "rating": 4.4, "reviews": 127, "gallery": ["assets/i2.jpg", "assets/hero.jpg", "assets/i3.jpg", "assets/i5.jpg"]}, {"name": "Pink Faux Fur Jacket", "cat": "Women", "img": "assets/i3.jpg", "id": 2, "price": 64, "tag": "", "was": null, "rating": 4.4, "reviews": 300, "gallery": ["assets/i3.jpg", "assets/hero.jpg", "assets/i2.jpg", "assets/i5.jpg"]}, {"name": "Pink Beanie Set", "cat": "Accessories", "img": "assets/i4.jpg", "id": 3, "price": 119, "tag": "Bestseller", "was": null, "rating": 4.5, "reviews": 145, "gallery": ["assets/i4.jpg", "assets/p-sun.jpg", "../_shared/fashion/29.jpg", "assets/hero.jpg"]}, {"name": "Rose Knit Pullover", "cat": "Women", "img": "assets/i5.jpg", "id": 4, "price": 64, "tag": "", "was": null, "rating": 4.9, "reviews": 214, "gallery": ["assets/i5.jpg", "assets/hero.jpg", "assets/i2.jpg", "assets/i3.jpg"]}, {"name": "Classic Denim Jacket", "cat": "Men", "img": "assets/men.jpg", "id": 5, "price": 119, "tag": "Sale", "was": 154, "rating": 4.5, "reviews": 46, "gallery": ["assets/men.jpg", "../_shared/fashion/25.jpg", "../_shared/fashion/28.jpg", "assets/hero.jpg"]}, {"name": "White Sneakers", "cat": "Shoes", "img": "assets/p-sneakers.jpg", "id": 6, "price": 104, "tag": "", "was": null, "rating": 4.9, "reviews": 62, "gallery": ["assets/p-sneakers.jpg", "assets/hero.jpg", "assets/i2.jpg", "assets/i3.jpg"]}, {"name": "Beige Handbag", "cat": "Bags", "img": "assets/p-bag.jpg", "id": 7, "price": 184, "tag": "", "was": null, "rating": 4.7, "reviews": 307, "gallery": ["assets/p-bag.jpg", "assets/hero.jpg", "assets/i2.jpg", "assets/i3.jpg"]}, {"name": "Round Sunglasses", "cat": "Accessories", "img": "assets/p-sun.jpg", "id": 8, "price": 44, "tag": "New", "was": null, "rating": 4.8, "reviews": 235, "gallery": ["assets/p-sun.jpg", "assets/i4.jpg", "../_shared/fashion/29.jpg", "assets/hero.jpg"]}, {"name": "Pink Floral Dress", "cat": "Women", "img": "assets/p-dress.jpg", "id": 9, "price": 54, "tag": "", "was": null, "rating": 4.7, "reviews": 345, "gallery": ["assets/p-dress.jpg", "assets/hero.jpg", "assets/i2.jpg", "assets/i3.jpg"]}, {"name": "Grey Cardigan Edit", "cat": "Men", "img": "../_shared/fashion/25.jpg", "id": 10, "price": 84, "tag": "Sale", "was": 109, "rating": 4.8, "reviews": 259, "gallery": ["../_shared/fashion/25.jpg", "assets/men.jpg", "../_shared/fashion/28.jpg", "assets/hero.jpg"]}, {"name": "White Ruffle Summer Set", "cat": "Women", "img": "../_shared/fashion/26.jpg", "id": 11, "price": 114, "tag": "", "was": null, "rating": 4.8, "reviews": 27, "gallery": ["../_shared/fashion/26.jpg", "assets/hero.jpg", "assets/i2.jpg", "assets/i3.jpg"]}, {"name": "Classic Indigo Denim", "cat": "Men", "img": "../_shared/fashion/28.jpg", "id": 12, "price": 134, "tag": "Bestseller", "was": null, "rating": 4.5, "reviews": 237, "gallery": ["../_shared/fashion/28.jpg", "assets/men.jpg", "../_shared/fashion/25.jpg", "assets/hero.jpg"]}, {"name": "Orange Beanie & Denim", "cat": "Accessories", "img": "../_shared/fashion/29.jpg", "id": 13, "price": 64, "tag": "", "was": null, "rating": 4.8, "reviews": 116, "gallery": ["../_shared/fashion/29.jpg", "assets/i4.jpg", "assets/p-sun.jpg", "assets/hero.jpg"]}, {"name": "Breton Stripe Tee", "cat": "Women", "img": "../_shared/fashion/30.jpg", "id": 14, "price": 84, "tag": "", "was": null, "rating": 4.8, "reviews": 83, "gallery": ["../_shared/fashion/30.jpg", "assets/hero.jpg", "assets/i2.jpg", "assets/i3.jpg"]}, {"name": "Striped Cotton Tee", "cat": "Women", "img": "../_shared/fashion/31.jpg", "id": 15, "price": 74, "tag": "New", "was": null, "rating": 4.5, "reviews": 352, "gallery": ["../_shared/fashion/31.jpg", "assets/hero.jpg", "assets/i2.jpg", "assets/i3.jpg"]}], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="079">
+
+<div class="ann"><div><span>✿ Free shipping on orders above $99</span><span>Help · Track Order · Returns</span></div></div>
+<header data-xnav=""><div class="in">
+<a class="logo" href="index.html">Fashion<span>+</span></a>
+<form class="search" role="search">⌕<input aria-label="Search" placeholder="Search for products, brands and more"/></form>
+<div class="tools"><a aria-label="Wishlist" href="account.html">♡<span>Wishlist</span></a><a aria-label="Cart" href="cart.html">👜<span>Cart</span></a><a aria-label="Account" href="account.html">👤<span>Profile</span></a></div>
+</div></header><div class="xi v1" id="main"><div class="xi-top"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>FAQ</span></div><h1 class="xi-h1 xi-rv">Frequently Asked Questions</h1><p class=xi-rv>Quick answers to the questions we hear most. Can't find what you need? We're here to help.</p></div></div><section class="xi-sec tight"><div class="x-in"><div style="display:grid;grid-template-columns:260px 1fr;gap:clamp(30px,5vw,80px)" class="xi-faqwrap"><div class="xi-faqnav"><a href="#faq0">Orders &amp; Shipping</a><a href="#faq1">Returns &amp; Exchanges</a><a href="#faq2">Products &amp; Care</a><div class="xi-card" style="margin-top:20px"><b>Still need help?</b><p class="xi-muted" style="font-size:14px">Our team replies within a few hours.</p><a class="x-btn" href="contact.html">Contact us</a></div></div><div><div id="faq0" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Orders &amp; Shipping</h2><details class="xi-faq" open><summary>How long does delivery take?<i>+</i></summary><p>Standard delivery takes 3–5 business days; express arrives in 1–2 days. You&#x27;ll receive tracking as soon as your order ships.</p></details><details class="xi-faq"><summary>Do you ship internationally?<i>+</i></summary><p>Yes, we ship to over 30 countries. Duties and taxes are calculated at checkout so there are no surprises.</p></details><details class="xi-faq"><summary>How can I track my order?<i>+</i></summary><p>Use the tracking link in your shipping email or log in to your account to see live updates.</p></details></div><div id="faq1" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Returns &amp; Exchanges</h2><details class="xi-faq"><summary>What is your return policy?<i>+</i></summary><p>Return unworn items within 30 days for a full refund. Returns are free for all domestic orders.</p></details><details class="xi-faq"><summary>How do exchanges work?<i>+</i></summary><p>Request an exchange from your account; we ship the new item as soon as your return is scanned.</p></details><details class="xi-faq"><summary>When will I get my refund?<i>+</i></summary><p>Refunds are processed within 3–5 business days of receiving your return.</p></details></div><div id="faq2" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Products &amp; Care</h2><details class="xi-faq"><summary>How do I find my size?<i>+</i></summary><p>Every product page has a size guide with measurements. Our team is also happy to help over chat.</p></details><details class="xi-faq"><summary>Are your products sustainable?<i>+</i></summary><p>We use certified and recycled materials wherever possible and plastic-free packaging.</p></details><details class="xi-faq"><summary>Do you offer gift wrapping?<i>+</i></summary><p>Yes — add gift wrapping and a handwritten note at checkout.</p></details></div></div></div><style>@media(max-width:900px){.xi-faqwrap{grid-template-columns:1fr!important}.xi-faqnav{position:static}}</style></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Fashion+</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">f</a><a aria-label="X" href="https://x.com/" target="_blank" rel="noopener">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a></div></div><div><h6>Shop</h6><a href="shop.html">New Arrivals</a><a href="shop.html">Best Sellers</a><a href="shop.html">Collections</a><a href="shop.html">Gift Cards</a><a href="shop.html">Sale</a></div><div><h6>Help</h6><a href="account.html">Track Order</a><a href="faq.html">Shipping</a><a href="faq.html">Returns &amp; Exchanges</a><a href="faq.html">Size Guide</a><a href="faq.html">FAQs</a></div><div><h6>Company</h6><a href="about.html">About Us</a><a href="about.html">Sustainability</a><a href="about.html">Careers</a><a href="about.html">Press</a><a href="contact.html">Contact</a></div><div><h6>Stay in touch</h6><p>hello@fashion.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Fashion+. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>
