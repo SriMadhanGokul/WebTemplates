@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — Aeron Drive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:ital,wght@0,700;0,800;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:#0c1020;background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.sc{font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-style:italic;letter-spacing:-.5px}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eceef4}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Saira Condensed';font-weight:800;font-style:italic;font-size:24px}
+.logo i{font-style:normal;color:#2c5bff}
+.menu{display:flex;gap:30px;font-size:14px;font-weight:500;color:#4c5370}
+.menu a.on,.menu a:hover{color:#2c5bff}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;border-radius:6px;transition:all .25s}
+.bl{background:#2c5bff;color:#fff}.bl:hover{background:#1c45e0;transform:translateY(-2px)}
+.ol{border:1.5px solid #0c1020}.ol:hover{background:#0c1020;color:#fff}
+.wh{background:#fff;color:#0c1020}
+.hero{position:relative;min-height:clamp(560px,46vw,800px);background:#0a0d18;color:#fff;overflow:hidden;display:flex;align-items:center}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,13,24,.9),rgba(10,13,24,.2) 65%)}
+.copy{position:relative;z-index:2;padding:0 clamp(18px,3vw,48px);max-width:700px}
+.copy small{color:#7d9bff;font-weight:700;letter-spacing:3px;font-size:11px}
+.copy h1{font-size:clamp(66px,7.6vw,138px);line-height:.86;margin:16px 0 20px}
+.copy h1 span{color:#2c5bff}
+.copy p{color:#c2c8dc;max-width:420px;line-height:1.7}
+.copy .row{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.copy .ol{border-color:#fff;color:#fff}
+.find{position:relative;z-index:3;margin:-46px auto 0;width:min(1100px,92%);background:#fff;border-radius:14px;box-shadow:0 30px 60px -30px rgba(10,13,24,.5);display:grid;grid-template-columns:repeat(4,1fr) auto;gap:4px;padding:12px}
+.find label{padding:8px 16px;display:grid;gap:4px;font-size:11px;letter-spacing:1px;color:#7a819c;font-weight:600;border-right:1px solid #eceef4}
+.find label:nth-child(4){border:0}
+.find select,.find input{border:0;outline:0;font:600 15px Inter;color:#0c1020;background:transparent}
+.sec{padding:clamp(70px,7vw,110px) 0}
+.split{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.split h2{font-size:clamp(46px,5vw,86px);line-height:.88}
+.split p{color:#4c5370;line-height:1.75;margin:16px 0 26px;max-width:440px}
+.split .im{border-radius:16px;overflow:hidden;aspect-ratio:1.5}.split .im img{width:100%;height:100%;object-fit:cover}
+.types{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.types a{border:1px solid #eceef4;border-radius:12px;padding:18px;text-align:center;font-weight:600;font-size:14px;transition:all .25s}
+.types a:hover{border-color:#2c5bff;color:#2c5bff}
+.types i{font-style:normal;display:block;font-size:24px;margin-bottom:8px}
+.exp{position:relative;border-radius:18px;overflow:hidden;min-height:440px;color:#fff;display:flex;align-items:center}
+.exp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.exp::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,13,24,.15),rgba(10,13,24,.85) 70%)}
+.exp .t{position:relative;z-index:1;margin-left:auto;max-width:480px;padding:clamp(30px,4vw,60px)}
+.exp h2{font-size:clamp(44px,4.6vw,80px);line-height:.88}
+.exp p{color:#c2c8dc;margin:16px 0 26px;line-height:1.7}
+.fleet{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.car{border:1px solid #eceef4;border-radius:16px;overflow:hidden;transition:all .3s}
+.car:hover{transform:translateY(-6px);box-shadow:0 26px 50px -32px rgba(10,13,24,.5)}
+.car .ph{aspect-ratio:1.55;overflow:hidden;background:#0a0d18}.car img{width:100%;height:100%;object-fit:cover}
+.car .bd{padding:18px 20px}.car small{color:#7a819c;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.car b{display:block;font-family:'Saira Condensed';font-weight:800;font-style:italic;font-size:28px;text-transform:uppercase;margin:4px 0}
+.car .f{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid #eceef4;font-size:13px;color:#4c5370}
+.car strong{color:#0c1020;font-size:20px}
+.ready{background:#0a0d18;color:#fff;border-radius:18px;display:grid;grid-template-columns:1fr 1.2fr;overflow:hidden}
+.ready .t{padding:clamp(34px,5vw,70px);align-self:center}
+.ready h2{font-size:clamp(50px,5.4vw,96px);line-height:.86}
+.ready h2 span{color:#2c5bff}
+.ready p{color:#c2c8dc;margin:16px 0 26px}
+.ready img{width:100%;height:100%;object-fit:cover;min-height:360px}
+footer{}
+@media(max-width:1000px){.menu{display:none}.find{grid-template-columns:1fr 1fr}.find label{border:0}.split,.ready{grid-template-columns:1fr}.fleet{grid-template-columns:1fr 1fr}.types{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.find,.fleet{grid-template-columns:1fr}header .bl{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#ffffff;--xs:#f4f6fb;--xi:#0c1020;--xm:#4c5370;--xa:#2c5bff;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:8px;font-family:'Inter',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#f4f6fb}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Saira Condensed',sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Saira Condensed',sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Saira Condensed',sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#0a0d18;color:#9aa2bd;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#9aa2bd;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#0a0d18;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#ffffff;--xs:#f4f6fb;--xi:#0c1020;--xm:#4c5370;--xa:#2c5bff;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:8px;--xbr:4px;--xbf:'Inter';--xalt:#f4f6fb}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Saira Condensed',sans-serif;font-weight:800;font-style:italic;text-transform:uppercase}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "Aeron Drive", "cur": "$", "pages": [["models", "Fleet"], ["model", "Vehicle"], ["booking", "Book a Car"], ["about", "About"], ["gallery", "Gallery"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"]], "listing": "models.html", "freeShip": 100, "shipFee": 9, "products": [], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="087">
+
+<header data-xnav=""><div class="wrap">
+<a class="logo" href="index.html"><i>⟋⟋</i>AERON DRIVE</a>
+<nav class="menu"><a class="on" href="models.html">Fleet</a><a href="models.html">Categories</a><a href="models.html">Experiences</a><a href="contact.html">Locations</a><a href="about.html">About</a></nav>
+<a class="btn bl" href="booking.html">Book Now ↗</a>
+</div></header><div class="xi v0" id="main"><div class="xi-top"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>FAQ</span></div><h1 class="xi-h1 xi-rv">Frequently Asked Questions</h1><p class=xi-rv>Quick answers to the questions we hear most. Can't find what you need? We're here to help.</p></div></div><section class="xi-sec tight"><div class="x-in"><div style="display:grid;grid-template-columns:260px 1fr;gap:clamp(30px,5vw,80px)" class="xi-faqwrap"><div class="xi-faqnav"><a href="#faq0">Booking</a><a href="#faq1">On the Road</a><div class="xi-card" style="margin-top:20px"><b>Still need help?</b><p class="xi-muted" style="font-size:14px">Our team replies within a few hours.</p><a class="x-btn" href="contact.html">Contact us</a></div></div><div><div id="faq0" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Booking</h2><details class="xi-faq" open><summary>What do I need to rent?<i>+</i></summary><p>A licence held for 2+ years, a credit card in your name and photo ID.</p></details><details class="xi-faq"><summary>Can I add a driver?<i>+</i></summary><p>Yes, additional drivers can be added at checkout.</p></details><details class="xi-faq"><summary>Is there a minimum age?<i>+</i></summary><p>Drivers must be 25+ for sports and luxury vehicles.</p></details></div><div id="faq1" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">On the Road</h2><details class="xi-faq"><summary>Is insurance included?<i>+</i></summary><p>Comprehensive insurance and roadside assistance are included.</p></details><details class="xi-faq"><summary>What if I&#x27;m late returning?<i>+</i></summary><p>Let us know — a one-hour grace period applies before extra charges.</p></details></div></div></div><style>@media(max-width:900px){.xi-faqwrap{grid-template-columns:1fr!important}.xi-faqnav{position:static}}</style></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Aeron Drive</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">f</a><a aria-label="X" href="https://x.com/" target="_blank" rel="noopener">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a></div></div><div><h6>Solutions</h6><a href="models.html">Overview</a><a href="contact.html">Pricing</a><a href="blog.html">Projects</a><a href="models.html">Resources</a></div><div><h6>Company</h6><a href="about.html">About</a><a href="about.html">Careers</a><a href="blog.html">News</a><a href="models.html">Partners</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@aerondrive.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Aeron Drive. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

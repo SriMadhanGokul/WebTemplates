@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team — Verde Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter Tight',system-ui,sans-serif;color:#18241d;background:#f4f0e6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.is{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{font-weight:700;font-size:19px;letter-spacing:1px;display:flex;gap:10px;align-items:center}
+.logo i{font-style:normal;width:34px;height:34px;border-radius:10px;background:#1e3a2b;color:#f4f0e6;display:grid;place-items:center;font-size:14px}
+.menu{display:flex;gap:6px;background:#fff;border-radius:40px;padding:6px}
+.menu a{padding:9px 18px;border-radius:30px;font-size:14px;font-weight:500}
+.menu a.on,.menu a:hover{background:#1e3a2b;color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:14px 26px;font-weight:600;font-size:14px;transition:all .25s}
+.gr{background:#1e3a2b;color:#fff}.gr:hover{background:#142a1f;transform:translateY(-2px)}
+.wh{background:#fff;color:#18241d}
+.cr{background:#f4f0e6;color:#18241d}
+.hero{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px;min-height:clamp(540px,44vw,740px)}
+.hero .l{background:#1e3a2b;color:#f4f0e6;border-radius:26px;padding:clamp(30px,4vw,64px);display:flex;flex-direction:column;justify-content:space-between}
+.hero h1{font-size:clamp(46px,4.8vw,84px);line-height:1.02}
+.hero h1 em{color:#c9d8a8}
+.hero p{color:#c3cfc6;line-height:1.7;margin:20px 0 28px;max-width:400px}
+.hero .r{position:relative;border-radius:26px;overflow:hidden}
+.hero .r img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;right:24px;top:24px;background:rgba(255,255,255,.9);border-radius:20px;padding:18px 22px;text-align:right}
+.badge b{font-size:44px;display:block;line-height:1}.badge small{color:#5b675f;font-size:12px}
+.sec{padding:clamp(70px,7vw,120px) 0}
+.st{text-align:center;max-width:720px;margin:0 auto 46px}
+.st h2{font-size:clamp(36px,3.8vw,64px);line-height:1.05}
+.st h2 em{color:#3d6b4f}
+.st p{color:#5b675f;margin-top:12px;line-height:1.7}
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.wc{background:#fff;border-radius:22px;padding:26px;transition:all .3s}
+.wc:hover{transform:translateY(-6px);box-shadow:0 24px 44px -30px rgba(24,36,29,.5)}
+.wc .ph{aspect-ratio:1.6;border-radius:14px;overflow:hidden;margin-bottom:18px}.wc img{width:100%;height:100%;object-fit:cover}
+.wc b{font-size:19px;display:block;margin-bottom:6px}.wc p{color:#5b675f;font-size:14.5px;line-height:1.6}
+.pain{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.pain h2{font-size:clamp(34px,3.4vw,58px);line-height:1.08}
+.pain .rows{display:grid;gap:12px;margin-top:28px}
+.pain .rows div{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pain .rows span{padding:16px 18px;border-radius:14px;font-size:14px}
+.pain .rows span:first-child{background:#ebe5d6;color:#7d7462}
+.pain .rows span:last-child{background:#1e3a2b;color:#e8efe2}
+.pain .im{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1}
+.pain .im img{width:100%;height:100%;object-fit:cover}
+.pain .im q{position:absolute;right:20px;bottom:20px;max-width:240px;background:#1e3a2b;color:#f4f0e6;border-radius:18px;padding:20px;font-family:'Instrument Serif';font-size:26px;line-height:1.15}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stats div{background:#fff;border-radius:22px;padding:30px}
+.stats b{font-family:'Instrument Serif';font-size:clamp(46px,4.6vw,76px);display:block;line-height:1;color:#1e3a2b}
+.stats small{color:#5b675f}
+.proj{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.proj .col{display:grid;gap:20px}
+.pj{position:relative;border-radius:22px;overflow:hidden;min-height:280px;display:flex;align-items:flex-end}
+.pj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}.pj:hover img{transform:scale(1.05)}
+.pj span{position:relative;z-index:1;margin:18px;background:rgba(255,255,255,.92);border-radius:30px;padding:9px 16px;font-size:13px;font-weight:600}
+.cta{background:#1e3a2b;color:#f4f0e6;border-radius:28px;display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden}
+.cta .t{padding:clamp(36px,5vw,80px)}
+.cta h2{font-size:clamp(36px,3.8vw,64px);line-height:1.05}
+.cta p{color:#c3cfc6;margin:16px 0 26px;line-height:1.7}
+.cta img{width:100%;height:100%;object-fit:cover;min-height:340px}
+footer{}
+@media(max-width:1000px){.menu{display:none}.hero,.pain,.cta,.proj{grid-template-columns:1fr}.hero .r{min-height:420px}.who{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.who{grid-template-columns:1fr}.pain .rows div{grid-template-columns:1fr}header .gr{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#f4f0e6;--xs:#ffffff;--xi:#18241d;--xm:#5b675f;--xa:#1e3a2b;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:22px;font-family:'Inter Tight',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Instrument Serif',Georgia,serif;font-weight:500;letter-spacing:0;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter Tight',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Instrument Serif',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter Tight',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Instrument Serif',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#1e3a2b;color:#c3cfc6;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#c3cfc6;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#1e3a2b;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#f4f0e6;--xs:#ffffff;--xi:#18241d;--xm:#5b675f;--xa:#1e3a2b;--xai:#fff;--xl:rgba(0,0,0,.09);--xl2:rgba(0,0,0,.17);--xi-rv:22px;--xbr:999px;--xbf:'Inter Tight';--xalt:#ffffff}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Instrument Serif',Georgia,serif;font-weight:500;letter-spacing:0}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "Verde Studio", "cur": "$", "pages": [["projects", "Projects"], ["project", "Project"], ["services", "Services"], ["about", "Studio"], ["team", "Team"], ["blog", "Journal"], ["post", "Article"], ["contact", "Contact"]], "listing": "projects.html", "freeShip": 100, "shipFee": 9, "products": [], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="089">
+
+<header data-xnav=""><div class="wrap">
+<a class="logo" href="index.html"><i>VS</i>VERDE STUDIO</a>
+<nav class="menu"><a class="on" href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></nav>
+<a class="btn gr" href="projects.html">Book a Call</a>
+</div></header><div class="xi v2" id="main"><div class="xi-top"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Team</span></div><h1 class="xi-h1 xi-rv">Meet the Team</h1><p class=xi-rv>Talented people who care deeply about the work we do.</p></div></div><section class="xi-sec "><div class="x-in"><div class="xi-head"><div><span class="xi-eye">Our people</span><h2 class="xi-h2 xi-rv">The people you'll work with</h2></div></div><div class="xi-g4"><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/people/06.jpg" alt="Daniel Reyes" loading="lazy"></div><b>Daniel Reyes</b><small>Founding Partner</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/men/12.jpg" alt="Mira Chen" loading="lazy"></div><b>Mira Chen</b><small>Design Director</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/people/07.jpg" alt="Omar Haddad" loading="lazy"></div><b>Omar Haddad</b><small>Senior Architect</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/men/13.jpg" alt="Sofia Marin" loading="lazy"></div><b>Sofia Marin</b><small>Interior Architect</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/people/09.jpg" alt="Rohan Mehta" loading="lazy"></div><b>Rohan Mehta</b><small>Sustainability Lead</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/men/14.jpg" alt="Elena Petrova" loading="lazy"></div><b>Elena Petrova</b><small>Project Manager</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/people/10.jpg" alt="Lucas Martin" loading="lazy"></div><b>Lucas Martin</b><small>Founding Partner</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div><div class="xi-team xi-rv"><div class="xi-ph"><img src="../_shared/men/01.jpg" alt="Nadia Rahman" loading="lazy"></div><b>Nadia Rahman</b><small>Design Director</small><div class="xi-soc"><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="contact.html" aria-label="Email">✉</a></div></div></div></div></section><section class="xi-sec tight"><div class="x-in"><div class="xi-cta xi-rv"><img src="assets/hero.jpg" alt="" loading="lazy"><div><h2 class="xi-h2" style="color:#fff">Join our team</h2><p>We're always looking for passionate people to join us. Get in touch and tell us about yourself.</p></div><a class="x-btn" href="contact.html">Get in touch</a></div></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Verde Studio</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">f</a><a aria-label="X" href="https://x.com/" target="_blank" rel="noopener">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a></div></div><div><h6>Explore</h6><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="services.html">Process</a><a href="blog.html">Journal</a></div><div><h6>Company</h6><a href="about.html">About Us</a><a href="team.html">Our Team</a><a href="about.html">Careers</a><a href="about.html">Press</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="contact.html">FAQs</a><a href="about.html">Privacy Policy</a><a href="about.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@verdestudio.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Verde Studio. All rights reserved.</span><span><a href="about.html">Privacy Policy</a> · <a href="about.html">Terms of Service</a> · <a href="about.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

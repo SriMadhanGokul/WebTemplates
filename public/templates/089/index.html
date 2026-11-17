@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verde Studio — We Design Architectural Spaces People Truly Live In</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter Tight',system-ui,sans-serif;color:#18241d;background:#f4f0e6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.is{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{font-weight:700;font-size:19px;letter-spacing:1px;display:flex;gap:10px;align-items:center}
+.logo i{font-style:normal;width:34px;height:34px;border-radius:10px;background:#1e3a2b;color:#f4f0e6;display:grid;place-items:center;font-size:14px}
+.menu{display:flex;gap:6px;background:#fff;border-radius:40px;padding:6px}
+.menu a{padding:9px 18px;border-radius:30px;font-size:14px;font-weight:500}
+.menu a.on,.menu a:hover{background:#1e3a2b;color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:14px 26px;font-weight:600;font-size:14px;transition:all .25s}
+.gr{background:#1e3a2b;color:#fff}.gr:hover{background:#142a1f;transform:translateY(-2px)}
+.wh{background:#fff;color:#18241d}
+.cr{background:#f4f0e6;color:#18241d}
+.hero{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px;min-height:clamp(540px,44vw,740px)}
+.hero .l{background:#1e3a2b;color:#f4f0e6;border-radius:26px;padding:clamp(30px,4vw,64px);display:flex;flex-direction:column;justify-content:space-between}
+.hero h1{font-size:clamp(46px,4.8vw,84px);line-height:1.02}
+.hero h1 em{color:#c9d8a8}
+.hero p{color:#c3cfc6;line-height:1.7;margin:20px 0 28px;max-width:400px}
+.hero .r{position:relative;border-radius:26px;overflow:hidden}
+.hero .r img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;right:24px;top:24px;background:rgba(255,255,255,.9);border-radius:20px;padding:18px 22px;text-align:right}
+.badge b{font-size:44px;display:block;line-height:1}.badge small{color:#5b675f;font-size:12px}
+.sec{padding:clamp(70px,7vw,120px) 0}
+.st{text-align:center;max-width:720px;margin:0 auto 46px}
+.st h2{font-size:clamp(36px,3.8vw,64px);line-height:1.05}
+.st h2 em{color:#3d6b4f}
+.st p{color:#5b675f;margin-top:12px;line-height:1.7}
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.wc{background:#fff;border-radius:22px;padding:26px;transition:all .3s}
+.wc:hover{transform:translateY(-6px);box-shadow:0 24px 44px -30px rgba(24,36,29,.5)}
+.wc .ph{aspect-ratio:1.6;border-radius:14px;overflow:hidden;margin-bottom:18px}.wc img{width:100%;height:100%;object-fit:cover}
+.wc b{font-size:19px;display:block;margin-bottom:6px}.wc p{color:#5b675f;font-size:14.5px;line-height:1.6}
+.pain{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.pain h2{font-size:clamp(34px,3.4vw,58px);line-height:1.08}
+.pain .rows{display:grid;gap:12px;margin-top:28px}
+.pain .rows div{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pain .rows span{padding:16px 18px;border-radius:14px;font-size:14px}
+.pain .rows span:first-child{background:#ebe5d6;color:#7d7462}
+.pain .rows span:last-child{background:#1e3a2b;color:#e8efe2}
+.pain .im{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1}
+.pain .im img{width:100%;height:100%;object-fit:cover}
+.pain .im q{position:absolute;right:20px;bottom:20px;max-width:240px;background:#1e3a2b;color:#f4f0e6;border-radius:18px;padding:20px;font-family:'Instrument Serif';font-size:26px;line-height:1.15}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stats div{background:#fff;border-radius:22px;padding:30px}
+.stats b{font-family:'Instrument Serif';font-size:clamp(46px,4.6vw,76px);display:block;line-height:1;color:#1e3a2b}
+.stats small{color:#5b675f}
+.proj{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.proj .col{display:grid;gap:20px}
+.pj{position:relative;border-radius:22px;overflow:hidden;min-height:280px;display:flex;align-items:flex-end}
+.pj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}.pj:hover img{transform:scale(1.05)}
+.pj span{position:relative;z-index:1;margin:18px;background:rgba(255,255,255,.92);border-radius:30px;padding:9px 16px;font-size:13px;font-weight:600}
+.cta{background:#1e3a2b;color:#f4f0e6;border-radius:28px;display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden}
+.cta .t{padding:clamp(36px,5vw,80px)}
+.cta h2{font-size:clamp(36px,3.8vw,64px);line-height:1.05}
+.cta p{color:#c3cfc6;margin:16px 0 26px;line-height:1.7}
+.cta img{width:100%;height:100%;object-fit:cover;min-height:340px}
+footer{}
+@media(max-width:1000px){.menu{display:none}.hero,.pain,.cta,.proj{grid-template-columns:1fr}.hero .r{min-height:420px}.who{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.who{grid-template-columns:1fr}.pain .rows div{grid-template-columns:1fr}header .gr{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#f4f0e6;--xs:#ffffff;--xi:#18241d;--xm:#5b675f;--xa:#1e3a2b;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:22px;font-family:'Inter Tight',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Instrument Serif',Georgia,serif;font-weight:500;letter-spacing:0;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter Tight',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Instrument Serif',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter Tight',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Instrument Serif',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#1e3a2b;color:#c3cfc6;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#c3cfc6;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#1e3a2b;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<!--xi:head--><link rel="stylesheet" href="../_shared/inner.css"><script>window.XI_DATA={"brand": "Verde Studio", "cur": "$", "pages": [["projects", "Projects"], ["project", "Project"], ["services", "Services"], ["about", "Studio"], ["team", "Team"], ["blog", "Journal"], ["post", "Article"], ["contact", "Contact"]], "listing": "projects.html", "products": [], "burgerAlways": false}</script><script src="../_shared/site.js" defer></script><!--/xi:head--></head>
+<body data-tpl="089">
+<header><div class="wrap">
+  <a href="index.html" class="logo"><i>VS</i>VERDE STUDIO</a>
+  <nav class="menu"><a href="index.html" class="on">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></nav>
+  <a href="projects.html" class="btn gr">Book a Call</a>
+</div></header>
+
+<section class="wrap hero">
+  <div class="l">
+    <div><h1 class="is">We design <em>architectural</em> spaces where people truly live</h1><p>A complete architectural journey from concept and design to construction and delivery.</p><a href="contact.html" class="btn cr">Get a Consultation →</a></div>
+    <div style="display:flex;gap:30px;font-size:13px;color:#c3cfc6"><span><b style="color:#fff;font-size:20px;display:block">15 yrs</b>of practice</span><span><b style="color:#fff;font-size:20px;display:block">4.9★</b>client rating</span></div>
+  </div>
+  <div class="r"><img src="assets/hero.jpg" alt="Modern house with warm wooden facade"><div class="badge"><b class="is">100+</b><small>Completed Architectural<br>Projects</small></div></div>
+</section>
+
+<section class="sec"><div class="wrap">
+  <div class="st"><h2 class="is">For those who want to scale <em>their space and minimize risks</em></h2><p>Whether you're a developer, a homeowner or a growing brand, we take you from idea to keys with a single accountable team.</p></div>
+  <div class="who">
+    <a href="project.html" class="wc"><div class="ph"><img src="assets/p1.jpg" alt="Modern residential development"></div><b>Property Developers</b><p>Bring large-scale projects to life with strategic, cost-aware design.</p></a>
+    <a href="project.html" class="wc"><div class="ph"><img src="assets/p3.jpg" alt="Family home exterior"></div><b>Homeowners</b><p>Design a beautiful, functional home that fits your life.</p></a>
+    <a href="project.html" class="wc"><div class="ph"><img src="assets/p2.jpg" alt="Commercial building facade"></div><b>Businesses &amp; Brands</b><p>Create spaces that reflect your brand and support your teams.</p></a>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap pain">
+  <div><small style="color:#3d6b4f;font-weight:600">Why choose us</small><h2 class="is">Tired of project delays, hidden costs and design compromises?</h2>
+    <div class="rows">
+      <div><span>✕ Unclear pricing and unexpected costs</span><span>✓ Transparent fixed-fee proposals</span></div>
+      <div><span>✕ Missed deadlines and slow execution</span><span>✓ On-time delivery with a proven workflow</span></div>
+      <div><span>✕ Generic designs that don't fit your lifestyle</span><span>✓ Bespoke, functional design tailored to you</span></div>
+    </div></div>
+  <div class="im"><img src="assets/i1.jpg" alt="Bright modern interior"><q>We treat your space like our own.</q></div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap stats">
+  <div><b>500+</b><small>Satisfied clients</small></div><div><b>95%</b><small>On-time delivery</small></div><div><b>$30M+</b><small>Projects value</small></div><div><b>100%</b><small>In-house team</small></div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="st"><h2 class="is">Explore how our designs <em>create real-world value</em></h2></div>
+  <div class="proj">
+    <a href="project.html" class="pj" style="min-height:580px"><img src="assets/p4.jpg" alt="Curved contemporary architecture"><span>Arc Cultural Centre</span></a>
+    <div class="col"><a href="project.html" class="pj"><img src="assets/team.jpg" alt="Architects reviewing plans"><span>Design Studio, Lisbon</span></a><a href="project.html" class="pj"><img src="../_shared/architecture/13.jpg" alt="Curving white facade"><span>Garden Villa</span></a></div>
+  </div>
+</div></section>
+
+<section style="padding-bottom:clamp(70px,7vw,120px)"><div class="wrap"><div class="cta">
+  <div class="t"><h2 class="is">Get an accurate estimate for your project in just 1 minute</h2><p>Tell us the size, location and type of project and we'll send a transparent estimate and next steps.</p><a href="projects.html" class="btn wh">Get Your Estimate →</a></div>
+  <img src="../_shared/realestate/25.jpg" alt="Bright kitchen interior">
+</div></div></section>
+
+
+<!-- x-complete:start -->
+<section class="x-sec x-alt" id="process"><div class="x-in"><div class="x-head"><span class="x-eye">How it works</span><h2 class="x-h2">Simple steps, remarkable results</h2></div><div class="x-g4 x-steps"><div class="x-step"><span class="x-num">01</span><b>Brief</b><small>Understanding site, needs and vision.</small></div><div class="x-step"><span class="x-num">02</span><b>Concept Design</b><small>Sketches, models and 3D studies.</small></div><div class="x-step"><span class="x-num">03</span><b>Development</b><small>Detailed drawings and approvals.</small></div><div class="x-step"><span class="x-num">04</span><b>Construction</b><small>On-site supervision to completion.</small></div></div></div></section>
+<section class="x-sec" id="testimonials"><div class="x-in"><div class="x-head"><span class="x-eye">Testimonials</span><h2 class="x-h2">Client testimonials</h2><p>Real words from real people who chose Verde Studio.</p></div><div class="x-g3"><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“They designed a home that perfectly balances light, privacy and nature.”</blockquote><figcaption><i>V</i><b>Vikram &amp; Isha</b><small>Private residence</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Delivered on time and on budget with zero compromise on design.”</blockquote><figcaption><i>O</i><b>Orion Developers</b><small>Commercial project</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“A calm, functional space our patients love walking into.”</blockquote><figcaption><i>D</i><b>Dr. Meera N.</b><small>Clinic owner</small></figcaption></figure></div></div></section>
+<section class="x-sec x-alt" id="contact"><div class="x-in x-split"><div><span class="x-eye">Contact</span><h2 class="x-h2">Let’s talk about your project</h2><p class="x-lead">Tell us a little about what you need and we’ll get back within one business day.</p><ul class="x-info"><li>✉ hello@verdestudio.com</li><li>☎ +1 (555) 210 4480</li><li>📍 221 Market Street, Suite 8, New York</li><li>🕘 Mon – Sat, 9:00 – 19:00</li></ul></div><form class="x-card x-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we’ll be in touch ✓';this.reset()"><div class="x-two"><input placeholder="Full name" required aria-label="Full name"><input type="email" placeholder="Email address" required aria-label="Email"></div><div class="x-two"><input type="tel" placeholder="Phone number" aria-label="Phone"></div><textarea rows="4" placeholder="Your message" aria-label="Message"></textarea><button class="x-btn">Send message →</button></form></div></section>
+<!-- x-complete:end -->
+<!-- x-footer:start --><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Verde Studio</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">◎</a><a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">f</a><a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">𝕏</a><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">▶</a><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">in</a></div></div><div><h6>Explore</h6><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="services.html">Process</a><a href="blog.html">Journal</a></div><div><h6>Company</h6><a href="about.html">About Us</a><a href="team.html">Our Team</a><a href="about.html">Careers</a><a href="about.html">Press</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="contact.html">FAQs</a><a href="about.html">Privacy Policy</a><a href="about.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@verdestudio.com<br>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input type="email" placeholder="Your email" aria-label="Email" required><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Verde Studio. All rights reserved.</span><span><a href="about.html">Privacy Policy</a> · <a href="about.html">Terms of Service</a> · <a href="about.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div><!-- x-footer:end -->
+</body>
+</html>

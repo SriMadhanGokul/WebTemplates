@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Élora Lash Studio — Effortless Beauty, Perfectly Styled Lashes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Manrope,system-ui,sans-serif;color:#2e2018;background:#f6efe8;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.cg{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}
+.hero{position:relative;margin-top:18px;border-radius:26px;overflow:hidden;min-height:clamp(560px,46vw,780px);background:#e9dccf}
+.hero>img{position:absolute;right:0;top:0;width:62%;height:100%;object-fit:cover;object-position:60% 40%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#efe4d8 36%,rgba(239,228,216,.6) 48%,rgba(239,228,216,0) 64%);pointer-events:none}
+.nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(22px,3vw,44px)}
+.logo{font-family:'Cormorant Garamond';font-size:30px;letter-spacing:4px;line-height:1}
+.logo small{display:block;font-family:Manrope;font-size:9px;letter-spacing:4px;color:#8b6a52}
+.menu{display:flex;gap:6px;background:rgba(255,255,255,.55);backdrop-filter:blur(10px);border-radius:40px;padding:6px}
+.menu a{padding:9px 18px;border-radius:30px;font-size:13.5px;font-weight:500}
+.menu a.on,.menu a:hover{background:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:14px 26px;font-weight:600;font-size:14px;transition:all .25s}
+.br{background:#6b4430;color:#fff}.br:hover{background:#55331f;transform:translateY(-2px)}
+.ol{border:1px solid #6b4430;color:#6b4430}.ol:hover{background:#6b4430;color:#fff}
+.copy{position:relative;z-index:2;padding:clamp(30px,4vw,70px) clamp(22px,3vw,44px);max-width:640px}
+.copy small{font-size:11px;letter-spacing:3px;font-weight:700;color:#8b6a52}
+.copy h1{font-size:clamp(50px,5.4vw,96px);line-height:.98;margin:18px 0 18px}
+.copy h1 em{font-style:italic;color:#8b5a3c}
+.copy p{color:#6c5446;line-height:1.75;max-width:420px}
+.row{display:flex;gap:12px;margin:30px 0 28px;flex-wrap:wrap}
+.tags{display:flex;gap:10px;flex-wrap:wrap}
+.tags span{background:rgba(255,255,255,.7);border-radius:30px;padding:8px 14px;font-size:12.5px;font-weight:600}
+.card{position:absolute;right:clamp(22px,3vw,44px);bottom:clamp(22px,3vw,44px);z-index:3;width:250px;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:20px;padding:12px;display:flex;gap:12px;align-items:center}
+.card img{width:70px;height:70px;border-radius:14px;object-fit:cover}
+.card b{display:block;font-size:14px}.card small{color:#8b6a52;font-size:12px}
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:22px 0}
+.perks div{display:flex;gap:12px;align-items:center;background:#fff;border-radius:18px;padding:18px}
+.perks i{font-style:normal;width:40px;height:40px;border-radius:50%;background:#f3e6da;display:grid;place-items:center;color:#8b5a3c}
+.perks b{display:block;font-size:14px}.perks small{color:#8b7566;font-size:12.5px}
+.sec{padding:clamp(60px,6vw,110px) 0}
+.eye{font-size:11px;letter-spacing:3px;font-weight:700;color:#8b6a52}
+.h2{font-size:clamp(36px,3.8vw,64px);line-height:1.05;margin-top:12px}
+.h2 em{font-style:italic;color:#8b5a3c}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.about .pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.about .pics img{border-radius:20px;width:100%;aspect-ratio:.8;object-fit:cover}
+.about .pics img:last-child{margin-top:50px}
+.about p{color:#6c5446;line-height:1.85;margin:18px 0 24px}
+.nums{display:flex;gap:40px;margin:10px 0 30px}
+.nums b{font-family:'Cormorant Garamond';font-size:46px;display:block;line-height:1}
+.nums small{color:#8b7566}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px}
+.sv{background:#fff;border-radius:22px;overflow:hidden;transition:all .3s}
+.sv:hover{transform:translateY(-6px);box-shadow:0 24px 44px -30px rgba(70,40,20,.6)}
+.sv .ph{aspect-ratio:1.1;overflow:hidden}.sv img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.sv:hover img{transform:scale(1.06)}
+.sv .bd{padding:20px 22px}.sv b{font-family:'Cormorant Garamond';font-size:26px;display:block}.sv p{color:#8b7566;font-size:14px;margin:6px 0 12px}
+.sv .r{display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.sv .r span{color:#8b5a3c;font-size:13px}
+.price{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.price .im{border-radius:24px;overflow:hidden;aspect-ratio:1.1}.price .im img{width:100%;height:100%;object-fit:cover}
+.list{display:grid;gap:4px;margin:26px 0 30px}
+.list div{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px dashed #d8c6b6}
+.list b{font-family:'Cormorant Garamond';font-size:23px}.list small{color:#8b7566;display:block;font-family:Manrope;font-size:12.5px}
+.list span{font-weight:700;color:#6b4430}
+.book{background:#6b4430;color:#f6efe8;border-radius:28px;padding:clamp(40px,5vw,80px);display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.book p{opacity:.85;margin-top:12px;max-width:520px;line-height:1.7}
+.book .btn{background:#f6efe8;color:#6b4430}
+footer{}
+@media(max-width:1000px){.menu{display:none}.hero>img{width:100%;opacity:.45}.about,.price{grid-template-columns:1fr}.svc,.perks{grid-template-columns:1fr 1fr}.card{display:none}}
+@media(max-width:600px){.svc,.perks{grid-template-columns:1fr}.nav .br{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#f6efe8;--xs:#ffffff;--xi:#2e2018;--xm:#8b7566;--xa:#6b4430;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:20px;font-family:'Manrope',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Manrope',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Manrope',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:0;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#2e2018;color:#cdb8a6;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#cdb8a6;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#2e2018;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<!--xi:head--><link rel="stylesheet" href="../_shared/inner.css"><script>window.XI_DATA={"brand": "ÉLORA Lash Studio", "cur": "$", "pages": [["services", "Treatments"], ["service", "Treatment"], ["pricing", "Pricing"], ["gallery", "Gallery"], ["team", "Artists"], ["booking", "Book Appointment"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"]], "listing": "services.html", "products": [], "burgerAlways": false}</script><script src="../_shared/site.js" defer></script><!--/xi:head--></head>
+<body data-tpl="081">
+<main class="wrap">
+  <section class="hero">
+    <img src="assets/hero.jpg" alt="Close-up of an eye with long styled lashes">
+    <div class="nav">
+      <a href="index.html" class="logo">ÉLORA<small>LASH STUDIO</small></a>
+      <nav class="menu"><a href="index.html" class="on">Home</a><a href="services.html">Services</a><a href="about.html">About Us</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></nav>
+      <a href="services.html" class="btn br">Book Appointment</a>
+    </div>
+    <div class="copy">
+      <small>LASH EXTENSIONS &amp; LASH CARE</small>
+      <h1 class="cg">Effortless<br>Beauty with<br>Perfectly <em>Styled Lashes.</em></h1>
+      <p>Professional lash extensions designed to enhance your natural beauty, define your eyes and elevate your confidence.</p>
+      <div class="row"><a href="services.html" class="btn br">Book Appointment →</a><a href="services.html" class="btn ol">Our Services</a></div>
+      <div class="tags"><span>Classic Lashes</span><span>Hybrid Lashes</span><span>Volume Lashes</span></div>
+    </div>
+    <a href="services.html" class="card"><img src="assets/eye2.jpg" alt="Volume lash set"><span><b>Volume Lash Extensions</b><small>Full, fluffy and beautifully defined</small></span></a>
+  </section>
+  <div class="perks">
+    <div><i>✦</i><span><b>Personalized Styling</b><small>Lashes for your eye shape</small></span></div>
+    <div><i>◇</i><span><b>Premium Materials</b><small>Lightweight &amp; long lasting</small></span></div>
+    <div><i>☁</i><span><b>Comfortable Experience</b><small>Relaxing, luxury studio</small></span></div>
+    <div><i>✓</i><span><b>Trusted Professionals</b><small>Certified lash artists</small></span></div>
+  </div>
+
+  <section class="sec"><div class="about">
+    <div class="pics"><img src="assets/salon.jpg" alt="Calm lash studio interior"><img src="assets/artist.jpg" alt="Lash artist working on a client"></div>
+    <div><span class="eye">ABOUT ÉLORA</span><h2 class="h2 cg">A Lash Studio<br><em>Focused on You.</em></h2>
+      <p>At ÉLORA Lash Studio, we combine expert craftsmanship, premium products and a personalized approach to create lashes that feel effortlessly beautiful and uniquely yours. Every set is mapped to your eye shape and lifestyle.</p>
+      <div class="nums"><div><b>10K+</b><small>Happy Clients</small></div><div><b>4.9</b><small>Client Rating</small></div><div><b>5+</b><small>Years of Expertise</small></div></div>
+      <a href="about.html" class="btn ol">More About Us →</a></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap"><div><span class="eye">OUR SERVICES</span><h2 class="h2 cg">Lashes for <em>every</em> look</h2></div><a href="services.html" class="btn br">View All Services →</a></div>
+    <div class="svc">
+      <a href="services.html" class="sv"><div class="ph"><img src="assets/eye2.jpg" alt="Classic lash set"></div><div class="bd"><b>Classic Lashes</b><p>One extension per natural lash for a soft, polished look.</p><div class="r">$85<span>Book →</span></div></div></a>
+      <a href="services.html" class="sv"><div class="ph"><img src="assets/apply.jpg" alt="Hybrid lash application"></div><div class="bd"><b>Hybrid Lashes</b><p>A blend of classic and volume for texture and depth.</p><div class="r">$110<span>Book →</span></div></div></a>
+      <a href="services.html" class="sv"><div class="ph"><img src="assets/brush.jpg" alt="Volume lashes being styled"></div><div class="bd"><b>Volume Lashes</b><p>Handmade fans for full, fluffy, dramatic lashes.</p><div class="r">$135<span>Book →</span></div></div></a>
+      <a href="services.html" class="sv"><div class="ph"><img src="assets/pads.jpg" alt="Lash lift treatment"></div><div class="bd"><b>Lash Lift &amp; Tint</b><p>Curl and darken your natural lashes for 6–8 weeks.</p><div class="r">$65<span>Book →</span></div></div></a>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0"><div class="price">
+    <div class="im"><img src="assets/salon2.jpg" alt="Studio treatment room"></div>
+    <div><span class="eye">PRICE LIST</span><h2 class="h2 cg">Simple, honest <em>pricing</em></h2>
+      <div class="list">
+        <div><b>Classic Full Set<small>90 minutes</small></b><span>$85</span></div>
+        <div><b>Hybrid Full Set<small>120 minutes</small></b><span>$110</span></div>
+        <div><b>Volume Full Set<small>150 minutes</small></b><span>$135</span></div>
+        <div><b>Infill (2–3 weeks)<small>60 minutes</small></b><span>from $55</span></div>
+        <div><b>Lash Removal<small>20 minutes</small></b><span>$20</span></div>
+      </div>
+      <a href="services.html" class="btn br">Book Your Set →</a></div>
+  </div></section>
+
+  <section style="padding-bottom:clamp(60px,6vw,110px)"><div class="book"><div><span class="eye" style="color:#e8cdb8">YOUR LASH MOMENT</span><h2 class="h2 cg" style="color:#fff">Ready for lashes you'll love?</h2><p>New clients enjoy 15% off their first full set. Same-week appointments available.</p></div><a href="services.html" class="btn">Book Appointment →</a></div></section>
+</main>
+
+
+<!-- x-complete:start -->
+<section class="x-sec" id="testimonials"><div class="x-in"><div class="x-head"><span class="x-eye">Testimonials</span><h2 class="x-h2">Lashes our clients love</h2><p>Real words from real people who chose ÉLORA Lash Studio.</p></div><div class="x-g3"><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“My lashes look full but still so natural. The studio is calm and my artist was incredibly precise.”</blockquote><figcaption><i>M</i><b>Maya R.</b><small>Volume set client</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Three weeks in and they still look perfect. Booking online was effortless.”</blockquote><figcaption><i>L</i><b>Leah T.</b><small>Classic set client</small></figcaption></figure><figure class="x-card x-quote"><div class="x-stars">★★★★★</div><blockquote>“Gentle, quick and the results are stunning. I wake up ready every morning.”</blockquote><figcaption><i>P</i><b>Priya K.</b><small>Lash lift client</small></figcaption></figure></div></div></section>
+<section class="x-sec" id="faq"><div class="x-in x-split"><div><div class="x-head"><span class="x-eye">FAQ</span><h2 class="x-h2">Questions, answered</h2><p>Can’t find what you’re looking for? Our team is happy to help.</p></div><a href="#contact" class="x-btn">Contact support →</a></div><div><details class="x-faq" open><summary>How long do lash extensions last?<i>+</i></summary><p>With infills every 2–3 weeks, extensions last as long as you like; a full set lasts through one natural lash cycle (6–8 weeks).</p></details><details class="x-faq"><summary>Will extensions damage my lashes?<i>+</i></summary><p>No — when applied by certified artists with the right weight, extensions are safe for your natural lashes.</p></details><details class="x-faq"><summary>How should I prepare?<i>+</i></summary><p>Arrive with clean, makeup-free eyes and avoid caffeine so you can relax during the appointment.</p></details><details class="x-faq"><summary>Can I wear mascara?<i>+</i></summary><p>We don&#x27;t recommend it — extensions give definition on their own and mascara can shorten their life.</p></details></div></div></section>
+<section class="x-sec" id="newsletter"><div class="x-in"><div class="x-news"><div><h3 class="x-h3">Join the ÉLORA Lash Studio community</h3><p>Be first to hear about new arrivals, exclusive offers and stories worth reading. 10% off your first order.</p></div><form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓';this.reset()"><input type="email" placeholder="Enter your email address" required aria-label="Email address"><button class="x-btn">Subscribe</button></form></div></div></section>
+<!-- x-complete:end -->
+<!-- x-footer:start --><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">ÉLORA Lash Studio</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">◎</a><a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">f</a><a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">𝕏</a><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">▶</a><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">in</a></div></div><div><h6>Solutions</h6><a href="services.html">Overview</a><a href="pricing.html">Pricing</a><a href="blog.html">Projects</a><a href="services.html">Resources</a></div><div><h6>Company</h6><a href="about.html">About</a><a href="about.html">Careers</a><a href="blog.html">News</a><a href="services.html">Partners</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@loralashstudio.com<br>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input type="email" placeholder="Your email" aria-label="Email" required><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 ÉLORA Lash Studio. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div><!-- x-footer:end -->
+</body>
+</html>
