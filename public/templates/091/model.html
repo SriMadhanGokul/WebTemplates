@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vehicle — NEXDRIVE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:#f1f3ee;background:#0b0c0a;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.bb{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;letter-spacing:.5px}
+.hero{position:relative;min-height:clamp(600px,50vw,860px);overflow:hidden;display:flex;flex-direction:column}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,12,10,.92),rgba(11,12,10,.25) 65%),linear-gradient(0deg,#0b0c0a,transparent 30%)}
+.nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(18px,3vw,48px)}
+.logo{font-family:'Bebas Neue';font-size:30px;letter-spacing:2px}
+.logo span{color:#d4ff3a}
+.menu{display:flex;gap:30px;font-size:14px;color:#b6bbae}
+.menu a:hover,.menu a.on{color:#d4ff3a}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:6px;padding:14px 24px;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:all .25s}
+.lm{background:#d4ff3a;color:#0b0c0a}.lm:hover{background:#e3ff6b;transform:translateY(-2px)}
+.ol{border:1.5px solid rgba(255,255,255,.4);color:#fff}.ol:hover{border-color:#d4ff3a;color:#d4ff3a}
+.copy{position:relative;z-index:2;margin:auto 0;padding:0 clamp(18px,3vw,48px);max-width:720px}
+.copy small{color:#d4ff3a;font-weight:700;letter-spacing:3px;font-size:11px}
+.copy h1{font-size:clamp(84px,10vw,184px);line-height:.84;margin:16px 0 20px}
+.copy h1 span{color:#d4ff3a}
+.copy p{color:#b6bbae;max-width:420px;line-height:1.7}
+.copy .row{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.search{position:relative;z-index:3;margin:0 clamp(18px,3vw,48px) 30px;display:grid;grid-template-columns:repeat(4,1fr) auto;gap:4px;background:rgba(20,22,18,.85);border:1px solid #2b2e27;backdrop-filter:blur(12px);border-radius:12px;padding:10px}
+.search label{padding:8px 16px;display:grid;gap:4px;font-size:10.5px;letter-spacing:1.5px;color:#8a907f;font-weight:700;border-right:1px solid #2b2e27}
+.search label:nth-child(4){border:0}
+.search input,.search select{background:transparent;border:0;outline:0;color:#fff;font:600 14.5px Inter}
+.search select option{color:#000}
+.sec{padding:clamp(70px,7vw,120px) 0}
+.eye{color:#d4ff3a;font-weight:700;letter-spacing:3px;font-size:11px}
+.h2{font-size:clamp(50px,5.6vw,100px);line-height:.88;margin-top:10px}
+.h2 span{color:#d4ff3a}
+.art{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.art p{color:#b6bbae;line-height:1.75;margin:16px 0 26px;max-width:440px}
+.art .im{border-radius:14px;overflow:hidden;aspect-ratio:1.5}.art .im img{width:100%;height:100%;object-fit:cover}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.chips span{border:1px solid #2b2e27;border-radius:30px;padding:8px 14px;font-size:13px;color:#cfd4c5}
+.fleet{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.car{background:#141612;border:1px solid #23261f;border-radius:14px;overflow:hidden;transition:all .3s}
+.car:hover{border-color:#d4ff3a;transform:translateY(-6px)}
+.car .ph{aspect-ratio:1.45;overflow:hidden}.car img{width:100%;height:100%;object-fit:cover;transition:transform .7s}.car:hover img{transform:scale(1.05)}
+.car .bd{padding:16px 18px}.car b{font-family:'Bebas Neue';font-size:26px;letter-spacing:1px;display:block}.car small{color:#8a907f}
+.car .r{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid #23261f}
+.car strong{color:#d4ff3a;font-size:18px}.car .r span{width:34px;height:34px;border-radius:50%;background:#d4ff3a;color:#0b0c0a;display:grid;place-items:center}
+.dest{position:relative;border-radius:16px;overflow:hidden;min-height:440px;display:flex;align-items:flex-end}
+.dest img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dest::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,12,10,.85),rgba(11,12,10,.1) 70%)}
+.dest .t{position:relative;z-index:1;padding:clamp(30px,4vw,60px);max-width:540px}
+.dest p{color:#cfd4c5;margin:14px 0 24px;line-height:1.7}
+.more{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.more .box{background:#d4ff3a;color:#0b0c0a;border-radius:16px;padding:clamp(30px,4vw,56px)}
+.more .box .h2 span{color:#0b0c0a;text-decoration:underline;text-decoration-thickness:5px}
+.more .box p{margin:14px 0 24px;line-height:1.7;color:#2b2e27}
+.more .box .btn{background:#0b0c0a;color:#d4ff3a}
+.more .seat{background:#141612;border:1px solid #23261f;border-radius:16px;padding:clamp(30px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between}
+.more .seat form{display:flex;background:#0b0c0a;border:1px solid #2b2e27;border-radius:10px;padding:5px;margin-top:20px}
+.more .seat input{flex:1;background:transparent;border:0;outline:0;color:#fff;padding:0 12px;font:14px Inter;min-width:0}
+footer{}
+@media(max-width:1000px){.menu{display:none}.search{grid-template-columns:1fr 1fr}.search label{border:0}.art,.more{grid-template-columns:1fr}.fleet{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.fleet,.search{grid-template-columns:1fr}.nav .lm{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#0b0c0a;--xs:#141612;--xi:#f1f3ee;--xm:#b6bbae;--xa:#d4ff3a;--xai:#0b0c0a;--xl:rgba(255,255,255,.12);--xr:8px;font-family:'Inter',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:rgba(255,255,255,.03)}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Inter',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Inter',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;filter:brightness(1.6);}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#070806;color:#8a907f;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#8a907f;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#070806;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#0b0c0a;--xs:#141612;--xi:#f1f3ee;--xm:#b6bbae;--xa:#d4ff3a;--xai:#0b0c0a;--xl:rgba(255,255,255,.12);--xl2:rgba(255,255,255,.24);--xi-rv:8px;--xbr:4px;--xbf:'Inter';--xalt:rgba(255,255,255,.035)}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "NEXDRIVE", "cur": "$", "pages": [["models", "Fleet"], ["model", "Vehicle"], ["booking", "Book a Car"], ["about", "About"], ["gallery", "Gallery"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"]], "listing": "models.html", "freeShip": 100, "shipFee": 9, "products": [], "burgerAlways": false, "models": [{"id": 0, "title": "Velocity GT", "cat": "Sports Car", "hp": "610 hp", "top": "2 seats", "acc": "Automatic", "price": 399, "img": "../_shared/auto/14.jpg", "gallery": ["../_shared/auto/14.jpg", "../_shared/auto/17.jpg", "../_shared/auto/15.jpg", "../_shared/auto/20.jpg"], "desc": "The Velocity GT is a sports car with 610 hp, 2 seats and a automatic drivetrain — detailed, inspected and delivered to your door with comprehensive insurance included."}, {"id": 1, "title": "Onyx V8", "cat": "Luxury Sport", "hp": "450 hp", "top": "4 seats", "acc": "Automatic", "price": 289, "img": "../_shared/auto/16.jpg", "gallery": ["../_shared/auto/16.jpg", "../_shared/auto/18.jpg", "../_shared/auto/01.jpg", "../_shared/auto/21.jpg"], "desc": "The Onyx V8 is a luxury sport with 450 hp, 4 seats and a automatic drivetrain — detailed, inspected and delivered to your door with comprehensive insurance included."}, {"id": 2, "title": "Meridian Coupe", "cat": "Executive", "hp": "420 hp", "top": "4 seats", "acc": "Automatic", "price": 249, "img": "../_shared/auto/02.jpg", "gallery": ["../_shared/auto/02.jpg", "../_shared/auto/19.jpg", "../_shared/auto/03.jpg", "../_shared/auto/22.jpg"], "desc": "The Meridian Coupe is a executive with 420 hp, 4 seats and a automatic drivetrain — detailed, inspected and delivered to your door with comprehensive insurance included."}, {"id": 3, "title": "Summit SUV", "cat": "Premium SUV", "hp": "380 hp", "top": "7 seats", "acc": "AWD", "price": 229, "img": "../_shared/auto/04.jpg", "gallery": ["../_shared/auto/04.jpg", "../_shared/auto/20.jpg", "../_shared/auto/05.jpg", "../_shared/auto/23.jpg"], "desc": "The Summit SUV is a premium suv with 380 hp, 7 seats and a awd drivetrain — detailed, inspected and delivered to your door with comprehensive insurance included."}, {"id": 4, "title": "Aurora Cabrio", "cat": "Convertible", "hp": "390 hp", "top": "4 seats", "acc": "Automatic", "price": 279, "img": "../_shared/auto/06.jpg", "gallery": ["../_shared/auto/06.jpg", "../_shared/auto/21.jpg", "../_shared/auto/07.jpg", "../_shared/auto/24.jpg"], "desc": "The Aurora Cabrio is a convertible with 390 hp, 4 seats and a automatic drivetrain — detailed, inspected and delivered to your door with comprehensive insurance included."}, {"id": 5, "title": "Volt E", "cat": "Electric", "hp": "530 hp", "top": "5 seats", "acc": "Electric", "price": 259, "img": "../_shared/auto/08.jpg", "gallery": ["../_shared/auto/08.jpg", "../_shared/auto/22.jpg", "../_shared/auto/09.jpg", "../_shared/auto/25.jpg"], "desc": "The Volt E is a electric with 530 hp, 5 seats and a electric drivetrain — detailed, inspected and delivered to your door with comprehensive insurance included."}]}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="091">
+
+<section class="hero xi-band">
+
+<div class="nav" data-xnav="">
+<a class="logo" href="index.html">NEX<span>DRIVE</span></a>
+<nav class="menu"><a class="on" href="models.html">Fleet</a><a href="models.html">Categories</a><a href="contact.html">Locations</a><a href="models.html">Experiences</a><a href="about.html">About</a></nav>
+<a class="btn lm" href="booking.html">Book Now</a>
+</div><div class="xi xi-ph-band v1"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Vehicle</span></div><h1 class="xi-h1 xi-rv"><span data-detail="models"><span data-f="title">Velocity GT</span></span></h1></div></div>
+
+<form class="search">
+<label>PICK-UP LOCATION<input aria-label="Pick-up location" value="Miami, FL"/></label>
+<label>PICK-UP DATE<input aria-label="Pick-up date" type="date"/></label>
+<label>RETURN DATE<input aria-label="Return date" type="date"/></label>
+<label>CAR TYPE<select aria-label="Car type"><option>All vehicles</option><option>Sports</option><option>SUV</option><option>Luxury</option><option>Electric</option></select></label>
+<button class="btn lm" type="submit">Search Cars</button>
+</form>
+</section><div class="xi v1 xi-dark" id="main"><section class="xi-sec tight"><div class="x-in"><div data-detail="models"><div class="xi-gal3 xi-rv"><a href="../_shared/auto/14.jpg" data-lightbox data-cap="Velocity GT"><img src="../_shared/auto/14.jpg" alt="" loading="lazy" data-fimg=img></a><a href="../_shared/auto/17.jpg" data-lightbox data-cap="Velocity GT"><img src="../_shared/auto/17.jpg" alt="" loading="lazy"></a><a href="../_shared/auto/15.jpg" data-lightbox data-cap="Velocity GT"><img src="../_shared/auto/15.jpg" alt="" loading="lazy"></a></div><div class="xi-detail" style="margin-top:clamp(30px,4vw,56px)"><div><div class="xi-kv" style="margin-top:0"><div class="xi-rv"><small>Power</small><b data-f="hp">610 hp</b></div><div class="xi-rv"><small>Seats</small><b data-f="top">2 seats</b></div><div class="xi-rv"><small>Transmission</small><b data-f="acc">Automatic</b></div><div class="xi-rv"><small>Category</small><b data-f="cat">Sports Car</b></div></div><h3 class="xi-h3">About this car</h3><p class="xi-lead" data-f="desc" style="margin:14px 0 30px">The Velocity GT is a sports car with 610 hp, 2 seats and a automatic drivetrain — detailed, inspected and delivered to your door with comprehensive insurance included.</p><h3 class="xi-h3" style="margin-bottom:16px">What's included</h3><ul class="xi-feats"><li>Comprehensive insurance</li><li>24/7 roadside assistance</li><li>Free delivery & collection</li><li>Unlimited mileage (3+ days)</li><li>Fully detailed interior</li><li>Free cancellation 24h</li></ul></div><aside class="xi-card xi-aside"><small class="xi-eye">Daily rate</small><div class="xi-hf" style="font-size:38px"><span data-f="price">$399</span><small class="xi-muted" style="font-size:15px">/day</small></div><form class="xi-form" style="margin-top:18px" data-ok="Reservation received! Your confirmation is on the way."><label>Pick-up date<input type="date" required></label><label>Return date<input type="date" required></label><label>Location<select><option>Airport</option><option>Downtown branch</option><option>Hotel / home delivery</option></select></label><button class="x-btn wide" type="submit">Reserve this car</button><div class="xi-success" hidden></div></form></aside></div></div></div></section><section class="xi-sec alt"><div class="x-in"><div class="xi-head"><div><span class="xi-eye">You may also like</span><h2 class="xi-h2 xi-rv">Similar vehicles</h2></div><a class="x-btn xi-ghost" href="models.html">Full fleet</a></div><div class="xi-g3"><a class="xi-list-card xi-rv" href="model.html?id=1"><div class="xi-ph"><img src="../_shared/auto/16.jpg" alt="" loading="lazy"></div><div class="xi-bd"><small>Luxury Sport</small><b>Onyx V8</b><div class="xi-facts"><span>450 hp</span><span>$289/day</span></div></div></a><a class="xi-list-card xi-rv" href="model.html?id=2"><div class="xi-ph"><img src="../_shared/auto/02.jpg" alt="" loading="lazy"></div><div class="xi-bd"><small>Executive</small><b>Meridian Coupe</b><div class="xi-facts"><span>420 hp</span><span>$249/day</span></div></div></a><a class="xi-list-card xi-rv" href="model.html?id=3"><div class="xi-ph"><img src="../_shared/auto/04.jpg" alt="" loading="lazy"></div><div class="xi-bd"><small>Premium SUV</small><b>Summit SUV</b><div class="xi-facts"><span>380 hp</span><span>$229/day</span></div></div></a></div></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">NEXDRIVE</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">f</a><a aria-label="X" href="https://x.com/" target="_blank" rel="noopener">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a></div></div><div><h6>Solutions</h6><a href="models.html">Overview</a><a href="contact.html">Pricing</a><a href="blog.html">Projects</a><a href="models.html">Resources</a></div><div><h6>Company</h6><a href="about.html">About</a><a href="about.html">Careers</a><a href="blog.html">News</a><a href="models.html">Partners</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@nexdrive.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 NEXDRIVE. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

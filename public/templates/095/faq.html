@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — VELOCE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Space Grotesk',system-ui,sans-serif;color:#f2f2f2;background:#0a0a0b;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.sl{font-weight:600;letter-spacing:-1.5px;text-transform:uppercase}
+.sl::before{content:"/ ";color:#3d7bff}
+.hero{position:relative;min-height:clamp(620px,52vw,900px);overflow:hidden;display:flex;flex-direction:column}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.7),rgba(10,10,11,.1) 45%,rgba(10,10,11,.9))}
+.nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:24px clamp(18px,3vw,48px)}
+.logo{font-weight:700;font-size:22px;letter-spacing:3px;line-height:1}
+.logo small{display:block;font-size:9px;letter-spacing:4px;color:#8a8a93;font-weight:500}
+.menu{display:flex;gap:32px;font-size:14px;color:#b5b5bd}
+.menu a:hover,.menu a.on{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:13px 24px;font-weight:600;font-size:14px;transition:all .25s}
+.bl{background:#3d7bff;color:#fff}.bl:hover{background:#2563eb;transform:translateY(-2px)}
+.wh{background:#fff;color:#0a0a0b}
+.gh{border:1px solid rgba(255,255,255,.3)}.gh:hover{background:rgba(255,255,255,.1)}
+.row1{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-start;padding:clamp(30px,4vw,60px) clamp(18px,3vw,48px) 0;gap:30px;flex-wrap:wrap}
+.row1 h1{font-size:clamp(48px,5.4vw,96px);line-height:.95}
+.row1 .k b{font-size:clamp(40px,4vw,64px);display:block;line-height:1}.row1 .k small{color:#b5b5bd}
+.row2{position:relative;z-index:2;margin-top:auto;display:flex;justify-content:flex-end;padding:0 clamp(18px,3vw,48px) 40px}
+.row2 div{max-width:560px;text-align:right}
+.row2 h2{font-size:clamp(34px,3.6vw,62px);line-height:.98}
+.row2 p{color:#b5b5bd;margin:14px 0 22px;line-height:1.7}
+.sec{padding:clamp(70px,7vw,120px) 0}
+.small{color:#8a8a93;font-size:12px;letter-spacing:3px;text-transform:uppercase}
+.h2{font-size:clamp(40px,4.4vw,78px);line-height:.95;margin-top:12px}
+.reason{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:start}
+.reason p{color:#b5b5bd;line-height:1.8;margin-top:16px}
+.reason .duo{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+.reason .duo img{border-radius:16px;width:100%;height:100%;object-fit:cover;aspect-ratio:1.1}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.ft{border-radius:18px;overflow:hidden;background:#141416;border:1px solid #232327;transition:all .3s}
+.ft:hover{border-color:#3d7bff;transform:translateY(-6px)}
+.ft .ph{aspect-ratio:1.2;overflow:hidden}.ft img{width:100%;height:100%;object-fit:cover}
+.ft .bd{padding:18px 20px}.ft b{display:block;font-size:17px;margin-bottom:6px}.ft p{color:#8a8a93;font-size:14px;line-height:1.6}
+.trust{position:relative;border-radius:22px;overflow:hidden;min-height:480px;display:flex;align-items:flex-end}
+.trust img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.trust::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,11,.92),rgba(10,10,11,.1) 60%)}
+.trust .t{position:relative;z-index:1;padding:clamp(30px,4vw,60px);display:flex;justify-content:space-between;align-items:flex-end;gap:30px;width:100%;flex-wrap:wrap}
+.trust p{color:#b5b5bd;max-width:420px;line-height:1.7;margin-top:12px}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ct{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:.9;display:flex;align-items:flex-end}
+.ct img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}.ct:hover img{transform:scale(1.06)}
+.ct::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(10,10,11,.9))}
+.ct div{position:relative;z-index:1;padding:20px}.ct small{color:#3d7bff;font-weight:600}.ct b{display:block;font-size:20px;margin-top:4px}
+.mark{font-weight:700;font-size:clamp(100px,19vw,320px);line-height:.8;letter-spacing:-8px;text-align:center;color:#141416;-webkit-text-stroke:1px #2a2a30;padding:30px 0 0}
+footer{}
+@media(max-width:1000px){.menu{display:none}.reason{grid-template-columns:1fr}.feat,.cats{grid-template-columns:1fr 1fr}.row2 div{text-align:left}.row2{justify-content:flex-start}}
+@media(max-width:600px){.feat,.cats{grid-template-columns:1fr}.nav .bl{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#0a0a0b;--xs:#141416;--xi:#f2f2f2;--xm:#8a8a93;--xa:#3d7bff;--xai:#fff;--xl:rgba(255,255,255,.12);--xr:18px;font-family:'Space Grotesk',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:rgba(255,255,255,.03)}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'Space Grotesk',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'Space Grotesk',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;filter:brightness(1.6);}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#060607;color:#8a8a93;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#8a8a93;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#060607;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<style id="xi-theme">.xi{--xb:#0a0a0b;--xs:#141416;--xi:#f2f2f2;--xm:#8a8a93;--xa:#3d7bff;--xai:#fff;--xl:rgba(255,255,255,.12);--xl2:rgba(255,255,255,.24);--xi-rv:18px;--xbr:999px;--xbf:'Space Grotesk';--xalt:rgba(255,255,255,.035)}.xi.xi-ph-band{background:transparent;color:inherit}.xi .xi-h1,.xi .xi-h2,.xi .xi-h3,.xi .xi-hf,.xi .xi-stats b,.xi .xi-time b,.xi .xi-plan .amt,.xi .xi-feat b,.xi .xi-quote,.xi .xi-info h1,.xi .xi-article h2{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;letter-spacing:-.02em}.xi .xi-h1,.xi .xi-info h1{line-height:1.04}</style>
+<link rel="stylesheet" href="../_shared/inner.css">
+<script>window.XI_DATA={"brand": "VELOCE", "cur": "$", "pages": [["models", "Fleet"], ["model", "Vehicle"], ["booking", "Book a Car"], ["about", "About"], ["gallery", "Gallery"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"]], "listing": "models.html", "freeShip": 100, "shipFee": 9, "products": [], "burgerAlways": false}</script>
+<script src="../_shared/site.js" defer></script>
+</head>
+<body data-tpl="095">
+
+<section class="hero xi-band">
+
+<div class="nav" data-xnav="">
+<a class="logo" href="index.html">VELOCE<small>RENTALS</small></a>
+<nav class="menu"><a class="on" href="models.html">Fleet</a><a href="models.html">Experience</a><a href="contact.html">Locations</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+<a class="btn bl" href="models.html">Book Your Drive →</a>
+</div><div class="xi xi-ph-band v2"><div class="x-in"><div class="xi-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>FAQ</span></div><h1 class="xi-h1 xi-rv">Frequently Asked Questions</h1><p class=xi-rv>Quick answers to the questions we hear most. Can't find what you need? We're here to help.</p></div></div>
+
+
+</section><div class="xi v2 xi-dark" id="main"><section class="xi-sec tight"><div class="x-in"><div style="display:grid;grid-template-columns:260px 1fr;gap:clamp(30px,5vw,80px)" class="xi-faqwrap"><div class="xi-faqnav"><a href="#faq0">Booking</a><a href="#faq1">On the Road</a><div class="xi-card" style="margin-top:20px"><b>Still need help?</b><p class="xi-muted" style="font-size:14px">Our team replies within a few hours.</p><a class="x-btn" href="contact.html">Contact us</a></div></div><div><div id="faq0" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">Booking</h2><details class="xi-faq" open><summary>What do I need to rent?<i>+</i></summary><p>A licence held for 2+ years, a credit card in your name and photo ID.</p></details><details class="xi-faq"><summary>Can I add a driver?<i>+</i></summary><p>Yes, additional drivers can be added at checkout.</p></details><details class="xi-faq"><summary>Is there a minimum age?<i>+</i></summary><p>Drivers must be 25+ for sports and luxury vehicles.</p></details></div><div id="faq1" style="margin-bottom:40px;scroll-margin-top:30px"><h2 class="xi-h3" style="margin-bottom:8px">On the Road</h2><details class="xi-faq"><summary>Is insurance included?<i>+</i></summary><p>Comprehensive insurance and roadside assistance are included.</p></details><details class="xi-faq"><summary>What if I&#x27;m late returning?<i>+</i></summary><p>Let us know — a one-hour grace period applies before extra charges.</p></details></div></div></div><style>@media(max-width:900px){.xi-faqwrap{grid-template-columns:1fr!important}.xi-faqnav{position:static}}</style></div></section></div><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">VELOCE</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">◎</a><a aria-label="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">f</a><a aria-label="X" href="https://x.com/" target="_blank" rel="noopener">𝕏</a><a aria-label="YouTube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶</a><a aria-label="LinkedIn" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a></div></div><div><h6>Solutions</h6><a href="models.html">Overview</a><a href="contact.html">Pricing</a><a href="blog.html">Projects</a><a href="models.html">Resources</a></div><div><h6>Company</h6><a href="about.html">About</a><a href="about.html">Careers</a><a href="blog.html">News</a><a href="models.html">Partners</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@veloce.com<br/>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input aria-label="Email" placeholder="Your email" required="" type="email"/><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 VELOCE. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div>
+</body>
+</html>

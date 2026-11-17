@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cacao &amp; Co. — Artisan Chocolates Made to Be Obsessed With</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;color:#3a1d14;background:#f6ece2;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1584px;margin:0 auto;padding:0 clamp(18px,3vw,48px)}
+.os{font-family:Oswald,Impact,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.3px}
+.hero{margin-top:18px;border-radius:28px;background:#4a2117;color:#f6ece2;overflow:hidden;position:relative}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px clamp(22px,3vw,44px)}
+.logo{display:flex;align-items:center;gap:10px;font-family:Oswald;font-weight:700;font-size:22px;letter-spacing:1px}
+.logo i{font-style:normal;width:36px;height:36px;border-radius:50%;background:#e9b98a;color:#4a2117;display:grid;place-items:center}
+.menu{display:flex;gap:28px;font-size:14px;color:#e3c8b3}
+.menu a.on,.menu a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:14px 26px;font-weight:700;font-size:14px;transition:all .25s}
+.cr{background:#f6ece2;color:#4a2117}.cr:hover{transform:translateY(-2px)}
+.br{background:#4a2117;color:#f6ece2}.br:hover{background:#2f140c}
+.ca{background:#e9b98a;color:#4a2117}
+.stage{display:grid;grid-template-columns:1fr 1.1fr .55fr;gap:24px;align-items:center;padding:10px clamp(22px,3vw,44px) clamp(30px,4vw,56px)}
+.stage h1{font-size:clamp(46px,5vw,90px);line-height:.95}
+.stage p{color:#e3c8b3;line-height:1.7;margin:18px 0 26px;max-width:380px}
+.stage .pic{border-radius:24px;overflow:hidden;aspect-ratio:1.05;transform:rotate(-3deg);box-shadow:0 40px 70px -30px rgba(0,0,0,.6)}
+.stage .pic img{width:100%;height:100%;object-fit:cover}
+.sig{background:#5d2c1f;border-radius:20px;padding:16px}
+.sig img{border-radius:14px;aspect-ratio:1;object-fit:cover;width:100%}
+.sig b{display:block;margin:12px 0 2px}.sig small{color:#e3c8b3}
+.strip{background:#2f140c;color:#e9b98a;overflow:hidden;white-space:nowrap;padding:14px 0;font-family:Oswald;font-weight:500;letter-spacing:2px;font-size:15px}
+.strip div{display:inline-block;animation:m 30s linear infinite}.strip span{margin:0 24px}
+@keyframes m{to{transform:translateX(-50%)}}
+.sec{padding:clamp(60px,6vw,100px) 0}
+.ttl{text-align:center;font-size:clamp(34px,3.6vw,60px);margin-bottom:38px}
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pd{background:#fff;border-radius:22px;padding:12px;transition:all .3s;position:relative}
+.pd:hover{transform:translateY(-6px);box-shadow:0 26px 50px -32px rgba(74,33,23,.55)}
+.pd .ph{aspect-ratio:1;border-radius:16px;overflow:hidden}.pd img{width:100%;height:100%;object-fit:cover}
+.pd em{position:absolute;left:24px;top:24px;font-style:normal;background:#4a2117;color:#f6ece2;border-radius:20px;padding:4px 10px;font-size:11px;font-weight:700}
+.pd b{display:block;margin:14px 6px 2px;font-size:16px}.pd small{color:#8a6a5c;margin:0 6px;display:block}
+.pd .r{display:flex;justify-content:space-between;align-items:center;margin:12px 6px 4px;font-weight:700}
+.pd .r span{width:36px;height:36px;border-radius:50%;background:#4a2117;color:#f6ece2;display:grid;place-items:center}
+.look{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.look .big{position:relative;border-radius:24px;overflow:hidden;min-height:480px;display:flex;align-items:flex-end}
+.look .big img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.look .big::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(47,20,12,.85))}
+.look .big h2{position:relative;z-index:1;color:#f6ece2;font-size:clamp(50px,5.6vw,100px);line-height:.88;padding:30px}
+.look .t{background:#fff;border-radius:24px;padding:clamp(30px,4vw,56px);display:flex;flex-direction:column;justify-content:center}
+.look .t h2{font-size:clamp(34px,3.4vw,58px);line-height:1}
+.look .t p{color:#6b4c40;line-height:1.75;margin:16px 0 22px}
+.look .t img{border-radius:18px;aspect-ratio:1.8;object-fit:cover;margin-bottom:22px}
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rv{background:#4a2117;color:#f6ece2;border-radius:22px;padding:28px}
+.rv .st{color:#e9b98a;letter-spacing:2px}.rv p{margin:14px 0 18px;line-height:1.7}.rv small{color:#e3c8b3}
+.gift{border-radius:26px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:#e9b98a}
+.gift .t{padding:clamp(34px,5vw,70px)}
+.gift h2{font-size:clamp(40px,4.4vw,76px);line-height:.92}
+.gift p{margin:14px 0 24px;line-height:1.7;color:#5d2c1f}
+.gift img{width:100%;height:100%;object-fit:cover;min-height:340px}
+footer{}
+@media(max-width:1100px){.menu{display:none}.stage{grid-template-columns:1fr 1fr}.sig{display:none}.prods{grid-template-columns:1fr 1fr}.look,.gift{grid-template-columns:1fr}.rev{grid-template-columns:1fr}}
+@media(max-width:600px){.stage,.prods{grid-template-columns:1fr}.nav .cr{display:none}}
+</style>
+<style id="x-complete-css">
+.x-sec,.x-foot{--xb:#f6ece2;--xs:#ffffff;--xi:#3a1d14;--xm:#8a6a5c;--xa:#4a2117;--xai:#fff;--xl:rgba(0,0,0,.08);--xr:22px;font-family:'DM Sans',system-ui,sans-serif;color:var(--xi)}
+.x-sec{background:var(--xb);padding:clamp(56px,6vw,96px) 0} .x-sec.x-alt{background:#ffffff}
+.x-in{max-width:1584px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.x-h2,.x-h3,.x-big,.x-flogo{font-family:'Oswald',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;color:var(--xi);line-height:1.08} .x-h2{font-size:clamp(30px,2.8vw,50px);margin:10px 0 0} .x-h3{font-size:clamp(24px,2vw,34px)}
+.x-eye{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;text-transform:uppercase;color:var(--xm)}
+.x-head{max-width:720px;margin-bottom:clamp(28px,3vw,44px)} .x-head p,.x-lead{color:var(--xm);line-height:1.7;margin-top:14px;font-size:16px}
+.x-g2,.x-g3,.x-g4,.x-g6{display:grid;gap:22px} .x-g2{grid-template-columns:repeat(2,1fr)} .x-g3{grid-template-columns:repeat(3,1fr)} .x-g4{grid-template-columns:repeat(4,1fr)} .x-g6{grid-template-columns:repeat(6,1fr);gap:14px}
+.x-card{background:var(--xs);border:1px solid var(--xl);border-radius:var(--xr);padding:28px;transition:transform .25s,box-shadow .25s} .x-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.x-btn{display:inline-flex;align-items:center;gap:8px;background:var(--xa);color:var(--xai);border:0;border-radius:calc(var(--xr) * 2.5);padding:14px 26px;font:600 14px 'DM Sans',sans-serif;cursor:pointer;text-decoration:none;margin-top:22px;transition:opacity .2s} .x-btn:hover{opacity:.85}
+.x-stars{color:#e3a92b;letter-spacing:2px;font-size:13px}
+.x-quote blockquote{font-size:17px;line-height:1.65;margin:16px 0 22px} .x-quote figcaption{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center}
+.x-quote figcaption i{grid-row:1/3;width:44px;height:44px;border-radius:50%;background:var(--xa);color:var(--xai);display:grid;place-items:center;font-style:normal;font-weight:700} .x-quote b{font-size:15px} .x-quote small{color:var(--xm);font-size:13px}
+.x-feat .x-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:calc(var(--xr) * .8);background:var(--xb);font-size:22px;margin-bottom:20px;border:1px solid var(--xl)} .x-feat b,.x-step b{display:block;font-size:18px;margin-bottom:6px} .x-feat small,.x-step small{color:var(--xm);line-height:1.6;font-size:14px}
+.x-num{font-family:'Oswald',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;display:block;font-size:40px;color:var(--xa);margin-bottom:14px;opacity:.9} .x-step{border-top:2px solid var(--xa);padding-top:22px}
+.x-split{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);align-items:center}
+.x-faq{border-bottom:1px solid var(--xl);padding:20px 0} .x-faq summary{list-style:none;display:flex;justify-content:space-between;cursor:pointer;font-weight:600;font-size:17px} .x-faq summary::-webkit-details-marker{display:none} .x-faq summary i{font-style:normal;transition:transform .2s} .x-faq[open] summary i{transform:rotate(45deg)} .x-faq p{color:var(--xm);line-height:1.7;margin-top:12px}
+.x-news{display:flex;justify-content:space-between;align-items:center;gap:30px;background:var(--xs);border:1px solid var(--xl);border-radius:calc(var(--xr) * 1.3);padding:clamp(30px,4vw,56px)} .x-news p{color:var(--xm);margin-top:10px;max-width:520px;line-height:1.6}
+.x-news form{display:flex;gap:10px;flex:0 0 min(480px,46%)} .x-news input,.x-form input,.x-form textarea,.x-form select{flex:1;min-width:0;background:var(--xb);color:var(--xi);border:1px solid var(--xl);border-radius:calc(var(--xr) * .8);padding:14px 16px;font:15px 'DM Sans',sans-serif;outline:0} .x-news .x-btn{margin:0}
+.x-ph{border-radius:var(--xr);overflow:hidden;background:var(--xs)} .x-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.x-post{text-decoration:none;color:inherit} .x-post .x-ph{aspect-ratio:1.45;margin-bottom:18px} .x-post:hover img{transform:scale(1.05)} .x-post b{display:block;font-size:20px;line-height:1.35;margin:8px 0} .x-post small{color:var(--xa);font-weight:600;}
+.x-ig{position:relative;aspect-ratio:1;border-radius:calc(var(--xr) * .7);overflow:hidden;display:block} .x-ig img{width:100%;height:100%;object-fit:cover} .x-ig span{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);color:#fff;font-size:26px;opacity:0;transition:.25s} .x-ig:hover span{opacity:1}
+.x-about .x-tall{aspect-ratio:.95} .x-mini{display:flex;gap:40px;margin-top:28px} .x-mini b{font-family:'Oswald',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3px;display:block;font-size:34px} .x-mini small{color:var(--xm);font-size:13px}
+.x-stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center} .x-stats>div{border-right:1px solid var(--xl);padding:10px} .x-stats>div:last-child{border:0} .x-big{display:block;font-size:clamp(34px,3vw,54px)} .x-stats small{color:var(--xm)}
+.x-prod{padding:14px;text-decoration:none;color:inherit} .x-prod .x-ph{position:relative;aspect-ratio:1;margin-bottom:14px} .x-prod b{display:block;font-size:16px;margin:0 4px 6px} .x-row{display:flex;justify-content:space-between;align-items:center;margin:0 4px;font-weight:700} .x-fav{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center} .x-center{text-align:center}
+.x-work{position:relative;border-radius:var(--xr);overflow:hidden;aspect-ratio:1.5;display:block} .x-work img{width:100%;height:100%;object-fit:cover;transition:transform .6s} .x-work:hover img{transform:scale(1.05)} .x-work span{position:absolute;left:20px;bottom:18px;background:rgba(255,255,255,.92);color:#111;padding:8px 16px;border-radius:30px;font-weight:600;font-size:14px}
+.x-price b{font-size:18px} .x-price .x-big{display:inline;font-size:44px} .x-price small{color:var(--xm)} .x-price ul{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px;color:var(--xm)} .x-price.x-hot{background:var(--xa);color:var(--xai);border-color:var(--xa)} .x-price.x-hot *{color:var(--xai)} .x-price.x-hot .x-btn{background:var(--xai);color:var(--xa)}
+.x-info{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;color:var(--xm)} .x-form{display:grid;gap:14px} .x-two{display:flex;gap:14px} .x-form .x-btn{margin:4px 0 0;justify-self:start}
+.x-stores{display:flex;gap:12px;flex-wrap:wrap} .x-store{display:flex;align-items:center;gap:10px;background:var(--xa);color:var(--xai);border-radius:12px;padding:10px 20px;text-decoration:none;font-weight:600} .x-store small{display:block;font-size:10px;font-weight:400;opacity:.75} .x-store span{font-size:22px}
+.x-foot{background:#2f140c;color:#e3c8b3;padding:clamp(56px,5vw,80px) 0 0} .x-foot a{color:#e3c8b3;text-decoration:none} .x-foot a:hover{color:#fff;opacity:1}
+.x-fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:48px} .x-flogo{color:#fff;font-size:26px} .x-fbrand p,.x-fgrid p{line-height:1.7;font-size:14px;margin:14px 0}
+.x-foot h6{color:#fff;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 16px;font-weight:600} .x-fgrid>div>a{display:block;font-size:14px;margin-bottom:11px}
+.x-soc{display:flex;gap:10px} .x-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:14px}
+.x-fnews{display:flex;background:rgba(255,255,255,.08);border-radius:30px;padding:4px} .x-fnews input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;padding:0 14px;font-size:14px} .x-fnews button{width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#2f140c;cursor:pointer}
+.x-fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:22px 0 30px;font-size:13px}
+@media (max-width:1000px){.x-g3,.x-g4{grid-template-columns:repeat(2,1fr)} .x-g6{grid-template-columns:repeat(3,1fr)} .x-split{grid-template-columns:1fr} .x-news{flex-direction:column;align-items:flex-start} .x-news form{flex:auto;width:100%} .x-fgrid{grid-template-columns:1fr 1fr} .x-stats{grid-template-columns:1fr 1fr;row-gap:20px} .x-stats>div{border:0}}
+@media (max-width:640px){.x-g2,.x-g3,.x-g4{grid-template-columns:1fr} .x-two{flex-direction:column}}
+</style>
+<!--xi:head--><link rel="stylesheet" href="../_shared/inner.css"><script>window.XI_DATA={"brand": "Cacao & Co.", "cur": "$", "pages": [["shop", "Shop"], ["product", "Product"], ["cart", "Cart"], ["about", "About"], ["blog", "Journal"], ["post", "Article"], ["faq", "FAQ"], ["contact", "Contact"], ["account", "Account"]], "listing": "shop.html", "products": [{"name": "Signature Bonbon Box", "cat": "Gift Boxes", "img": "assets/hero.jpg", "id": 0, "price": 34, "tag": "New", "was": null, "rating": 4.7, "reviews": 202, "gallery": ["assets/hero.jpg", "assets/box.jpg", "assets/bark.jpg", "assets/stack.jpg"]}, {"name": "Bonbon Discovery Box", "cat": "Gift Boxes", "img": "assets/box.jpg", "id": 1, "price": 34, "tag": "", "was": null, "rating": 4.4, "reviews": 264, "gallery": ["assets/box.jpg", "assets/hero.jpg", "assets/bark.jpg", "assets/stack.jpg"]}, {"name": "Raspberry Pistachio Bark", "cat": "Bars", "img": "assets/bark.jpg", "id": 2, "price": 44, "tag": "Bestseller", "was": null, "rating": 4.4, "reviews": 176, "gallery": ["assets/bark.jpg", "assets/stack.jpg", "assets/pink.jpg", "assets/tower.jpg"]}, {"name": "Salted Caramel Slab", "cat": "Bars", "img": "assets/stack.jpg", "id": 3, "price": 49, "tag": "", "was": null, "rating": 4.7, "reviews": 178, "gallery": ["assets/stack.jpg", "assets/bark.jpg", "assets/pink.jpg", "assets/tower.jpg"]}, {"name": "Ruby Rose Bar", "cat": "Bars", "img": "assets/pink.jpg", "id": 4, "price": 19, "tag": "Sale", "was": 24, "rating": 4.7, "reviews": 81, "gallery": ["assets/pink.jpg", "assets/bark.jpg", "assets/stack.jpg", "assets/tower.jpg"]}, {"name": "Hazelnut Praline Stack", "cat": "Bars", "img": "assets/tower.jpg", "id": 5, "price": 34, "tag": "", "was": null, "rating": 4.5, "reviews": 184, "gallery": ["assets/tower.jpg", "assets/bark.jpg", "assets/stack.jpg", "assets/pink.jpg"]}, {"name": "70% Dark Squares", "cat": "Bars", "img": "assets/squares.jpg", "id": 6, "price": 44, "tag": "", "was": null, "rating": 4.8, "reviews": 197, "gallery": ["assets/squares.jpg", "assets/bark.jpg", "assets/stack.jpg", "assets/pink.jpg"]}, {"name": "Classic Truffle Assortment", "cat": "Truffles", "img": "assets/truffles.jpg", "id": 7, "price": 24, "tag": "New", "was": null, "rating": 4.8, "reviews": 186, "gallery": ["assets/truffles.jpg", "assets/cocoa.jpg", "assets/hero.jpg", "assets/box.jpg"]}, {"name": "Cacao Nib Bites", "cat": "Truffles", "img": "assets/cocoa.jpg", "id": 8, "price": 39, "tag": "", "was": null, "rating": 4.5, "reviews": 227, "gallery": ["assets/cocoa.jpg", "assets/truffles.jpg", "assets/hero.jpg", "assets/box.jpg"]}], "burgerAlways": false}</script><script src="../_shared/site.js" defer></script><!--/xi:head--></head>
+<body data-tpl="096">
+<main class="wrap">
+  <section class="hero">
+    <div class="nav">
+      <a href="index.html" class="logo"><i>❦</i>CACAO &amp; CO.</a>
+      <nav class="menu"><a href="index.html" class="on">Home</a><a href="shop.html">Shop</a><a href="shop.html">Gift Boxes</a><a href="about.html">Our Story</a><a href="contact.html">Contact</a></nav>
+      <a href="shop.html" class="btn cr">Shop Now</a>
+    </div>
+    <div class="stage">
+      <div><h1 class="os">Artisan<br>Chocolates<br>Made to Be<br>Obsessed With</h1><p>Small-batch bars and bonbons, handcrafted from single-origin cacao and real ingredients.</p><a href="shop.html" class="btn ca">Shop Collection →</a></div>
+      <div class="pic"><img src="assets/hero.jpg" alt="Open box of artisan chocolates"></div>
+      <a href="product.html" class="sig"><img src="assets/truffles.jpg" alt="Assorted truffles"><b>Signature Truffle Box</b><small>12 pieces · $32.00</small></a>
+    </div>
+  </section>
+</main>
+<div class="strip"><div><span>LIMITED EDITION</span><span>✦</span><span>SIGNATURE BARS</span><span>✦</span><span>GIFT BOXES</span><span>✦</span><span>SEASONAL FLAVOURS</span><span>✦</span><span>ARTISAN CHOCOLATES</span><span>✦</span><span>LIMITED EDITION</span><span>✦</span><span>SIGNATURE BARS</span><span>✦</span><span>GIFT BOXES</span><span>✦</span><span>SEASONAL FLAVOURS</span><span>✦</span><span>ARTISAN CHOCOLATES</span><span>✦</span></div></div>
+
+<main class="wrap">
+  <section class="sec">
+    <h2 class="ttl os">Meet Your New Favourites.</h2>
+    <div class="prods">
+      <a href="product.html" class="pd"><em>NEW</em><div class="ph"><img src="assets/bark.jpg" alt="Raspberry pistachio bark"></div><b>Raspberry Pistachio Bark</b><small>70% dark · freeze-dried berries</small><div class="r">$14<span>+</span></div></a>
+      <a href="product.html" class="pd"><div class="ph"><img src="assets/box.jpg" alt="Bonbon box"></div><b>Bonbon Discovery Box</b><small>16 hand-painted bonbons</small><div class="r">$38<span>+</span></div></a>
+      <a href="product.html" class="pd"><em>BEST</em><div class="ph"><img src="assets/stack.jpg" alt="Salted caramel slabs"></div><b>Salted Caramel Slab</b><small>Milk chocolate · sea salt</small><div class="r">$12<span>+</span></div></a>
+      <a href="product.html" class="pd"><div class="ph"><img src="assets/pink.jpg" alt="Ruby chocolate bars"></div><b>Ruby Rose Bar</b><small>Ruby cacao · rose petals</small><div class="r">$11<span>+</span></div></a>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0"><div class="look">
+    <div class="big"><img src="assets/tower.jpg" alt="Stack of chocolate bars with nuts"><h2 class="os">Look<br>Inside.</h2></div>
+    <div class="t"><img src="assets/cocoa.jpg" alt="Cocoa beans and chocolate"><h2 class="os">The Good Stuff</h2><p>Crafted with premium ingredients: ethically sourced cacao, organic cane sugar, real fruit and nuts — never palm oil, never artificial flavours.</p><a href="shop.html" class="btn br">Explore Our Collection →</a></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0">
+    <h2 class="ttl os">Don't Just Take Our Word For It.</h2>
+    <div class="rev">
+      <div class="rv"><div class="st">★★★★★</div><p>"The most beautiful chocolates I've ever gifted. Every piece tasted like a little dessert."</p><small>— Olivia M., Los Angeles</small></div>
+      <div class="rv"><div class="st">★★★★★</div><p>"The salted caramel slab is dangerously good. I've ordered it four times this month."</p><small>— Marcus J., Austin</small></div>
+      <div class="rv"><div class="st">★★★★★</div><p>"Bold flavours, artisan ingredients, never boring. Our new office treat."</p><small>— Priya S., Seattle</small></div>
+    </div>
+  </section>
+
+  <section style="padding-bottom:clamp(60px,6vw,100px)"><div class="gift">
+    <div class="t"><h2 class="os">Gift Something Sweet.</h2><p>Personalised gift boxes with handwritten notes, delivered in eco-friendly packaging. Corporate gifting available.</p><a href="shop.html" class="btn br">Shop Gift Boxes →</a></div>
+    <img src="assets/squares.jpg" alt="Dark chocolate squares">
+  </div></section>
+</main>
+
+
+<!-- x-complete:start -->
+<section class="x-sec" id="faq"><div class="x-in x-split"><div><div class="x-head"><span class="x-eye">FAQ</span><h2 class="x-h2">Questions, answered</h2><p>Can’t find what you’re looking for? Our team is happy to help.</p></div><a href="#contact" class="x-btn">Contact support →</a></div><div><details class="x-faq" open><summary>How long do chocolates stay fresh?<i>+</i></summary><p>Bars keep for 9 months and bonbons for 3 weeks stored cool and dry.</p></details><details class="x-faq"><summary>Do you ship in hot weather?<i>+</i></summary><p>Yes — summer orders ship with insulated packaging and ice packs.</p></details><details class="x-faq"><summary>Are there vegan options?<i>+</i></summary><p>Our dark bars and several bonbons are 100% plant-based and clearly labelled.</p></details><details class="x-faq"><summary>Can I add a gift message?<i>+</i></summary><p>Absolutely — add a handwritten note at checkout for free.</p></details></div></div></section>
+<section class="x-sec" id="newsletter"><div class="x-in"><div class="x-news"><div><h3 class="x-h3">Join the Cacao &amp; Co. community</h3><p>Be first to hear about new arrivals, exclusive offers and stories worth reading. 10% off your first order.</p></div><form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓';this.reset()"><input type="email" placeholder="Enter your email address" required aria-label="Email address"><button class="x-btn">Subscribe</button></form></div></div></section>
+<!-- x-complete:end -->
+<!-- x-footer:start --><div class="x-foot" role="contentinfo"><div class="x-in"><div class="x-fgrid"><div class="x-fbrand"><b class="x-flogo">Cacao &amp; Co.</b><p>Thoughtfully crafted experiences, made for the way you live. Questions? We’re always happy to help.</p><div class="x-soc"><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">◎</a><a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">f</a><a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">𝕏</a><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">▶</a><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">in</a></div></div><div><h6>Solutions</h6><a href="shop.html">Overview</a><a href="contact.html">Pricing</a><a href="blog.html">Projects</a><a href="shop.html">Resources</a></div><div><h6>Company</h6><a href="about.html">About</a><a href="about.html">Careers</a><a href="blog.html">News</a><a href="shop.html">Partners</a></div><div><h6>Support</h6><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="faq.html">Privacy</a><a href="faq.html">Terms</a></div><div><h6>Stay in touch</h6><p>hello@cacaoco.com<br>+1 (555) 210 4480</p><form class="x-fnews" onsubmit="event.preventDefault();this.reset()"><input type="email" placeholder="Your email" aria-label="Email" required><button aria-label="Subscribe">→</button></form></div></div><div class="x-fbot"><span>© 2026 Cacao &amp; Co.. All rights reserved.</span><span><a href="faq.html">Privacy Policy</a> · <a href="faq.html">Terms of Service</a> · <a href="faq.html">Cookies</a></span><span>VISA · Mastercard · PayPal · UPI</span></div></div></div><!-- x-footer:end -->
+</body>
+</html>
